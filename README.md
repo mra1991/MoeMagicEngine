@@ -144,7 +144,7 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v0.12.8 — Public Distribution Candidate**
+**v0.12.8 — First Public Release**
 
 The v0.12.8 installer is approximately **57 MB** and includes the public-facing installed engine experience, sample projects, documentation, and a curated starter library of roughly **155 MB uncompressed**.
 
