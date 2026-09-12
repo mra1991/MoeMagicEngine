@@ -1,0 +1,44 @@
+Moe Magic Engine — Free Proprietary License
+
+Ownership. Moe Magic Engine, including its Editor, Player/runtime, engine code, branding and
+documentation, remains proprietary to Mohammadreza (Moe) Abolhassani. This license does not make
+the engine open source or grant access to its source code.
+
+Free use. You may install and use the supplied Moe Magic Engine binaries without license fees
+or royalties to develop personal, educational, free or commercial games. No revenue threshold
+applies to this permission.
+
+Your work. You retain ownership of your original game content and code. Using Moe Magic does
+not transfer ownership of your game to the engine owner.
+
+Game distribution. You may reproduce and distribute the Moe Magic Player/runtime and its
+required dependencies as part of games created with Moe Magic, including through commercial
+storefronts and distributors. Recipients may install and run those games. Distribute the runtime
+files supplied by Build Game without removing required notices or altering the required Moe Magic
+branding.
+
+Branding. The built-in Moe Magic startup splash and required branding must remain present and
+must not be removed, replaced, disabled or deliberately obscured. Your game may have its own
+name, artwork and branding. No additional promotional credit is required by this license.
+
+Editor and source restrictions. You may not rebrand, sell, sublicense or distribute the Editor,
+engine source, or a modified engine as your own product. Redistribution of the Editor or engine
+source requires separate written permission. This restriction does not prohibit distribution of
+the Player/runtime with games as expressly allowed above.
+
+Examples and templates. You may use, modify and redistribute Moe-owned sample/template gameplay
+scripts and project content as part of your own free or commercial games. This permission does
+not extend to redistributing the Editor or engine source.
+
+Third-party material. Third-party software and assets retain their respective licenses. Their
+terms govern those materials independently of this license. Preserve required third-party notices.
+CC0 material remains CC0; these engine terms do not restrict rights already granted by its creators.
+
+Disclaimer. To the maximum extent permitted by applicable law, the software and Moe-owned
+supplied content are provided “as is” and “as available,” without warranties, including
+merchantability, fitness for a particular purpose or non-infringement. The owner is not liable for
+losses or damages arising from their use. Nothing in this license excludes rights or liabilities
+that applicable law does not permit to be excluded.
+
+Scope. Permissions apply to this supplied version while these conditions are followed. No
+support, updates or future features are promised. Rights not expressly granted remain reserved.
