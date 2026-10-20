@@ -9,7 +9,7 @@
 <h1 align="center">Moe Magic Engine</h1>
 
 <p align="center">
-  A lightweight Windows-first 3D game engine and visual editor for building games with component-based authoring, Lua scripting, physics, animation, audio, UI, particles, and standalone Windows builds.
+  A lightweight Windows-first 3D game engine and visual editor with a Unity-familiar Scene/GameObject/Component workflow, Lua gameplay scripting, physics, animation, audio, UI, particles, standalone Windows builds, and WebGL2/WebAssembly browser builds.
 </p>
 
 <p align="center">
@@ -19,6 +19,20 @@
 </p>
 
 ---
+
+## 🚀 Quick Start
+
+**Install Moe Magic → Launch → New Project → choose Basic 3D / Ultimate Platformer / Pot Pursuit → Create → Play**
+
+1. [Download the latest installer](https://github.com/mra1991/MoeMagicEngine/releases/latest), install it, and launch **Moe Magic Engine**.
+2. Choose **New Project...** in the launcher, or **File → New Project...** in the editor.
+3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** and **Pot Pursuit** are complete playable project templates.
+4. Enter a project name, choose a writable location outside the installation, and click **Create**. Moe Magic creates your own writable project copy—there are no demo folders to locate manually.
+5. For an instant playable example, choose **Ultimate Platformer** or **Pot Pursuit**, then press **Play** in the editor.
+
+Edit your copy freely, then use **File → Build Game...** to make Windows or Web builds from the same project.
+
+**[Play Ultimate Platformer in your browser](https://mra1991.itch.io/ultimate-platformer-coin-run)** — an actual Moe Magic Web build of the included Ultimate Platformer sample.
 
 ## ✨ What is Moe Magic?
 
@@ -40,7 +54,7 @@ The engine itself is proprietary, but it is **free to use with no royalties or r
 - Skeletal animation
 - Materials, PBR lighting, shadows, HDR, bloom, transparency, and graphics-quality presets
 - Static, Dynamic, and Kinematic physics
-- Capsule Character Controller and moving-platform support
+- Capsule Character Controller with keyboard/gamepad support and moving platforms
 - Keyboard and gamepad Input Actions with runtime rebinding
 - 2D and spatial 3D audio
 - Canvas UI, menus, HUDs, buttons, and graphical UI images
@@ -48,11 +62,22 @@ The engine itself is proprietary, but it is **free to use with no royalties or r
 - Project-local Lua gameplay scripting
 - Play / Pause / Step / Stop workflow
 - Multi-scene projects and scene transitions
-- Build Game for standalone Windows players
+- Build Game for standalone Windows players and WebGL2/WASM browser games (**Web (Experimental)**)
+- itch.io-ready Web ZIP packaging and built-in local browser preview
+- Basic 3D, Ultimate Platformer, and Pot Pursuit templates in New Project
+- Configurable editor text size: Compact, Comfortable, or Large
 - Built-in offline User Manual and two complete game tutorials
 - Bundled CC0 starter asset library
 
+### Editor readability
+
+Introduced in v1 in response to real user feedback, **Edit → Preferences → Editor Text Size** offers **Compact (13)**, **Comfortable (16, default)**, and **Large (18)**. Comfortable gives new users a more readable default on normal displays; Compact keeps the previous denser presentation for larger or multi-monitor setups; Large provides bigger text.
+
+The choice applies without restarting, is also available in the launcher, and persists between sessions. It is separate from layout and game UI text; if preferences cannot be saved, the editor reports that the choice is session-only.
+
 ## 🕹 Included sample projects
+
+Both samples are available directly from **New Project** as writable project copies, ready to **Play**.
 
 ### Ultimate Platformer
 
@@ -81,17 +106,44 @@ A timed collection game demonstrating:
 - Lua gameplay logic
 - complete menu → gameplay → result flow
 
+## 🌐 Web Builds and itch.io
+
+Moe Magic v1.0.1 exports working **WebGL2/WebAssembly (WASM)** browser games with an **itch.io-ready ZIP**. The released editor and offline manual label this target **Web (Experimental)**.
+
+**File → Build Game... → Target: Web (Experimental) → Build Web → Show itch.io ZIP → upload the ZIP unchanged to itch.io as an HTML/browser game**
+
+Save your project and configure **Window → Build Settings** first, using the same Scenes and dependencies as your Windows build. Choose an output location outside the project and installation. Build Web produces a `<game-name>-Web` folder and a `<game-name>-Web-itch.zip` archive, with `index.html` already at the archive root alongside the required assets and notices. On itch.io, enable browser playback/click-to-play; no unpacking or repacking is needed.
+
+The compatible Web runtime and local preview helper ship with Moe Magic. Users do **not** need Node, Python, Emscripten, Visual Studio, or a source checkout to export a Web game.
+
+Choose **Preview** to open the build through localhost, wait for loading, and click **Start Game**. Browser audio requires this normal initial user interaction. **Stop Preview** or closing the editor stops the preview server. If ZIP creation fails, the output folder can still be previewed; fix the reported issue and use **Retry ZIP**.
+
+**[Play Ultimate Platformer in your browser](https://mra1991.itch.io/ultimate-platformer-coin-run)** to try the included sample as a published Moe Magic Web game.
+
+### Current browser support and limits
+
+The v1.0.1 offline manual documents these limits:
+
+- Use hardware-accelerated desktop **Chrome or Edge** with **WebGL2** and floating-point render-target support. Mobile and Safari are not guaranteed.
+- Keyboard and standard gamepads are supported where exposed by the browser. The Character Controller and sample projects support movement, jumping, and runtime menus with these inputs.
+- Serve builds through local Preview or a web host; `file://` is unsupported. Wireframe, arbitrary network asset discovery, and automatic graphics-context restoration are unsupported; context loss requires a reload.
+- Gameplay and audio pause when the page is hidden or unfocused. Fullscreen requires an explicit action and may be denied by browser policy.
+- Browser settings are scoped to the game's origin and URL directory. If browser storage is unavailable, settings are session-only.
+- Graphics-quality options reflect browser support; unsupported startup presets fall back to **Performance**.
+- Export limits are **1,000 files**, **240-byte relative paths**, **200 MB per file**, and **500 MB total**, with a stricter **256 MiB** startup-content budget.
+- Generated ZIPs use uncompressed entries, so they can be larger than compressed ZIPs.
+
 ## 📦 Installation
 
 Moe Magic currently targets **64-bit Windows 10/11**.
 
 1. Open the [latest GitHub Release](https://github.com/mra1991/MoeMagicEngine/releases/latest).
-2. Download `MoeMagicEngine-<version>-Setup.exe`.
+2. Download `MoeMagicEngine-1.0.1-Setup.exe`.
 3. Run the installer.
 4. Launch **Moe Magic Engine** from the Start Menu or optional Desktop shortcut.
-5. Create a Basic 3D project or copy/open one of the included sample projects.
+5. Choose **New Project**, select **Basic 3D**, **Ultimate Platformer**, or **Pot Pursuit**, and click **Create**. Press **Play** to try either sample immediately.
 
-The installer includes the Editor, compatible Player template, documentation, sample projects, templates, and the selected CC0 starter library.
+The installer includes the Editor, compatible Windows Player and Web runtime, local Web preview helper, documentation, project templates, and the selected CC0 starter library.
 
 > Windows may show an **Unknown Publisher / SmartScreen** warning while the installer is unsigned. Always verify the published SHA-256 checksum if you want to confirm the download.
 
@@ -108,6 +160,7 @@ The documentation includes:
 - a Pot Pursuit tutorial
 - Lua scripting guidance
 - authoring, physics, animation, audio, UI, particles, input, and Build Game instructions
+- New Project templates, editor text-size preferences, local Web preview, itch.io publishing, and current browser limits
 
 ## 🧰 Starter asset library
 
@@ -144,9 +197,11 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v0.12.8 — First Public Release**
+**v1.0.1 — Current Stable Public Release**
 
-The v0.12.8 installer is approximately **57 MB** and includes the public-facing installed engine experience, sample projects, documentation, and a curated starter library of roughly **155 MB uncompressed**.
+The v1.0.1 installer is **60,185,030 bytes (approximately 60.2 MB)** and includes the Windows editor, Windows Player and Web runtime, local Web preview helper, sample project templates, offline documentation, and curated CC0 starter library.
+
+This release brings itch.io-ready browser publishing through **Web (Experimental)**, a straightforward New Project → Play workflow, and configurable editor text sizing.
 
 SHA-256 checksums are published alongside release downloads.
 
@@ -169,8 +224,7 @@ Moe Magic has been built incrementally, with each version family establishing an
 | **v0.10.x** | Embedded Lua gameplay scripting and progressively richer user-side APIs |
 | **v0.11.x** | Project workflows, recovery, project-scoped operations, dependency diagnostics, and asset reload |
 | **v0.12.x** | Project-owned gameplay, multi-project workflow, user documentation, installer, sample projects, and public-distribution readiness |
-
-The next major milestone is **v1.0.0**: the stable conventional engine foundation before future v2 AI-assisted development work.
+| **v1.0.x** | Stable conventional engine baseline: Windows distribution, experimental Web builds, itch.io packaging, improved editor readability, and sample templates with a straightforward New Project workflow |
 
 ---
 
