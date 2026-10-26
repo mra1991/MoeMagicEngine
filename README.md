@@ -174,6 +174,10 @@ Moe Magic includes offline documentation accessible directly from:
 
 **Help → User Manual**
 
+Start online with [Getting Started](GETTING_STARTED.md) and the [current technical references](docs/README.md),
+including [Components/Scene data](docs/SCENE_FORMAT.md) and [Lua API 1–23](docs/SCRIPTING_API.md).
+The complete illustrated manual and game tutorials ship offline with the installer.
+
 The documentation includes:
 
 - the complete engine User Manual
