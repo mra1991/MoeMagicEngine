@@ -1,14 +1,14 @@
 # Moe Magic Engine — Getting started
 
-This v1.12.0 Windows x64 release includes per-user setup, the complete portable payload and
+This v1.13.0 Windows x64 release includes per-user setup, the complete portable payload and
 independent sample sources. It needs a working OpenGL 3.3-capable Windows graphics driver.
 Read the included Licenses/MoeMagicEngine.txt for approved free proprietary use and game/runtime
 redistribution. This unsigned release is not clean-machine certification.
 
 ## Install and launch
 
-Download `MoeMagicEngine-1.12.0-Setup.exe` and its adjacent `.sha256` from the
-[official release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.12.0).
+Obtain `MoeMagicEngine-1.13.0-Setup.exe` and its matching `.sha256` from the
+[official releases](https://github.com/mra1991/MoeMagicEngine/releases).
 Run the installer wizard. The default application location is
 your Local App Data Programs folder. Choose an optional Desktop shortcut, then launch **Moe Magic
 Engine** from the Start Menu. Game authoring needs no Visual Studio, PowerShell or C++ compilation.
@@ -18,7 +18,7 @@ For an upgrade, close running editor/Player windows and retain the existing inst
 Setup replaces application files in place and updates installed-app metadata/shortcuts; it does
 not upgrade independent game copies or erase external projects, preferences or saves. Do not
 choose a new version-numbered test directory for a normal upgrade. After installation, About and
-Windows Installed apps should both report 1.12.0. If a shortcut still opens an older copy, rerun
+Windows Installed apps should both report 1.13.0. If a shortcut still opens an older copy, rerun
 setup into the original installation folder and select the Desktop shortcut task if used.
 
 No-argument launch reopens the exact valid most-recent project, otherwise the Project Launcher.
@@ -28,7 +28,7 @@ separate BUILDING reference and explicit `--project` / `--project-launcher` comm
 ## Create a writable project
 
 1. Choose **New Project...** in the launcher or **File > New Project...**.
-2. Choose **Basic 3D**, **Ultimate Platformer**, or **Pot Pursuit**, then enter a project/folder name.
+2. Choose **Basic 3D** or **Ultimate Platformer**, then enter a project/folder name.
 3. Accept the suggested Documents parent or Browse to another existing writable folder.
 4. Check the displayed path, then **Create**. It must be a new folder outside the installation.
 
@@ -57,7 +57,7 @@ step is needed. If archive creation fails, the folder remains usable; resolve th
 Keep all Licenses and assets;
 see the offline manual for browser limits. Do not launch through `file://`.
 
-**Help > User Manual** opens the offline manual and both tutorials; `Documentation/index.html`
+**Help > User Manual** opens the offline manual and Platformer tutorial; `Documentation/index.html`
 also opens directly. **Help > About Moe Magic Engine** shows version/developer/ownership and GitHub.
 **Support Moe Magic on Patreon** opens the owner-confirmed
 https://patreon.com/MoeMagicEngine. External links open only on explicit action.
@@ -95,7 +95,13 @@ unsaved work. Reinstall replaces application inputs, not your external projects 
 Windows' installed-apps list or the Start Menu uninstall entry removes listed application files,
 shortcuts and registration. Separately stored projects, layout and recent history remain.
 
-The format-7 manifest lists exact application/docs/default/sample/license/catalog/shelf/Web inputs by size/SHA-256.
+Pot Pursuit is no longer a shipped choice. Existing external user copies still open. Upgrade
+removes only exact unchanged obsolete installation files from a trusted retirement inventory;
+modified, unknown or unsafe linked files are retained and reported, not recursively deleted.
+
+The format-8 manifest lists exact application/docs/default/sample/license/catalog/shelf/Web and
+editor-only Authoring inputs by size/SHA-256. Optional agent hosts start with
+`Authoring/moe-magic-game-authoring/SKILL.md`; this is not required for graphical game authoring.
 Installer bookkeeping is separate. CC0 art/audio retain provenance; the proprietary engine,
 scripts and branding are not made CC0 by inclusion. The approved license permits free/commercial game creation, runtime distribution with games and
 Moe-owned sample/template reuse; preserve the mandatory splash and notices. Editor redistribution

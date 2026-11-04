@@ -20,18 +20,18 @@
 
 ---
 
-**Current stable release: [v1.12.0 — Composable Action Gameplay and Pre-AI Readiness](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.12.0).**
+**Current stable release: [v1.13.0 — Structured Game Authoring and Product Focus](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.13.0).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
 
 ## 🚀 Quick Start
 
-**Install Moe Magic → Launch → New Project → choose Basic 3D / Ultimate Platformer / Pot Pursuit → Create → Play**
+**Install Moe Magic → Launch → New Project → choose Basic 3D / Ultimate Platformer → Create → Play**
 
 1. [Download the latest installer](https://github.com/mra1991/MoeMagicEngine/releases/latest), install it, and launch **Moe Magic Engine**.
 2. Choose **New Project...** in the launcher, or **File → New Project...** in the editor.
-3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** and **Pot Pursuit** are complete playable project templates.
+3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** is the complete playable project template.
 4. Enter a project name, choose a writable location outside the installation, and click **Create**. Moe Magic creates your own writable project copy—there are no demo folders to locate manually.
-5. For an instant playable example, choose **Ultimate Platformer** or **Pot Pursuit**, then press **Play** in the editor.
+5. For an instant playable example, choose **Ultimate Platformer**, then press **Play** in the editor.
 
 Edit your copy freely, then use **File → Build Game...** to make Windows or Web builds from the same project.
 
@@ -73,9 +73,9 @@ The engine itself is proprietary, but it is **free to use with no royalties or r
 - Multi-scene projects and scene transitions
 - Build Game for standalone Windows players and WebGL2/WASM browser games (**Web**)
 - itch.io-ready Web ZIP packaging and built-in local browser preview
-- Basic 3D, Ultimate Platformer, and Pot Pursuit templates in New Project
+- Basic 3D and Ultimate Platformer templates in New Project
 - Configurable editor text size: Compact, Comfortable, or Large
-- Built-in offline User Manual and two complete game tutorials
+- Built-in offline User Manual and the Ultimate Platformer tutorial
 - Searchable Shared Library with dependency-aware Add to Project and provenance/license records
 
 ### Editor readability
@@ -86,7 +86,7 @@ The choice applies without restarting, is also available in the launcher, and pe
 
 ## 🕹 Included sample projects
 
-Both samples are available directly from **New Project** as writable project copies, ready to **Play**.
+The sample is available directly from **New Project** as writable project copies, ready to **Play**.
 
 ### Ultimate Platformer
 
@@ -101,20 +101,18 @@ sentinel, and an optional lever/gate/cannon/Heart-cache detour with camera frami
 reusable engine Components; they are not hardcoded native game rules.
 
 The [hosted browser demo](https://mra1991.itch.io/ultimate-platformer-coin-run) remains available.
-Its uploaded content may lag the current installer; create a fresh sample for the v1.12.0 reference.
+Its uploaded content may lag the current installer; create a fresh sample for the v1.13.0 reference.
 
-### Pot Pursuit
+### Product focus and structured authoring
 
-A timed collection game demonstrating:
+Pot Pursuit is retired from shipped templates/tutorials; existing user copies remain compatible.
+Ultimate Platformer now uses compact Home, Level Select, Settings, Guide and Credits views.
 
-- project-owned scoring and objectives
-- moving hazards
-- timed collectibles
-- spatial and 2D audio
-- animated menu presentation
-- Canvas UI
-- Lua gameplay logic
-- complete menu → gameplay → result flow
+Optional project-bound editor-only stdio authoring ships with a maintained skill, ten complete typed
+descriptors and copied schemas. It supports discovery, typed edits, Lua, history, save/reopen, Play
+and Windows/Web publication through existing editor authorities. It is not an autonomous AI Designer
+or a runtime networking API. Start with [Protocol1](docs/AUTHORING_PROTOCOL_V1.md) and the installed
+`Authoring/moe-magic-game-authoring/SKILL.md`; normal visual authoring is unchanged.
 
 ## 🌐 Web Builds and itch.io
 
@@ -156,7 +154,7 @@ Moe Magic currently targets **64-bit Windows 10/11**.
 3. Close the editor/Players and run setup. **For upgrades, keep the existing installation folder**;
    setup replaces application files and updates installed-app registration and shortcuts.
 4. Launch **Moe Magic Engine** from the Start Menu or optional Desktop shortcut.
-5. Choose **New Project**, select **Basic 3D**, **Ultimate Platformer**, or **Pot Pursuit**, and click **Create**. Press **Play** to try either sample immediately.
+5. Choose **New Project**, select **Basic 3D** or **Ultimate Platformer**, and click **Create**. Press **Play** to try the sample immediately.
 
 The installer includes the Editor, compatible Windows Player and Web runtime, local Web preview helper, documentation, project templates, and the selected CC0 starter library.
 
@@ -182,7 +180,7 @@ The documentation includes:
 
 - the complete engine User Manual
 - an Ultimate Platformer tutorial
-- a Pot Pursuit tutorial
+- installed structured-authoring skill and protocol reference
 - Lua scripting guidance
 - authoring, physics, animation, audio, UI, particles, input, and Build Game instructions
 - New Project templates, editor text-size preferences, local Web preview, itch.io publishing, and current browser limits
@@ -234,12 +232,12 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v1.12.0 — Current Stable Public Release**
+**v1.13.0 — Current Stable Public Release**
 
-Download the installer and matching SHA-256 from the [v1.12.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.12.0).
-That page records the exact current artifact size/checksum and any transparent replacement notice.
+Download the installer and matching SHA-256 from the [v1.13.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.13.0).
+The installer is **58,797,835 bytes (58.80 MB / 56.07 MiB)**. Its adjacent SHA-256 identifies the accepted CloseFix payload.
 The release includes the editor, Windows/Web runtimes, preview helper, current offline guides,
-three New Project choices and the selected licensed Shared Library.
+two New Project choices and the selected licensed Shared Library.
 
 ## 🪄 Development history
 

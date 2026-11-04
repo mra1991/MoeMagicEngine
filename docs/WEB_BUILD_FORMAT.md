@@ -3,8 +3,8 @@
 Web is an additional target, not a replacement for Windows. v1.1.0 removes the visible Experimental
 label without changing the browser limits below. The early Ultimate
 Platformer feasibility checkpoint passed with separately recorded owner interaction/audio evidence.
-The implementation report records build/package
-evidence; the final report records independent PASS and owner
+The implementation report (see installed documentation/source reference) records build/package
+evidence; the final report (see installed documentation/source reference) records independent PASS and owner
 physical confirmation. Actual itch.io hosting was not tested in that release.
 
 ## Runtime-prefab closure (introduced in v1.2.0)
@@ -18,13 +18,13 @@ the host-mutable wrapper. Current Scene47/prefab41/API23 do not advance these We
 
 ## v1.0.1 archive publication
 
-The completed plan adds an automatically generated
+The completed plan (see installed documentation/source reference) adds an automatically generated
 sibling itch ZIP, exact manifest-plus-files archive inventory, deterministic ZIP32 STORE metadata,
 independent folder/archive outcomes, ZIP-only retry and a compact Build Game interface. Root
 `index.html` has no enclosing directory. That release preserved the format/limits and then-current
 Experimental label and required actual owner-assisted unchanged-ZIP itch.io acceptance. The workflow below
 describes the accepted release. Owner Chrome/Incognito hosted acceptance passed after the narrow
-host-mutable HTML correction; see the final report.
+host-mutable HTML correction; see the final report (see installed documentation/source reference).
 
 The editor-only `WebArchiveOperation` consumes the original exact manifest bytes and the verified
 published folder. It enumerates only to reject missing/unexpected entries, never to discover new

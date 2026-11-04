@@ -26,8 +26,8 @@ facts and both retained notices into schema-1 project provenance. UltimatePlatfo
 Players retain no shared-root dependency. Catalog/provenance 1 and distribution 6 are unchanged.
 
 The following is the v1.1.0 accepted implementation reference. The completed
-execution plan owns scope; completed
-historical checkpoints are in the implementation report.
+execution plan (see installed documentation/source reference) owns scope; completed
+historical checkpoints are in the implementation report (see installed documentation/source reference).
 
 ## Project-owned source records (schema 1)
 

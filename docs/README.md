@@ -1,7 +1,7 @@
-# Current user references — v1.12.0
+# Current user references — v1.13.0
 
 These references describe the released engine. The installer includes the illustrated User Manual,
-Ultimate Platformer and Pot Pursuit guides under **Help → User Manual**. Start with
+Ultimate Platformer guide under **Help → User Manual**. Start with
 [Getting Started](../GETTING_STARTED.md) for installation, upgrades and writable sample projects.
 
 - **Authoring/data:** [Scenes and Components](SCENE_FORMAT.md), [prefabs and variants](PREFAB_FORMAT.md),
@@ -21,3 +21,5 @@ historical compatibility information, not the current format default.
 These are maintained public mirrors of the current user-reference documents. Links to unpublished
 engine source and internal historical reports are rendered as text; no source checkout is needed
 to use the installed engine. This repository does not distribute proprietary engine source.
+
+- **Structured authoring:** [Protocol1](AUTHORING_PROTOCOL_V1.md); maintained skill ships in the installed Authoring directory.

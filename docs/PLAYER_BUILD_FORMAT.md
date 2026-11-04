@@ -34,7 +34,7 @@ edits, while local notice hashes remain mandatory. Fixed legacy pack checks cann
 Every linked Player additionally carries `ThirdParty/ufbx/0.23.0/LICENSE` unchanged. Native manifest
 2 adds the `provenance` file-kind token; its structure and Player configuration 3 do not change.
 See [asset ownership and schema 1](ASSET_LIBRARY_AND_PROVENANCE.md). Publication evidence is tracked
-in the implementation report, not implied by this reference.
+in the implementation report (see installed documentation/source reference), not implied by this reference.
 
 ## v1.0.0 additional Web target
 

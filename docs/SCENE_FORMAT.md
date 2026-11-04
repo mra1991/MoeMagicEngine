@@ -277,7 +277,7 @@ Released v1.1.0 accepts project-relative static `.fbx` through the existing Impo
 Skin/morph/animated FBX is rejected; [asset-source declarations](ASSET_LIBRARY_AND_PROVENANCE.md)
 are separate bundle files and never Scene Components or serialized runtime state.
 
-Released v1.2.0 adds Scene **38**.
+Released v1.2.0 (see installed documentation/source reference) adds Scene **38**.
 The optional singleton record has exactly these ordered fields:
 
 ```json
@@ -291,7 +291,7 @@ and published, including disabled/inactive declarations. Versions 1–37 migrate
 reject an injected new record. Spawned objects, tickets, live counts and prepared resources never
 write back into the edit Scene. The runtime actor subset is documented in [PREFAB_FORMAT](PREFAB_FORMAT.md).
 
-Released by owner approval: v0.12.2
+Released by owner approval: v0.12.2 (see installed documentation/source reference)
 keeps Scene 37 and existing authored Script/Canvas data. API 12 is a script-source contract;
 runtime UI, health projections and simulation control are not new persisted Scene fields.
 Current samples no longer author legacy collection-policy Components; older records remain
@@ -318,7 +318,7 @@ These are current-main source capabilities, not a claim of forward compatibility
 v0.12.1 tagged binary. Older builds may reject newly emitted fields despite the unchanged format
 number. Use a binary matching the authored content's source revision. Historical schema examples
 below describe their introduction-time records; this paragraph supplies the later optional fields.
-See game-development direction.
+See game-development direction (see installed documentation/source reference).
 
 ## Released format history and ownership
 

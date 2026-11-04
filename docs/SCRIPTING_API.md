@@ -87,7 +87,7 @@ random-port Preview server may change origin. Private mode, quota, denial, evict
 site data may prevent/remove saves. No cloud sync, cross-origin sharing or memory-only Saved claim.
 
 The accepted v1.10.0 release supports **Lua API 21** under the
-approved plan.
+approved plan (see installed documentation/source reference).
 Exact `api_version = 21` inherits APIs 1–20. Older versions retain their released surfaces
 and do not acquire the new methods. Preceding v1.9.0 is the API-20 release baseline.
 
@@ -367,7 +367,7 @@ requests while simulation runs. It exposes no input or delta time and rejects He
 Transform writes, destruction, Kinematic targets, simulation/Scene-transition requests and recursive
 event dispatch. Keep policy reactions here, and do not duplicate native damage/break mechanics.
 Store a reward ticket only when needed, then use ordinary result reads in a later gameplay phase.
-See [Scene component configuration](SCENE_FORMAT.md) and the manual.
+See [Scene component configuration](SCENE_FORMAT.md) and the manual (see installed documentation/source reference).
 
 ## API 13 — bounded runtime prefabs
 
@@ -513,5 +513,5 @@ show authored route/effect changes without C++. `ui_feedback.lua` chooses projec
 The deprecated collection Components/System and native AudioButton/KinematicMotion remain for old
 content. They are not current sample policy owners. Inspector **Planar Motor** retains the serialized
 `PotPlayerBehaviour` token and mechanics. Removing this compatibility needs a separately approved
-migration. See the implementation report for
-evidence and the testing policy for role ownership.
+migration. See the implementation report (see installed documentation/source reference) for
+evidence and the testing policy (see installed documentation/source reference) for role ownership.

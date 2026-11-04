@@ -11,7 +11,7 @@ uses saved startup only when no valid project Recent Scene loads; Build Game alw
 declaration, independent of the open Edit Scene. Release-time v0.12.1 package baselines were
 Basic3D **15/16**, Ultimate **31/32**, and Pot **61/62**. Later game-content commits change the
 closure; current saved inputs and the generated manifest govern, not those historical totals.
-Format 1 is unchanged. See game-development direction.
+Format 1 is unchanged. See game-development direction (see installed documentation/source reference).
 
 ## Format 1
 

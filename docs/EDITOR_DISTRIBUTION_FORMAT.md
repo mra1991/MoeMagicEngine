@@ -19,12 +19,12 @@ unknown future formats reject. See [Asset Library and Provenance](ASSET_LIBRARY_
 
 The following sections retain the historical format increments.
 
-Released v0.12.8 specifies format 4 with
+Released v0.12.8 (see installed documentation/source reference) specifies format 4 with
 bounded starter-library/product-license roles and exact legacy readers. Format 4 is that historical
 baseline; released v1.0.0 uses format 5. SourceAudio is explicitly non-runtime
 content, not a project fallback. The selected shelf contains 1,062 entries / 155,071,525 bytes before its README.
 
-The completed v1.0.0 milestone implements format 5.
+The completed v1.0.0 milestone (see installed documentation/source reference) implements format 5.
 It retains formats 1–4 at their exact historical read boundaries, including v0.12.8 format 4.
 `web-preview` admits exactly `MoeMagicWebPreview.exe`. `web-template` admits exactly
 `WebTemplate/{index.html,moe-player.js,moe-player.wasm,web-template.json}` and the seven declared
@@ -34,7 +34,7 @@ All twelve additions are required and hash/size/path verified. Project/native ga
 the existing 2,048-entry/4 GiB distribution bounds remain unchanged. Older formats reject these
 roles. [WEB_BUILD_FORMAT](WEB_BUILD_FORMAT.md) owns the inner template/package contracts.
 
-The v1.0.1 release retained format 5 and its
+The v1.0.1 release (see installed documentation/source reference) retained format 5 and its
 payload roles. Archive generation is compiled editor functionality, not a new shipped helper or
 SDK. That release published matching 1.0.1 templates and installer through the existing receipt
 path; archive outcome/retry does not change the Web manifest or distribution schema.
@@ -49,7 +49,7 @@ is further limited by the reviewed five-model/nine-audio-pack source inventory. 
 reject these new roles. Format 3 retains exact version 0.12.6/0.12.7 reads alongside current reads.
 Sizes/hashes/casing/containment/reparse checks and atomic publication remain in force.
 
-The approved v0.12.6 plan
+The approved v0.12.6 plan (see installed documentation/source reference)
 implements format 3 for verified named sample inventories and retains format-1/2 readers. The
 released implementation adds `sample-project` exclusively beneath `Samples/UltimatePlatformer/` and
 `Samples/PotPursuit/`. Both require project/build/input descriptors. Reviewed sources are listed
@@ -63,7 +63,7 @@ New Project revalidates sample sources around copying, retains existing owned-st
 rules, changes only descriptor name through its codec and validates staged documents/dependencies
 before publication. Legacy/source builds without declared sources give actionable feedback.
 Format 2 retains released 0.12.5 reading; format 1 retains 0.12.1. Inno adds uninstall bookkeeping
-outside the manifest. See INSTALLER.
+outside the manifest. See INSTALLER (see installed documentation/source reference).
 
 v0.12.5 emits `MoeMagicEditorDistribution.json` **format 2**. This is integrity inventory, not
 a signature or public license. The strict ordered root fields remain `format`, `engineVersion`,

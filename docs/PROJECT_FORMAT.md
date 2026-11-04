@@ -1,5 +1,19 @@
 # Moe Magic Project Descriptor
 
+## v1.13 candidate — explicit authoring launch and distribution8
+
+Project1, Scene47/prefab41/variant1/API23/Player4 remain unchanged. Explicit
+`MoeMagicEngine.exe --project <absolute-project> --authoring-stdio --authoring-output-root <existing-output>`
+opts into editor-only Protocol1. No automatic listener or Player transport exists. The output grant
+must be outside project/installation/user-state roots. Ordinary launch/MRU behavior is unchanged.
+See [the normative protocol](AUTHORING_PROTOCOL_V1.md) for guards, lifetimes and typed operations.
+
+Distribution8 adds the nine exact `Authoring` skill/reference/client/schema files and retires Pot
+product inputs. Formats1–7 retain their historical required inventories. New Project offers only
+Basic 3D and Ultimate Platformer; existing user-created Pot projects remain ordinary Project1 roots.
+The installer removes only hash-matching, non-reparse, contained entries from its compiled trusted
+retirement list; it preserves modified/unknown files and external projects.
+
 ## v1.11 release — separate persistent-progress settings
 
 Project descriptor **1** is unchanged. Optional `ProjectSettings/save_settings.json` is a separate
@@ -31,8 +45,8 @@ initialization. Released authority is
 
 ## Identity and location
 
-Released v0.12.6 adds three closed New Project choices without changing this format:
-Basic 3D, Ultimate Platformer and Pot Pursuit. Format-3 installed samples are immutable sources;
+Released v0.12.6 originally added named templates without changing this format. v1.13 keeps
+Basic 3D and Ultimate Platformer. Inventory-backed installed samples are immutable sources;
 creation copies only verified inventory entries through the existing sibling-stage transaction,
 parses/re-serializes the descriptor with only the requested name changed, validates dependency
 inputs, then publishes an outside-installation user project and launches a separate editor.
@@ -113,8 +127,8 @@ dirty state in process. Portable projects must remain outside the installation.
 Initial Edit Scene selection is the first valid project-local Recent Scene, then saved Build
 Settings startup, then one unsaved starter with a diagnostic. Recovery resolves afterward in
 Scene/Input/Build order. No engine-wide `default_scene.json` exists; Basic3D uses that filename only
-as ordinary project content. The independent sample roots are `Projects/UltimatePlatformer` and
-`Projects/PotPursuit`, each with Main Menu and gameplay plus its own exact asset/license closure.
+as ordinary project content. The shipped sample root is `Projects/UltimatePlatformer`, with Main
+Menu/gameplay Scenes and its exact asset/license closure. User copies of retired samples remain valid.
 
 ## Path and ownership contract
 

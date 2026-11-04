@@ -90,6 +90,6 @@ new Components. Runtime focus, cooldown, launch, impact and blend state never en
 
 Windows and Web share these services and the existing declared project-content closure. Selected
 media and notices are project-owned copies; Players never mount the shared library. See the
-implementation report for current verification,
-not a claim of independent acceptance. See pre-AI readiness for
+implementation report (see installed documentation/source reference) for current verification,
+not a claim of independent acceptance. See pre-AI readiness (see installed documentation/source reference) for
 composition limits and the deliberately partial descriptor inventory.

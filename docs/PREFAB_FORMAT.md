@@ -163,7 +163,7 @@ apply. Runtime copies use fresh IDs, remapped internal references, requested wor
 Euler rotation and authored scale/child transforms; no external reference injection or runtime parent.
 See [API 13](SCRIPTING_API.md) for request/result and instance limits.
 
-The approved v0.12.2 plan
+The approved v0.12.2 plan (see installed documentation/source reference)
 retains format 31 and existing typed Script reference remapping. Its runtime controls/UI state
 are not prefab fields. Deprecated collection records remain readable; no automatic guessed Lua
 conversion of unrelated prefabs is performed. The released implementation uses existing Script
