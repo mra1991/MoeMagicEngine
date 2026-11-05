@@ -1,5 +1,20 @@
 # Asset library and project provenance
 
+## v1.15 candidate intake and image provenance
+
+The approved plan (see installed documentation/source reference) selects
+only used Platformer Cloud_1 and RockPlatform_Tall bundles, the verified Kenney Skyboxes day panorama
+and OwlishMedia Happy Clappy Loop, all CC0. Originals are unchanged. Owner approved the music's fit
+and confirmed native/browser audibility. Reproducible2048x1024 sky/PCM16 music derivatives and exact
+source/notice hashes are in their project-owned declarations and the v1.15 implementation report.
+The existing HUD recipe adds a Blue icon from the retained Quaternius Gem mesh.
+
+Provenance1 now accepts a first-level bundle beneath `assets/images/`, with the same closed schema,
+containment, exact notice hashes and atomic editor declaration authority as models/audio. Every
+stored sky reference closes through Windows/Web, even in Gradient. Invalid declarations fail
+actionably; undeclared authored images remain compatible. Original derivation inputs are not
+automatically bundled. Shared catalog1 is not expanded to images; no generic agent file writer.
+
 ## v1.14 selected sample intake
 
 Sky Orchard adds only the existing CC0 Kenney Food Kit2.0 carrot OBJ/MTL/colormap and notices,
@@ -10,10 +25,10 @@ Shared sources are unchanged. Metadata tags identify healing/reward/bounce **art
 Only the exact approved project carrot OBJ is newly excepted from Git ignore; unaudited local
 models remain ignored and are neither deleted nor included in distribution.
 
-Current v1.12.0 supports OBJ, bounded JSON glTF, static FBX and the bounded skeletal FBX/TRS
+Current v1.14.0 supports OBJ, bounded JSON glTF, static FBX and the bounded skeletal FBX/TRS
 path introduced in v1.7. Project-owned selected Lever/Door/Cannon and Worker_Male_Moe4 copies retain
-their provenance/dependencies. Catalog/provenance remain version 1; current distribution is 7,
-Scene47/prefab41/API23. Earlier version-specific paragraphs below describe their introduction.
+their provenance/dependencies. Catalog/provenance remain version 1; current distribution is8,
+candidate Scene49/prefab43/API24. Earlier version-specific paragraphs below describe their introduction.
 
 ## v1.7.0 selected skeletal FBX derivative
 

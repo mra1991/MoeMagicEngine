@@ -1,9 +1,24 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is version 48 with marker `MoeMagicScene`; the current loader accepts versions 1 through 48 and rejects
+is version 49 with marker `MoeMagicScene`; the current loader accepts versions 1 through 49 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 49 — textured sky background
+
+The v1.15 candidate appends `backgroundMode` (`Gradient` by default), `backgroundImage` (empty)
+and `backgroundYawDegrees` (0, normalized to -180,180)) after the existing SkyEnvironment fields.
+Versions1–48 migrate those defaults and reject the new fields in strict older records. No other
+component migration changes; do not resave unaffected courses solely to advance their version.
+
+Mode is exactly `Gradient` or `Equirectangular`. Nonempty images are canonical project PNG/JPEG
+identities below `assets/images/`, validated even in Gradient. Enabled Equirectangular requires a
+resolved image. Empty is permitted for Gradient/disabled drafts. Images are bounded to2:1,
+4096x2048/32MiB decoded RGBA8 and the existing4MiB encoded sky limit. WorldColor decodes display
+sRGB once. Yaw affects background only; gradient colors/lightingIntensity still supply lighting.
+Image reload/assignment is transactional and participates in normal dependency/notice closure.
+See [architecture (see installed documentation/source reference) for lifetime/sampling ownership.
 
 ## Version 48 — reusable boxes and flights
 
@@ -840,14 +855,14 @@ authored Particle Burst data; version 34 appends the field-free Graphics Prefere
 version 35 appends the optional path-only Script Behaviour; version 36 appends its required ordered
 typed property list; version 37 adds the optional Scene-local GameObject property value;
 version 38 adds Prefab Spawner; version 39 adds the three interaction Components; version 40 adds
-Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Every subsequent Save emits version 42.
+Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current saves emit version49; later additions are detailed above.
 All accepted versions retain the same file-local
 ID remapping, hierarchy restoration, Camera, Transform, MeshRenderer, and LightComponent contracts.
 
 Optional Component absence is ordinary current-version state. Removing a Component in the editor causes
 the next Save to omit that Component object; Undo reinserts its detached configuration at the exact
-original runtime position. Scene version 42 emits canonical type order and does not persist
-arbitrary optional-Component insertion order; prefab format 36 separately records
+original runtime position. Current Scene49 emits canonical type order and does not persist
+arbitrary optional-Component insertion order; ordinary prefab43 separately records
 exact authored order. Changing this Scene contract requires a future explicit version bump.
 Transform remains the mandatory embedded `transform` object and is never part of optional Component
 mutation. Editor command history and logical target remaps are session-only and never serialized.
@@ -1229,9 +1244,9 @@ needed during restoration is unavailable or invalid, Application
 rejects the complete replacement and preserves the active Scene, selection, Camera, current path,
 command history, and dirty state.
 
-The loader accepts versions 1 through 48; every accepted version rejects unknown components,
+The loader accepts versions 1 through 49; every accepted version rejects unknown components,
 missing required fields, missing parents, duplicate/zero IDs, invalid scales, cycles, and
-unavailable imported models. Versions above48 reject as future.
+unavailable imported models. Versions above49 reject as future.
 Instantiated prefabs require no Scene schema: they save as ordinary GameObjects and Components with
 no source link or override metadata. Prefab asset files use the separate contract in
 `docs/PREFAB_FORMAT.md`. Script-declared schemas/general reflection, modules, hot reload, general

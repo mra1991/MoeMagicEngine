@@ -1,16 +1,19 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED v1.13.0** — independent/owner acceptance and publication complete 2026-11-04.
+Status: **v1.15 implemented candidate; released through v1.14.0**. Independent v1.15 acceptance is pending.
 The v1.13.0 plan (see installed documentation/source reference)
-records scope/exercises; its final test report owns release evidence. v1.12.0 does not expose it.
+records introduction; the v1.14 final test report owns current release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
 
-The separately approved v1.14 plan (see installed documentation/source reference)
-adds the implemented candidate `prefab.capture`, PrefabSource/FlightImage resource slots and24
-complete records below. Registry-derived exports are refreshed; capabilityRevision is2. These
-additions have focused native evidence and actual external E01/native/browser PASS before sample
-expansion. Independent installed E02/acceptance remain Tester-owned. Protocol/schema1 and
-launch/security semantics do not change.
+The released v1.14 plan (see installed documentation/source reference)
+adds `prefab.capture`, PrefabSource/FlightImage resource slots and24 complete records below.
+Registry-derived exports are refreshed; capabilityRevision is2 and there are40 commands.
+Early external/native/browser and independent installed E02/owner/public acceptance are complete.
+Protocol/schema1 and launch/security semantics do not change.
+
+The v1.15 candidate has38 complete descriptors,46 commands and capabilityRevision3. It adds typed
+Material publication and existing navigation-bake exposure without changing Protocol1. Registry-derived
+exports are authoritative for exact fields/defaults; the following additions supersede old counts.
 
 ## 1. Authority and launch
 
@@ -158,7 +161,7 @@ The machine-readable command schemas generated during implementation must match 
 | `prefab.capture` | `root, identity, expectedSha256` | v1.14: confined ordinary prefab publication from current Edit state; null hash is create-only |
 | `component.add` / `component.remove` | `target, type` | Initial fully covered optional types only; normal dependency/capacity/history rules |
 | `component.patch` | `target, type, changes` | Nonempty descriptor-listed fields; one complete validated typed candidate, one history item |
-| `resource.assign` | `target, slot, identity` | Slot Model/Material/CanvasImage/AudioClip/Script/PrefabSource/FlightImage; existing typed resource/path authority |
+| `resource.assign` | `target, slot, identity` | Slot Model/Material/CanvasImage/AudioClip/Script/PrefabSource/FlightImage/SkyImage/NavigationData; existing typed resource/path authority |
 | `resource.clear` | `target, slot` | Existing clear semantics; Model clearing unsupported (use procedural operation) |
 | `mesh.use_primitive` | `target, kind, parameters` | Existing procedural generator; typed closed parameters, no geometry arrays |
 | `script.read` | `identity, offset?, length?` | Bounded UTF-8 source plus whole-file SHA-256; offset/length in bytes, do not split UTF-8 sequences |
@@ -173,9 +176,15 @@ The machine-readable command schemas generated during implementation must match 
 | `diagnostics.read` | `after?, limit?` | Bounded copied diagnostics, severity/source, next cursor and dropped count |
 | `build.request` | `target: Windows or Web` | One job ticket using granted output parent, saved Build Settings and compatible installed templates |
 | `build.inspect` | `ticket` | queued/running/succeeded/failed, copied publisher result, output and ZIP receipts |
+| `material.inspect` | `identity` | Copied typed Material values, digest/bytes and dirty/conflict relation |
+| `material.create` | `identity, properties` | Native defaults plus typed fields; destination must be absent |
+| `material.patch` | `identity, expectedSha256, properties` | Nonempty typed patch; exact lowercase digest, complete candidate validation and atomic publication |
+| `navigation.bake.request` | `target, identity` | Guarded Surface and confined navigation identity; admitted job is not publication |
+| `navigation.bake.inspect` | `job` | Copied Working/Published/Cancelled/Rejected/Failed receipt, effects and published digest/bytes |
+| `navigation.bake.cancel` | `job` | Session job cancellation; terminal no-change does not delete/undo published bytes |
 
 Version 1 deliberately omits project switching, generic Scene JSON/Material/prefab/Build Settings
-file writes, navigation baking, runtime property mutation, input injection, arbitrary scripts on
+file writes, runtime property mutation, input injection, arbitrary scripts on
 the host, full schema reflection, compound batch transactions and external website uploads.
 Existing projects/prefabs may contain uncovered components; inspect/copy/instantiate them through
 normal operations without silently dropping fields. Direct writes/add/remove to uncovered types
@@ -183,6 +192,20 @@ return `UnsupportedCapability`. UI-specific operations remain available through 
 that limitation is advertised, never described as complete agent support.
 
 ### Documents, scripts and publication
+
+Material commands confine identities to `assets/materials/*.material.json`, use the current13
+MaterialAssetData fields/format4, and reject dirty GUI drafts or changed source bytes. Texture paths
+are typed confined Material fields, not an arbitrary filesystem channel. Native publication
+rechecks conflicts/containment; prepublication failure preserves old bytes. A postpublication
+refresh warning is not rollback. File effects advance session tokens but are not Scene Undo.
+
+Navigation exposes the existing detached native bake, one active job/eight bounded session receipts.
+The main thread validates unchanged document/source/destination before publishing
+`assets/navigation/*.nav.json`; inspect distinguishes admission, cancellation and actual publication.
+Mutations/Play/build/close respect the existing active-publication guards; EOF cancels safely.
+Assigning a different NavigationData reference uses Scene history; overwriting bake bytes does not.
+SkyImage clear requires a valid remaining record (Gradient or disabled draft); stored nonempty
+images are always validated. NavigationData uses native reference/lifecycle checks.
 
 All asset/Scene/script identities are canonical project-relative strings. Existing policies still
 reject escapes, absolute/UNC/device paths, alternate streams, invalid extensions, reparse escapes
@@ -224,6 +247,14 @@ AudioClip retain their required-resource rejection semantics; Material/Script re
 
 ## 5. Descriptor schema 1 and complete coverage
 
+v1.15 adds complete SkyEnvironment, Light, Checkpoint, PathFollower, FollowCamera, ContactDamage,
+NavigationSurface, NavAgent, Perception, AgentStateController, Animator, AnimationStateController,
+Interactor and Interactable records to the preceding24. Structured points/states/markers/targets
+retain native cardinality/reference/remapping and sole-pose-authority rules. For example a menu
+PathFollower parent can move an Animator child; they cannot compete on the same owner. Authoring
+support does not imply eligibility for runtime spawning. Generated descriptors advertise exact
+fields/defaults/limits/dependencies and honest unsupported operations; no runtime/derived state is writable.
+
 Every component/type descriptor includes `schemaVersion: 1`, stable `type`, `displayName`,
 `coverage: complete or read_only`, `operations`, `defaults`, `fields`, `dependencies`,
 `constraints`, `limits`, `platforms` (authoring Windows; produced content Windows/Web),
@@ -236,11 +267,11 @@ learned only from rejection. No pointer, GPU/native-body handle, object address 
 enum integer is exposed. Inspect values are copies, not writable serialized Scene records.
 
 Kinds: Boolean, Number, Integer, String, Enum, Vector2, Vector3, Color3, Color4, ObjectReference,
-AssetIdentity, PrimitiveParameters and ScriptPropertyList. Resource identities are written only
+AssetIdentity, PrimitiveParameters, ScriptPropertyList and bounded typed structured lists. Resource identities are written only
 through resource operations; mesh geometry/source only through `mesh.use_primitive`/Model assign.
 Mixing these routes into component.patch rejects rather than partially applying ordinary fields.
 
-The following **ten** type records have complete writable authored coverage. Transform is an
+The following **initial ten** type records have complete writable authored coverage. Transform is an
 inherent object record, not an addable/removable Component. All nine optional Components include
 their native `enabled` field (default true). Type IDs match existing persisted names exactly.
 

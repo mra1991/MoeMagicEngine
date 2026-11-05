@@ -1,6 +1,12 @@
 # Scripting API — runtime control
 
-The v1.14.0 candidate supports exact **APIs 1–24**. API24 inherits APIs1–23 and adds the bounded
+v1.15 reuses API24 unchanged. Platformer Lua composes optional Kinematic route gates from committed
+ObjectiveCounter state; Green/Pink still require accepted ConditionalReward claims. Hidden Blue
+uses a fixed one-member Script counter. Finish intent waits for committed award work and loses
+to projected lethal Health/recovery. Only the project's save schema advances1→2; no new Lua API,
+module loader, durable checkpoint snapshot or engine-owned Orchard policy is introduced.
+
+The current v1.15.0 candidate supports exact **APIs 1–24**. API24 inherits APIs1–23 and adds the bounded
 box/presentation operations below. v1.12.0 added API23 interaction,
 projectiles and framing status. Earlier API examples remain valid. The final test report records
 independent acceptance and separately attributed owner validation.

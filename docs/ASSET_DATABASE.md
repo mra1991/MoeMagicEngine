@@ -6,6 +6,14 @@ runtime resources, authored documents, package truth, or persistent asset metada
 
 ## Prefab-source edges and operations (introduced in v1.2.0)
 
+v1.15 adds the typed `SkyImage` edge/resource operation and inspection/reload consumers. Every
+nonempty stored sky image participates, including Gradient/disabled records. Index discovery stays
+on the `assets/images` namespace for both Sky and Canvas, including sample-creation preflight;
+Material textures retain their separate `assets/textures` namespace. The index remains
+observational; RuntimeResourceService owns transactional consumer publication and Build Game owns
+authoritative image/provenance/notice closure. NavigationData assignments retain the existing bake
+resource boundary. A cached image cannot bypass sky-specific2:1/size/WorldColor requirements.
+
 `ProjectAssetIndex` exposes the `PrefabSource` relationship from Scene/prefab spawners to their
 nonempty project-relative source, including disabled/inactive declarations. This remains copied
 observational dependency data; Build Game independently captures and validates the authoritative

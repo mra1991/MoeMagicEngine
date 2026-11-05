@@ -4,6 +4,15 @@ Released in v1.11.0; acceptance/artifact status belongs to the implementation
 and independent test reports. Scene46, ordinary prefab40 and Project1 are unchanged. Player4,
 save settings1, save envelope1, prefab variant1 and exact Lua API22 are the new contracts.
 
+The v1.15 candidate migrates only Platformer's application schema1→2. Schema1 preserves all known
+completion/Green/Pink flags and resume level, supplying `awards.sky_orchard.blue_gem=false` in memory.
+Merely loading performs no save. A later ordinary Results save writes schema2 and unions accepted
+earned flags, including result award `blue_gem`. Missing means fresh defaults; future schemas,
+unknown keys, wrong types and a Blue key smuggled into schema1 remain refusal/Retry/Session-only.
+New Game still waits for explicit confirmation and the matching Reset receipt before transient
+clearing. The UUID, engine save formats and level-level Continue are unchanged; checkpoints remain
+attempt-local. Finish reads committed claim/counter state after queued work; lethal/recovery wins.
+
 ## Game identity and authoring
 
 Build Settings exposes a separate Save Settings document. Enable progress, save the document and
