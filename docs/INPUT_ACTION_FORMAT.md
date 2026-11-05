@@ -1,9 +1,21 @@
 # Input Action Format
 
-Moe Magic Engine v0.6.4 uses one strict project input asset at
+Moe Magic Engine uses one strict project input asset at
 `assets/input/input_actions.json`. Editor Play and Build Game select that asset. Standalone Player
 may select another contained asset with `--input-actions`. The editor panel changes only the fixed
 project-default document through complete validated value requests.
+
+v1.17 adds typed protocol editing over this same document, not a second format or writer. Commands
+`input.inspect/edit/save/reload` use opaque document revisions and the ordinary state guard;
+the [protocol](AUTHORING_PROTOCOL_V1.md) owns wire records. GUI/recovery edits invalidate stale
+indices. Human-owned dirty drafts require the native decision; agent-owned consecutive edits may
+continue. Atomic save verifies source bytes, is not Scene Undo and cannot silently adopt another draft.
+
+Pedal VehicleInput uses four named Axis1D actions: VehicleSteer (A/D and LeftX), VehicleDrive (S/W),
+VehicleAccelerate (RightTrigger), VehicleBrakeReverse (LeftTrigger). Existing Move, Jump, UI, Brake
+(Space/South) and Recover (R/North) keep their semantics. Compatible saved rebinds reconcile by
+action/type/binding identity; new actions retain defaults. Triggers use the existing normalized
+positive demand/dead-zone path, not a second platform polling implementation.
 
 ## Current format 3
 

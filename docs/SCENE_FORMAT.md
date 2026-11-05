@@ -1,9 +1,25 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is candidate version 50 with marker `MoeMagicScene`; the current loader accepts versions 1 through 50 and rejects
+is candidate version 51 with marker `MoeMagicScene`; the current loader accepts versions 1 through 51 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 51 — backward-compatible vehicle pedals
+
+v1.17 appends these required current `VehicleInputBehaviour` fields after enabled/moveAction/brakeAction:
+`mode` (`LegacyMove` by default), `steeringAction` (`VehicleSteer`), `driveAction` (`VehicleDrive`),
+`accelerateAction` (`VehicleAccelerate`), `brakeReverseAction` (`VehicleBrakeReverse`). Mode is closed
+to LegacyMove/Pedals. All six names use the existing ASCII action-name contract, including dormant
+fields. Older Scenes migrate to LegacyMove with these defaults; old records reject premature fields.
+Prefab45 shares the same migration. Unaffected Scenes need not be resaved.
+
+Enabled LegacyMove still requires Axis2D moveAction and Button brakeAction. Enabled Pedals requires
+four Axis1D actions plus Button brakeAction. No runtime state is serialized. Pedals merges keyboard
+drive and analog triggers by maximum demand, not addition. Service brake wins; simultaneous forward
+and reverse demand brakes at the greater magnitude. Otherwise forward minus reverse becomes throttle.
+The existing fixed vehicle authority brakes opposing motion before reversing; it alone moves chassis
+and wheel pivots. This does not alter Character input, Input Actions3 or Lua API25.
 
 ## Version 50 — curved route cameras and rolling visuals
 

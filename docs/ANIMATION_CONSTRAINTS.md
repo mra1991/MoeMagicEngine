@@ -3,7 +3,15 @@
 v1.10.0 introduced bounded LookAt and TwoBoneIK presentation on the existing rigged Model/Animator.
 It does not change gameplay colliders, Character motion, imported assets or the four-influence
 import limit. Windows and Web use the same implementation. The feature was introduced with
-Scene 46, prefab 40 and Lua API 21; current v1.12.0 writes Scene 47/prefab 41 and supports API 23.
+Scene 46, prefab 40 and Lua API 21; the v1.17 candidate writes Scene51/prefab45 and supports API25.
+
+v1.17 exposes the complete tagged constraint descriptor through typed authoring. `rig.inspect`
+copies loaded clip/joint/bind facts and the rig signature; `play.pose.inspect` copies final committed
+joint worlds, playback and constraint status. Neither read advances animation or imports a model.
+The Rally seat uses the unchanged Worker derivative's exact `CharacterArmature|SitDown` clip with
+nonlooping terminal hold and two disjoint arm chains. Grip and elbow-pole objects belong under the
+kart; no script writes bones/chassis/wheel transforms. Actual seat/grip suitability remains an early
+native/browser checkpoint, not something inferred from the presence of that clip.
 
 ## Authoring
 

@@ -1,6 +1,12 @@
 # Moe Magic Prefab Format
 
-Current candidate ordinary prefabs write **44** and read **1–44**. v1.16 adds RollingVisual and the
+Current candidate ordinary prefabs write **45** and read **1–45**. v1.17 adds the VehicleInput
+mode/four action fields and LegacyMove default migration shared with
+[Scene51](SCENE_FORMAT.md#version-51--backward-compatible-vehicle-pedals). All supplied names remain
+validated even when inactive. Ordinary captures preserve the settings and normal internal wheel,
+driver constraint/grip/pole references. External-reference rejection and Variant1 limits are unchanged.
+
+The v1.16 release wrote44/read1–44 and added RollingVisual and the
 FollowCamera PathGuided fields/default migration shared with [Scene50](SCENE_FORMAT.md#version-50--curved-route-cameras-and-rolling-visuals).
 New visual/path-source references remap within complete captures and repair on deletion; external
 references still reject independent prefab capture. Variant1 permits only Rolling enabled/radius

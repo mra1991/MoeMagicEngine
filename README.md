@@ -20,7 +20,7 @@
 
 ---
 
-**Current stable release: [v1.16.0 — Boulder Run: Curved Chase Gameplay](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.16.0).**
+**Current stable release: [v1.17.0 — Rally: Driving, Driver and Course](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.17.0).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
 
 ## 🚀 Quick Start
@@ -49,11 +49,15 @@ You do **not** need the engine source code, Visual Studio, or C++ to make a game
 
 The engine itself is proprietary, but it is **free to use with no royalties or revenue threshold** for personal, educational, free, and commercial games.
 
-## New in v1.16
+## New in v1.17
+
+Rally is now a connected solo kart course with six ordered gates and two checkpoints. Pedal-aware keyboard/gamepad driving, a seated animated Worker with hand constraints, and grounded fence geometry improve its presentation. Structured authoring adds typed Input Actions and copied rig, pose and vehicle inspection: 46 complete descriptors, 53 commands and protocol capability revision 5. Scene51/prefab45 retain API25 and existing progress identity.
+
+### Retained Boulder Run
 
 Boulder Run is now a three-act curved chase with two safe checkpoint refuges, a textured rolling
 hazard and route-guided camera framing. Conventional S/down-stick escape and A/D steering share
-the camera basis. Authoring now includes43 complete descriptors/47 commands, copied model/collider
+the camera basis. Authoring now includes46 complete descriptors/53 commands, copied model/collider
 bounds and read-only Play motion inspection. Scene50/prefab44/API25 support the reusable changes;
 Orchard, Rally and earned progress are preserved. Selected CC0 Rock_2 and Rock030 art retain notices.
 
@@ -61,7 +65,7 @@ Orchard, Rally and earned progress are preserved. Selected CC0 Rock_2 and Rock03
 
 Sky Orchard now spans six acts with checkpoints, optional routes and three collectible Gem goals.
 A living animated menu, textured sky and quiet music give the sample a cohesive presentation.
-Structured authoring now covers 43 complete descriptors and 47 commands, including typed Material
+Structured authoring now covers 46 complete descriptors and 53 commands, including typed Material
 publication and navigation baking. Project-image provenance travels with Windows/Web builds.
 Existing earned progress and game identity are preserved through the known progress migration.
 Reusable bounce/TNT/reward boxes, world-to-HUD feedback and the other two courses remain available.
@@ -118,14 +122,14 @@ sentinel, and an optional lever/gate/cannon/Heart-cache detour with camera frami
 reusable engine Components; they are not hardcoded native game rules.
 
 The [hosted browser demo](https://mra1991.itch.io/ultimate-platformer-coin-run) remains available.
-Its uploaded content may lag the current installer; create a fresh sample for the v1.16.0 reference.
+Its uploaded content may lag the current installer; create a fresh sample for the v1.17.0 reference.
 
 ### Product focus and structured authoring
 
 Pot Pursuit is retired from shipped templates/tutorials; existing user copies remain compatible.
 Ultimate Platformer now uses compact Home, Level Select, Settings, Guide and Credits views.
 
-Optional project-bound editor-only stdio authoring ships with a maintained skill, 43 complete typed
+Optional project-bound editor-only stdio authoring ships with a maintained skill, 46 complete typed
 descriptors and copied schemas. It supports discovery, typed edits, Lua, history, save/reopen, Play
 and Windows/Web publication through existing editor authorities. It is not an autonomous AI Designer
 or a runtime networking API. Start with [Protocol1](docs/AUTHORING_PROTOCOL_V1.md) and the installed
@@ -249,10 +253,10 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v1.16.0 — Current Stable Public Release**
+**v1.17.0 — Current Stable Public Release**
 
-Download the installer and matching SHA-256 from the [v1.16.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.16.0).
-The installer is **64,516,301 bytes (64.52 MB / 61.53 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
+Download the installer and matching SHA-256 from the [v1.17.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.17.0).
+The installer is **64,566,499 bytes (64.57 MB / 61.58 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
 The release includes the editor, Windows/Web runtimes, preview helper, current offline guides,
 two New Project choices and the selected licensed Shared Library.
 

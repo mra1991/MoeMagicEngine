@@ -1,8 +1,8 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.15.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.16.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.15 final report (see installed documentation/source reference) owns current
+records introduction; the v1.16 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
 
@@ -16,9 +16,59 @@ The v1.15 release has38 complete descriptors,46 commands and capabilityRevision3
 Material publication and existing navigation-bake exposure without changing Protocol1. Registry-derived
 exports are authoritative for exact fields/defaults; the following additions supersede old counts.
 
-The v1.16 candidate (see installed documentation/source reference) implements revision4:
-43 complete descriptors,47 commands and copied bounds/motion inspection. Candidate evidence is
-separate from the released v1.15 acceptance above; the implementation report records its status.
+The released v1.16 plan (see installed documentation/source reference) implements revision4:
+43 complete descriptors,47 commands and copied bounds/motion inspection. The final report above
+records completed acceptance. These counts supersede the historical v1.15 counts above.
+The v1.17 candidate (see installed documentation/source reference) implements revision5
+with46 complete descriptors/53 commands, typed input and copied rig/pose/vehicle inspection.
+The generated exports reflect this candidate; this is not an independent acceptance claim.
+
+### v1.17 input and copied presentation contract
+
+Complete additive descriptors are ArcadeVehicleControllerComponent, VehicleInputBehaviour and
+AnimationConstraintComponent. The registry export owns every scalar/default/range, ordered four
+wheel references, and tagged bounded LookAt/TwoBoneIK list. Ordinary typed operations preserve the
+existing history, clone/prefab reference repair, resource and preflight authorities. No new runtime
+mutation, generic JSON writer or importer authority is exposed.
+
+- `input.inspect {}`: fixed project identity, available/dirty/conflict/status/diagnostic,
+  sourceSha256, opaque documentRevision and typed actions/bindings.
+- `input.edit {expectedDocumentRevision,operation}`: exactly one of AddAction, RenameAction,
+  DeleteAction, MoveAction, ReplaceActionType, AddBinding, DeleteBinding, MoveBinding,
+  ReplaceBinding or ReplaceControl. The generated closed request schema owns argument records.
+  Indices are zero-based snapshot positions, moveDirection is -1/+1, and typed Digital controls use
+  `{device,control}` on the wire (the native serializer owns disk format3).
+- `input.save {expectedDocumentRevision}`: common-document source-conflict-checked atomic save.
+- `input.reload {expectedDocumentRevision,discardChanges}`: false refuses dirty work; true is an
+  explicit discard of the current agent-owned draft. A pre-existing human/recovery draft still
+  surfaces DecisionRequired and the native decision UI before any adoption/save/discard.
+
+The three input mutations require the current state guard and ordinary Edit/modal/publication
+admission. GUI/recovery/save/reload changes invalidate document revisions and stale indices.
+Consecutive agent-owned edits may share a draft; an intervening GUI edit loses that ownership.
+Save is not Scene history; EOF preserves input recovery, never implicitly saving/discarding.
+Limits remain64 actions,8 bindings/action,64-byte names,256KiB source and128 sampled controls.
+
+`rig.inspect {target,collection:"clips"|"joints",limit?,cursor?}` is read-only/null-guard. It returns
+available/reason, rigSignature, decimal resourceRevision, basis, items/total/nextCursor. Clips carry
+exact name/durationSeconds; joints carry exact qualified path, nullable parentPath and
+bindLocalTransform.matrixColumns. Pages default32/max64; cursor binds object/Scene/resource revision
+and rejects reimport/replacement. This copies loaded bind data without incidental import or reload.
+
+`play.pose.inspect {targets:[{target:EditReference,jointPaths?:[qualifiedPath,...]},...]}` requires
+Playing/Paused,1–8 unique original Edit targets,0–8 unique exact paths per target and null guard.
+It returns decimal runtimeGeneration/committedFrames, runtimeScene and copied target records:
+sourceEditRef, resolved/available/reason, presentationRevision, nullable animation
+(state/clip/playing/progress/completed/crossfading), constraints
+(key/kind/state/reason/effectiveWeight/residual/poseRevision) and requested joints
+(path/available/reason/nullable worldTransform.matrixColumns). Disabled, missing and retired values
+report unavailability, not plausible zero transforms. Paused reads retain the committed snapshot;
+Stop/restart/runtime-Scene replacement follows motion-inspection lifetime rules below. No read steps
+animation, physics or Lua. Matrices are finite column-major values and total response remains1MiB.
+
+`play.motion.inspect` additionally returns nullable `vehicle`: availability/reason, controlEnabled,
+speed/forwardSpeed, groundedWheels, steeringDegrees, throttle/brake and four wheelPivots mapped back
+to Edit references/None. These are committed physics facts, not queued input or a gameplay-control API.
 
 ### v1.16 copied inspection contract
 

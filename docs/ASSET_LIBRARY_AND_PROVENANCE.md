@@ -1,5 +1,16 @@
 # Asset library and project provenance
 
+## v1.17 candidate Rally selection
+
+Only Shared `platformer:Level and Mechanics/glTF/Fence_Middle.gltf` was added through the public
+plan/commit intake into `assets/models/rally-fence`. The embedded-buffer model is14,570 bytes,
+SHA-256 `2d771c3c1292c92421470a080b20d4df4c2a2917b3b9adddd0b3bbc144b1117a`.
+The374-byte Quaternius CC0 notice has SHA-256
+`de990ef6fc68cffd7fd1ae342c4d0c823b541b8848d8f76bca5d3339f4de6f6e`.
+Model, notice and asset-source receipt total16,433 bytes; no other fence variant or archive is added.
+The existing Worker four-influence derivative and Kenney kart/wheel/texture remain byte-identical.
+Fence collision is authored explicitly; the glTF itself does not supply collision.
+
 ## v1.16 candidate texture provenance
 
 Provenance1 also accepts first-level `assets/textures/<bundle>/asset-source.json`. Material
