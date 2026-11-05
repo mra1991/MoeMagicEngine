@@ -1,8 +1,30 @@
 # Scripting API — runtime control
 
-The v1.12.0 release supports exact **APIs 1–23**; API23 inherits APIs 1–22 and adds interaction,
+The v1.14.0 candidate supports exact **APIs 1–24**. API24 inherits APIs1–23 and adds the bounded
+box/presentation operations below. v1.12.0 added API23 interaction,
 projectiles and framing status. Earlier API examples remain valid. The final test report records
 independent acceptance and separately attributed owner validation.
+
+## API 24 — reusable boxes and collectible feedback
+
+- `arm_explosive(target)` returns `queued`, `already_armed` or `unavailable`. Accepted intent
+  begins at the next successful fixed boundary; Start never auto-arms authored TNT.
+- `get_explosive_status(target)` returns nil or copied `state` (Idle/Armed/Due/Detonated),
+  `remaining_seconds`, `revision` and `arm_pending`. Start may query; UI callbacks may not.
+- `emit_ui_flight(emitter, {x,y,z})` stages optional presentation, returning `queued`,
+  `capacity` or `unavailable`. Award/Health must be committed by its existing authority first;
+  arrival is never a gameplay signal. Missing optional presentation must not erase a reward.
+
+Mutations require running simulation, outside Start/UI; ordinary update, physics-contact and
+semantic gameplay callbacks can use them. Handles retain the existing generation/ownership checks.
+API24 `gameplay_interaction` adds `kind="bounce"`, surface `subject`, Character `other`,
+zero `amount`, and the existing copied `world_position={x,y,z}` named fields. APIs1–23 receive
+no new bounce callback or methods. Native top-contact arbitration remains the sole bounce writer.
+
+See [Scene48](SCENE_FORMAT.md#version-48--reusable-boxes-and-flights) for fields/dependencies.
+Limits:32 explosive records including admitted/dormant actors, eight detonations per published
+frame;16 flight emitters,32 queued requests/frame,64 live flights. Existing256 Health/512
+interaction budgets remain unchanged. Full batches defer rather than partly damaging a world.
 
 ## API 23 — interaction, projectiles and camera framing
 

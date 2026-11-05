@@ -1,9 +1,16 @@
 # Bounded editor authoring protocol 1
 
-Status: **IMPLEMENTED v1.13.0 CANDIDATE, NOT RELEASE ACCEPTANCE** — owner approval 2026-11-04.
+Status: **RELEASED v1.13.0** — independent/owner acceptance and publication complete 2026-11-04.
 The v1.13.0 plan (see installed documentation/source reference)
-owns scope, exercises and acceptance. Released v1.12.0 does not expose this protocol.
+records scope/exercises; its final test report owns release evidence. v1.12.0 does not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
+
+The separately approved v1.14 plan (see installed documentation/source reference)
+adds the implemented candidate `prefab.capture`, PrefabSource/FlightImage resource slots and24
+complete records below. Registry-derived exports are refreshed; capabilityRevision is2. These
+additions have focused native evidence and actual external E01/native/browser PASS before sample
+expansion. Independent installed E02/acceptance remain Tester-owned. Protocol/schema1 and
+launch/security semantics do not change.
 
 ## 1. Authority and launch
 
@@ -148,9 +155,10 @@ The machine-readable command schemas generated during implementation must match 
 | `object.delete` | `target` | Existing subtree deletion/reference repair and Undo, never file deletion |
 | `object.patch` | `target, changes` | Closed subset `active, position, rotationDegrees, scale`; one typed atomic candidate |
 | `prefab.instantiate` | `identity` | Existing ordinary/variant instantiate and reference remap; no prefab file writer |
+| `prefab.capture` | `root, identity, expectedSha256` | v1.14: confined ordinary prefab publication from current Edit state; null hash is create-only |
 | `component.add` / `component.remove` | `target, type` | Initial fully covered optional types only; normal dependency/capacity/history rules |
 | `component.patch` | `target, type, changes` | Nonempty descriptor-listed fields; one complete validated typed candidate, one history item |
-| `resource.assign` | `target, slot, identity` | Slot Model/Material/CanvasImage/AudioClip/Script; existing resource assignment and path policy |
+| `resource.assign` | `target, slot, identity` | Slot Model/Material/CanvasImage/AudioClip/Script/PrefabSource/FlightImage; existing typed resource/path authority |
 | `resource.clear` | `target, slot` | Existing clear semantics; Model clearing unsupported (use procedural operation) |
 | `mesh.use_primitive` | `target, kind, parameters` | Existing procedural generator; typed closed parameters, no geometry arrays |
 | `script.read` | `identity, offset?, length?` | Bounded UTF-8 source plus whole-file SHA-256; offset/length in bytes, do not split UTF-8 sequences |
@@ -199,7 +207,22 @@ the existing synchronous publisher runs. The client must not infer failure from 
 If Web folder publication succeeds but ZIP fails, return both facts; do not erase the valid folder.
 No remote upload, preview server or shell-opening operation is part of protocol 1.
 
-## 5. Descriptor schema 1 and complete initial coverage
+`prefab.capture` accepts a guarded root reference and canonical `assets/prefabs/*.prefab.json`
+identity. Null `expectedSha256` requires an absent destination; a lowercase SHA-256 authorizes
+replacement of only those exact ordinary prefab bytes, never a variant. Capture is limited to64
+objects/4 MiB by the adapter, not by unrelated native GUI capture. It uses the shared typed operation,
+reference validation, serializer and atomic saver. Recheck path/reparse/sidecar safety and digest at
+publication. A conflict or prepublication failure preserves the destination. The result contains
+identity, sha256, bytes, objectCount, filePublished, catalogRefreshed and diagnostics. A failed
+catalog refresh after publication is a warning, not a claimed rollback. Publication advances the
+state token but has no Scene Undo. `assets.inspect` supplies the current project-file digest.
+
+PrefabSource permits an incomplete empty Edit assignment, with existing enabled Play requirements.
+FlightImage may clear only on a disabled emitter; enabled emitters require a resolved image and
+same-Canvas target. Resource paths cannot be written through component.patch. CanvasImage and
+AudioClip retain their required-resource rejection semantics; Material/Script retain optional clears.
+
+## 5. Descriptor schema 1 and complete coverage
 
 Every component/type descriptor includes `schemaVersion: 1`, stable `type`, `displayName`,
 `coverage: complete or read_only`, `operations`, `defaults`, `fields`, `dependencies`,
@@ -244,12 +267,40 @@ Dimensions are [0.01,100] metres, rows/columns [1,256], segments [3,256], sphere
 Reject out-of-range agent values before the existing clamping generator: never silently report
 the requested value as applied. Descriptor enum spellings use stable tokens (`UVSphere` on wire).
 
-Initial complete coverage does not include UIPanel, system-menu marker types, animation rigs or
-other gameplay Components. Preserve/duplicate existing authored buttons and markers where useful;
-never retrofit all legacy types merely to claim universality. Broader coverage requires the next
-approved release or an explicit amendment. If the ten-type exercise cannot work, it is a defect,
-not permission to edit Scene JSON. A menu need for an uncovered new property must be surfaced
-before expanding scope, not disguised as full-record ApplyAuthoredProperties transport.
+v1.14 retains those ten records and adds14 complete records, for24 total. Exact field defaults,
+numeric bounds, enum tokens, reference cardinalities and write routes are exported from the native
+registry in `initial-descriptors-v1.json` (the filename is retained for compatibility):
+
+| Added type | Complete authored fields after enabled |
+| --- | --- |
+| ColliderComponent | shape, center, boxSize, radius, capsuleHeight, trigger, layer, mask; active shape geometry validates natively |
+| RigidBodyComponent | motionType, mass, gravityFactor, friction, restitution; non-Static runtime actor bodies remain roots |
+| HealthComponent | maximumHealth, startingHealth; starting cannot exceed maximum |
+| RespawnableComponent | automaticOnDepletion, respawnDelay, restoredHealth |
+| StompableComponent | stompDamage, bounceSpeed, minimumClosingSpeed, maximumTopAngleDegrees, characterLayerMask |
+| BreakableComponent | playBreakAudio, emitBreakParticles, spawnContents, contentsOffset, terminalAction |
+| PrefabSpawnerComponent | prefabPath via PrefabSource, maximumLiveInstances |
+| ParticleBurstComponent | particleCount, lifetimeSeconds, initialSpeed, spreadAngleDegrees, gravity, startSize, endSize, startColor, endColor, emissiveIntensity, seed |
+| DestroyAfterTimeBehaviour | delaySeconds |
+| ObjectiveCounterComponent | completionSource, members (up to256 guarded references) |
+| ConditionalRewardComponent | requiredCounters (up to4 guarded references), spawnOffset |
+| BounceSurfaceComponent | bounceSpeed6, minimumClosingSpeed0.5, maximumTopAngleDegrees45, characterLayerMask65535 |
+| TimedExplosiveComponent | fuseSeconds3, blastRadius2.5, damageAmount50, damageTargetMask65535, chainTargetMask65535, chainDelaySeconds0.2 |
+| UIFlightEmitterComponent | target null, imagePath empty via FlightImage, tint[1,1,1,1], iconSize32, durationSeconds0.55, arcHeight64 |
+
+The three new mechanics/presentation Components default disabled; all supplied values still
+validate. Bounce requires solid Collider/Rigid Body and excludes enabled Stompable. Explosive
+requires Health, solid Collider/Rigid Body and Destroy-mode Breakable, with no enabled Ragdoll.
+Flight requires an owning Canvas, resolved image and same-Canvas descendant RectTransform target.
+List references retain native uniqueness/None-draft rules and clone/history/removal repair.
+UIFlightEmitter, Respawnable, ObjectiveCounter and ConditionalReward are not prepared runtime
+actor types, including disabled records. New scalar/vector variant overrides use the existing
+whitelist; reference/image identity overrides are not introduced.
+
+Coverage still excludes writable ContactDamage, UIPanel, system-menu markers, Character controllers,
+animation rigs and other undiscovered types. Preserve/duplicate existing authored objects where
+useful; do not claim universal reflection. Missing required authoring capability is a defect or
+reported limitation, never permission for Scene JSON/manual-rescue or generic full-record transport.
 
 ## 6. Maintained artifacts and evidence
 

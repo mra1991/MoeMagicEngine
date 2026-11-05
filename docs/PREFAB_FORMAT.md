@@ -1,5 +1,22 @@
 # Moe Magic Prefab Format
 
+## v1.14 candidate — reusable box recipes
+
+Ordinary prefabs write **42** and read **1–42**. Scene48 shares Bounce Surface, Timed Explosive
+and UI Flight Emitter; earlier formats omit/reject those records rather than gaining defaults.
+See [Scene48](SCENE_FORMAT.md#version-48--reusable-boxes-and-flights) for exact fields/ranges.
+Bounce/explosive records can join prepared runtime actors; explosive capacity includes dormant
+and reserved actors. UI Flight Emitter is editor Scene/prefab composition only, rejected from
+prepared actors even disabled. Fuse/flight/contact state is not serialized.
+
+Variant wrapper1 adds safe enabled/scalar/vector settings, not emitter target or image resource
+references. Whole-record validation still applies. Ordinary typed capture uses the existing
+atomic saver; protocol1 `prefab.capture` confines publication to canonical
+`assets/prefabs/*.prefab.json`, create-only with null expectedSha256 or hash-matched ordinary
+replacement. Its adapter limit is64 objects/4MiB, not a new GUI capture limit. It cannot replace
+a variant, bypass containment/reparse checks or promise file Undo; receipts distinguish published
+bytes from catalog refresh. Runtime bundles use independent pickup children and one expiry root.
+
 ## v1.12 release — action gameplay records
 
 Ordinary prefabs write **41** and read **1–41**. Scene47 shares the four new explicit records:
@@ -525,4 +542,4 @@ Instantiation creates ordinary independent Scene objects with fresh runtime IDs,
 hierarchy/order/values, the stored root local Transform, and no parent. Existing instances never
 change when the source file changes or disappears. Undo removes the instance subtree; Redo uses the
 command's in-memory snapshot and never rereads this file. Saving a Scene containing instances
-writes ordinary current-version Scene-46 objects and references, with no prefab source link.
+writes ordinary current-version Scene48 objects and references, with no prefab source link.

@@ -1,5 +1,15 @@
 # Asset library and project provenance
 
+## v1.14 selected sample intake
+
+Sky Orchard adds only the existing CC0 Kenney Food Kit2.0 carrot OBJ/MTL/colormap and notices,
+Quaternius Ultimate Platformer Question Cube glTF and Bouncer glTF with their notices.
+The three project folders `orchard-carrot`, `orchard-reward-box`, `orchard-bouncer` contain
+public plan/add `asset-source.json` receipts with original hashes and dependencies. Original
+Shared sources are unchanged. Metadata tags identify healing/reward/bounce **art**, not behavior.
+Only the exact approved project carrot OBJ is newly excepted from Git ignore; unaudited local
+models remain ignored and are neither deleted nor included in distribution.
+
 Current v1.12.0 supports OBJ, bounded JSON glTF, static FBX and the bounded skeletal FBX/TRS
 path introduced in v1.7. Project-owned selected Lever/Door/Cannon and Worker_Male_Moe4 copies retain
 their provenance/dependencies. Catalog/provenance remain version 1; current distribution is 7,

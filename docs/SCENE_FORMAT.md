@@ -1,9 +1,40 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is version 47 with marker `MoeMagicScene`; the current loader accepts versions 1 through 47 and rejects
+is version 48 with marker `MoeMagicScene`; the current loader accepts versions 1 through 48 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 48 — reusable boxes and flights
+
+v1.14 adds three optional records. All default disabled; numeric values validate even when disabled.
+Versions1–47 omit these records and reject them if inserted into an older-version document.
+Ordered fields after `type`:
+
+| Component | Fields (defaults) |
+| --- | --- |
+| BounceSurfaceComponent | enabled(false), bounceSpeed(6), minimumClosingSpeed(0.5), maximumTopAngleDegrees(45), characterLayerMask(65535) |
+| TimedExplosiveComponent | enabled(false), fuseSeconds(3), blastRadius(2.5), damageAmount(50), damageTargetMask(65535), chainTargetMask(65535), chainDelaySeconds(0.2) |
+| UIFlightEmitterComponent | enabled(false), target(null), imagePath(""), tint([1,1,1,1]), iconSize(32), durationSeconds(0.55), arcHeight(64) |
+
+Bounce speed[0.1,100], closing speed[0,100], top angle[0,89] degrees; requires an enabled solid
+Collider/Rigid Body and no enabled Stompable on the same object. Ordinary independent Dynamic
+roots compose stacks; no stack-specific motion authority is introduced.
+Explosives use fuse[0.1,60]s, world-space unscaled radius[0.1,10], integer damage[1,1000000],
+receiving chain delay[0.02,5]s and16-bit masks. Enabled use requires Health, solid Collider/Rigid
+Body and Destroy Breakable, without Ragdoll. Fuse/state/chain deadlines are runtime-only.
+
+Flights use a required resolved image and a same-owning-Canvas target Rect Transform. Target is
+null or a positive local ID; clone/load/history remap it and deletion repairs None. Enabled
+incomplete configurations reject Play; disabled drafts may be incomplete. Tint[0,1], icon
+size[8,128], duration[0.1,2]s and arc[-256,256] reference pixels. A copied origin projects once
+through the actual Game Camera into shared Canvas layout; behind-camera origins skip and offscreen
+origins clamp. Flights pause with simulation/modal state, survive source retirement, and cancel
+on hidden/lost target/Canvas or Stop. They never intercept UI input or delay rewards.
+
+Scene48/prefab42/API24 are the candidate authorities; variant1/protocol1/distribution8 and
+save/project formats remain unchanged. [API24](SCRIPTING_API.md#api-24--reusable-boxes-and-collectible-feedback)
+and the approved plan (see installed documentation/source reference) own scheduling/budgets.
 
 ## Version 47 — composable action gameplay
 
@@ -1198,9 +1229,9 @@ needed during restoration is unavailable or invalid, Application
 rejects the complete replacement and preserves the active Scene, selection, Camera, current path,
 command history, and dirty state.
 
-The loader accepts versions 1 through 46; every accepted version rejects unknown components,
+The loader accepts versions 1 through 48; every accepted version rejects unknown components,
 missing required fields, missing parents, duplicate/zero IDs, invalid scales, cycles, and
-unavailable imported models. Versions above 45 reject as future.
+unavailable imported models. Versions above48 reject as future.
 Instantiated prefabs require no Scene schema: they save as ordinary GameObjects and Components with
 no source link or override metadata. Prefab asset files use the separate contract in
 `docs/PREFAB_FORMAT.md`. Script-declared schemas/general reflection, modules, hot reload, general
