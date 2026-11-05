@@ -1,6 +1,20 @@
 # Asset library and project provenance
 
-## v1.15 candidate intake and image provenance
+## v1.16 candidate texture provenance
+
+Provenance1 also accepts first-level `assets/textures/<bundle>/asset-source.json`. Material
+dependencies close their present declarations and exact notice hashes into both native and Web
+packages. Malformed present declarations fail; historical undeclared textures remain compatible.
+This does not expand the Shared catalog to images or introduce an arbitrary download/file API.
+
+The approved Rock030 intake is only ambientCG's unchanged 1024x1024 1K JPG colour, 1,483,352 bytes,
+SHA-256 `1dca8a336518ce0adca4b5cbe2ab30819c8769388f1c15278082a99f022c615a`.
+Its local notice/declaration identifies the [official source](https://ambientcg.com/view?id=Rock030)
+and [CC0 permission](https://docs.ambientcg.com/license/). No normal/roughness/displacement map or
+archive is shipped. Rock_2 remains ordinary selected Quaternius Shared intake with dependencies.
+The implementation report distinguishes copied/intake evidence from final publication acceptance.
+
+## v1.15 released intake and image provenance
 
 The approved plan (see installed documentation/source reference) selects
 only used Platformer Cloud_1 and RockPlatform_Tall bundles, the verified Kenney Skyboxes day panorama

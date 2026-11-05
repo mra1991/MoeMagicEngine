@@ -1,13 +1,38 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is version 49 with marker `MoeMagicScene`; the current loader accepts versions 1 through 49 and rejects
+is candidate version 50 with marker `MoeMagicScene`; the current loader accepts versions 1 through 50 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
 
+## Version 50 — curved route cameras and rolling visuals
+
+The v1.16 candidate appends FollowCamera `pathSource` (null), `pathLookAheadDistance` (6 metres,
+[0.1,50]) and `pathHeadingHalfLife` (0.15 seconds, [0,2]), and adds the `PathGuided` mode. Earlier
+versions migrate those defaults, preserve their old mode, and reject premature new fields/mode.
+Enabled PathGuided requires an enabled open Once/PingPong PathFollower source whose captured
+segments all have horizontal extent. Heading is derived from captured route lookahead plus the
+authored heading offset, smoothed by shortest yaw before the CharacterMotor fixed update. Camera
+position damping shares the eye/aim anchor; recovery and explicit Snap reset heading and anchor.
+Unavailable sources retain the last camera pose and disable that movement basis, never fall back
+to World. Camera Framing Zones still affect framing only.
+
+Optional `RollingVisualComponent` fields, in order after type: `enabled` (false), `visual` (null),
+`radius` (1 world metre, [0.01,100]). Older versions omit it and reject premature records. Enabled
+use requires a positive-uniform-scale PathFollower root with faceTravel=false and a uniquely owned,
+centred, positive-uniform-scale direct visual child without competing physics/animation/motion.
+At most 64 records, including dormant ones. The narrow child pose lease rotates from committed
+displacement/radius; only successful reset revisions restore authored rest orientation. Runtime
+angle, route capture and revision state are not serialized; prepared runtime actors exclude this type.
+
+Both new references use normal local-ID/null encoding, clone/prefab/history remapping and deletion
+repair. Incomplete references remain honest Edit drafts; enabled Play/Build requires valid complete
+composition. Supplied values are validated even in dormant modes. Ordinary prefab44 shares these
+records; API25 adds copied route queries. Unrelated Scene files need not be resaved.
+
 ## Version 49 — textured sky background
 
-The v1.15 candidate appends `backgroundMode` (`Gradient` by default), `backgroundImage` (empty)
+The v1.15 release appends `backgroundMode` (`Gradient` by default), `backgroundImage` (empty)
 and `backgroundYawDegrees` (0, normalized to -180,180)) after the existing SkyEnvironment fields.
 Versions1–48 migrate those defaults and reject the new fields in strict older records. No other
 component migration changes; do not resave unaffected courses solely to advance their version.
@@ -855,14 +880,14 @@ authored Particle Burst data; version 34 appends the field-free Graphics Prefere
 version 35 appends the optional path-only Script Behaviour; version 36 appends its required ordered
 typed property list; version 37 adds the optional Scene-local GameObject property value;
 version 38 adds Prefab Spawner; version 39 adds the three interaction Components; version 40 adds
-Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current saves emit version49; later additions are detailed above.
+Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current candidate saves emit version50; later additions are detailed above.
 All accepted versions retain the same file-local
 ID remapping, hierarchy restoration, Camera, Transform, MeshRenderer, and LightComponent contracts.
 
 Optional Component absence is ordinary current-version state. Removing a Component in the editor causes
 the next Save to omit that Component object; Undo reinserts its detached configuration at the exact
-original runtime position. Current Scene49 emits canonical type order and does not persist
-arbitrary optional-Component insertion order; ordinary prefab43 separately records
+original runtime position. Current Scene50 emits canonical type order and does not persist
+arbitrary optional-Component insertion order; ordinary prefab44 separately records
 exact authored order. Changing this Scene contract requires a future explicit version bump.
 Transform remains the mandatory embedded `transform` object and is never part of optional Component
 mutation. Editor command history and logical target remaps are session-only and never serialized.
@@ -1244,9 +1269,9 @@ needed during restoration is unavailable or invalid, Application
 rejects the complete replacement and preserves the active Scene, selection, Camera, current path,
 command history, and dirty state.
 
-The loader accepts versions 1 through 49; every accepted version rejects unknown components,
+The loader accepts versions 1 through 50; every accepted version rejects unknown components,
 missing required fields, missing parents, duplicate/zero IDs, invalid scales, cycles, and
-unavailable imported models. Versions above49 reject as future.
+unavailable imported models. Versions above50 reject as future.
 Instantiated prefabs require no Scene schema: they save as ordinary GameObjects and Components with
 no source link or override metadata. Prefab asset files use the separate contract in
 `docs/PREFAB_FORMAT.md`. Script-declared schemas/general reflection, modules, hot reload, general

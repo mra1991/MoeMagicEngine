@@ -1,19 +1,45 @@
 # Bounded editor authoring protocol 1
 
-Status: **v1.15 implemented candidate; released through v1.14.0**. Independent v1.15 acceptance is pending.
+Status: **RELEASED through v1.15.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.14 final test report owns current release evidence. v1.12 did not expose it.
+records introduction; the v1.15 final report (see installed documentation/source reference) owns current
+release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
 
 The released v1.14 plan (see installed documentation/source reference)
 adds `prefab.capture`, PrefabSource/FlightImage resource slots and24 complete records below.
-Registry-derived exports are refreshed; capabilityRevision is2 and there are40 commands.
+That release used capabilityRevision2 and40 commands; v1.15 supersedes those counts below.
 Early external/native/browser and independent installed E02/owner/public acceptance are complete.
 Protocol/schema1 and launch/security semantics do not change.
 
-The v1.15 candidate has38 complete descriptors,46 commands and capabilityRevision3. It adds typed
+The v1.15 release has38 complete descriptors,46 commands and capabilityRevision3. It adds typed
 Material publication and existing navigation-bake exposure without changing Protocol1. Registry-derived
 exports are authoritative for exact fields/defaults; the following additions supersede old counts.
+
+The v1.16 candidate (see installed documentation/source reference) implements revision4:
+43 complete descriptors,47 commands and copied bounds/motion inspection. Candidate evidence is
+separate from the released v1.15 acceptance above; the implementation report records its status.
+
+### v1.16 copied inspection contract
+
+`object.inspect` appends `worldTransform` with column-major matrixColumns, decomposable and nullable
+position/rotationDegrees/scale, plus `bounds.modelLocal`, `bounds.modelWorld`, `bounds.colliderWorld`.
+Each AABB reports availability/reason; model bounds are own static/bind geometry, not subtree or
+animated deformation. Collider world bounds conservatively enclose the transformed own collider,
+not exact contacts. Reads do not upload GPU resources or alter history.
+
+`play.motion.inspect {targets:[EditReference,...]}` is read-only/null-guard, requires1–8 unique
+current-epoch references and Playing/Paused. It returns decimal-string runtimeGeneration and
+committedFrames, runtimeScene and copied targets. Each has sourceEditRef, resolved/reason, nullable
+worldPose (matrixColumns/position), path, camera, recovery and rolling. Path exposes achieved
+distance/length/progress/direction/speed/state and endpoint/reset revisions; camera exposes mode,
+heading, route projection and mapped Edit references; recovery exposes state/checkpoint/revisions/
+committed position/yaw; rolling exposes availability, mapped source/visual, radius, accumulated
+world quaternion XYZW and reset revision. Unavailable existing records include a bounded reason;
+absent component groups are null and retired objects unresolved. No native/runtime handle escapes.
+Snapshots use the original Edit-to-runtime map only: every Start gets a fresh generation, Stop
+rejects, and runtime Scene replacement invalidates this mapping even when reopening the same path.
+The shared response ceiling remains1MiB. Snapshot data is never a runtime mutation capability.
 
 ## 1. Authority and launch
 
@@ -247,6 +273,14 @@ AudioClip retain their required-resource rejection semantics; Material/Script re
 
 ## 5. Descriptor schema 1 and complete coverage
 
+v1.16 adds CharacterControllerComponent, CharacterMotorBehaviour, CharacterAnimationBehaviour,
+AudioListenerComponent and RollingVisualComponent, for43 complete records. CharacterAnimation's
+visual binding remains derived from its sole eligible direct-child Animator, not a writable ref.
+FollowCamera adds PathGuided, pathSource, pathLookAheadDistance and pathHeadingHalfLife. Discover
+exact native defaults/ranges via descriptors; field/reference changes still use typed history,
+whole-record validation, clone/remap and repair. Rolling leases only its specified direct child;
+the generic Scene-root pose authority is not relaxed. No runtime-spawning eligibility is implied.
+
 v1.15 adds complete SkyEnvironment, Light, Checkpoint, PathFollower, FollowCamera, ContactDamage,
 NavigationSurface, NavAgent, Perception, AgentStateController, Animator, AnimationStateController,
 Interactor and Interactable records to the preceding24. Structured points/states/markers/targets
@@ -328,7 +362,7 @@ UIFlightEmitter, Respawnable, ObjectiveCounter and ConditionalReward are not pre
 actor types, including disabled records. New scalar/vector variant overrides use the existing
 whitelist; reference/image identity overrides are not introduced.
 
-Coverage still excludes writable ContactDamage, UIPanel, system-menu markers, Character controllers,
+Coverage still excludes writable UIPanel, system-menu markers, Character controllers,
 animation rigs and other undiscovered types. Preserve/duplicate existing authored objects where
 useful; do not claim universal reflection. Missing required authoring capability is a defect or
 reported limitation, never permission for Scene JSON/manual-rescue or generic full-record transport.

@@ -6,10 +6,27 @@ uses a fixed one-member Script counter. Finish intent waits for committed award 
 to projected lethal Health/recovery. Only the project's save schema advances1→2; no new Lua API,
 module loader, durable checkpoint snapshot or engine-owned Orchard policy is introduced.
 
-The current v1.15.0 candidate supports exact **APIs 1–24**. API24 inherits APIs1–23 and adds the bounded
+The current v1.16.0 candidate supports exact **APIs 1–25**. API25 inherits APIs1–24 and adds the copied
+route queries below. API24 inherits APIs1–23 and adds the bounded
 box/presentation operations below. v1.12.0 added API23 interaction,
 projectiles and framing status. Earlier API examples remain valid. The final test report records
 independent acceptance and separately attributed owner validation.
+
+## API 25 — captured route geometry
+
+`get_path_sample(path, distance)` returns copied `available`, `reason`, `distance`, `length`,
+`progress`, `position={x,y,z}` and forward unit `tangent={x,y,z}` (three-number arrays indexed1–3). Distance is finite world metres
+in [0,captured length]; it rejects out-of-range input rather than silently clamping. The endpoint
+uses the final segment's forward tangent; reverse travel does not reverse the geometry tangent.
+`project_onto_path(path, {x,y,z})` accepts a three-number array and returns the same fields plus `offsetDistance`. It projects in3D
+against the captured polyline, resolving exactly equal closest points to the lower arc distance.
+
+These read-capable callbacks, including Start, use existing same-session opaque handles. Wrong
+arguments/cross-session handles reject. Inactive, pending-destroy or retired sources report
+unavailable with a reason. Captured world geometry never follows the owner's later displacement.
+No live mutable vectors, generic spline service, or actor-spawn support is exposed.
+`get_follow_camera_status` adds PathGuided mode and copied `path_source`, `route_distance`,
+`route_progress`; existing modes and earlier gameplay methods remain compatible.
 
 ## API 24 — reusable boxes and collectible feedback
 

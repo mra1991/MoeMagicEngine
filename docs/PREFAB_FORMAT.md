@@ -1,6 +1,13 @@
 # Moe Magic Prefab Format
 
-Current candidate ordinary prefabs write **43** and read **1–43**. v1.15 adds the same SkyEnvironment
+Current candidate ordinary prefabs write **44** and read **1–44**. v1.16 adds RollingVisual and the
+FollowCamera PathGuided fields/default migration shared with [Scene50](SCENE_FORMAT.md#version-50--curved-route-cameras-and-rolling-visuals).
+New visual/path-source references remap within complete captures and repair on deletion; external
+references still reject independent prefab capture. Variant1 permits only Rolling enabled/radius
+and camera lookahead/heading-half-life scalars, not new references or structured overrides.
+RollingVisual remains excluded from prepared runtime actors, even disabled.
+
+The v1.15 release wrote43/read1–43 and added the same SkyEnvironment
 mode/image/yaw fields and old-record migration as [Scene49](SCENE_FORMAT.md#version-49--textured-sky-background).
 Variant wrapper1 is unchanged: mode/yaw are safe scalar overrides under whole-record validation,
 not image-resource path overrides. SkyEnvironment remains excluded from prepared runtime actors.
@@ -421,9 +428,9 @@ same file. Outside parents, missing parents, multiple/no roots, duplicate/zero I
 invalid. Object output is stable ascending capture order. The captured root retains its authored
 local Transform; only its external parent link is removed.
 
-The `components` array records exact optional-Component insertion order. Format43 supports the
+The `components` array records exact optional-Component insertion order. Format44 supports the
 same persistent concrete types, fields, ordering, and relationship rules documented through Scene
-version49. Rigid Body must follow its required Collider; the Vehicle Controller follows its
+version50. Rigid Body must follow its required Collider; the Vehicle Controller follows its
 enabled Dynamic body and Vehicle Input follows the Controller;
 Kinematic Motion must follow a Kinematic Rigid Body; Character Controller must follow its enabled
 nontrigger Capsule Collider and cannot coexist with a Rigid Body; Character Motor must follow its
@@ -548,4 +555,4 @@ Instantiation creates ordinary independent Scene objects with fresh runtime IDs,
 hierarchy/order/values, the stored root local Transform, and no parent. Existing instances never
 change when the source file changes or disappears. Undo removes the instance subtree; Redo uses the
 command's in-memory snapshot and never rereads this file. Saving a Scene containing instances
-writes ordinary current-version Scene49 objects and references, with no prefab source link.
+writes ordinary current-version Scene50 objects and references, with no prefab source link.
