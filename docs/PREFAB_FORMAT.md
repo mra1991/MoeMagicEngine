@@ -1,6 +1,8 @@
 # Moe Magic Prefab Format
 
-Current candidate ordinary prefabs write **46** and read **1–46**. v1.18 adds RouteComponent,
+Current ordinary prefabs write **47** and read **1–47**. Version 47 adds the [Scene 53 Terrain record](SCENE_FORMAT.md#version-53--referenced-walkable-terrain) to ordinary prefabs. A captured terrain retains its project resource identity rather than embedding rows. A disabled terrain is still excluded from prepared runtime actors. Earlier prefab versions reject this record; the variant wrapper remains version 1.
+
+Version 46 (v1.18) adds RouteComponent,
 VehicleRouteDriverBehaviour and VehicleBoostComponent with the complete
 [Scene52 records](SCENE_FORMAT.md#version-52--captured-driving-routes-and-bounded-boost).
 Internal Route references remap through normal independent-copy capture; external Route references

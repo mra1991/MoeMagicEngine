@@ -1,10 +1,10 @@
-# Current user references — v1.18.0
+# Current user references — v1.19.0
 
 These references describe the released engine. The installer includes the illustrated User Manual,
 Ultimate Platformer guide under **Help → User Manual**. Start with
 [Getting Started](../GETTING_STARTED.md) for installation, upgrades and writable sample projects.
 
-- **Authoring/data:** [Scenes and Components](SCENE_FORMAT.md), [prefabs and variants](PREFAB_FORMAT.md),
+- **Authoring/data:** [Scenes and Components](SCENE_FORMAT.md), [walkable terrain](TERRAIN_FORMAT.md), [prefabs and variants](PREFAB_FORMAT.md),
   [projects](PROJECT_FORMAT.md), [materials](MATERIAL_FORMAT.md).
 - **Assets:** [import and Asset Database](ASSET_DATABASE.md), [Shared Library and provenance](ASSET_LIBRARY_AND_PROVENANCE.md).
 - **Gameplay:** [Lua scripting](SCRIPTING_API.md), [interaction/projectiles/framing](ACTION_GAMEPLAY.md),
@@ -14,7 +14,7 @@ Ultimate Platformer guide under **Help → User Manual**. Start with
 - **Publishing:** [Build Settings](BUILD_SETTINGS_FORMAT.md), [Windows Player package](PLAYER_BUILD_FORMAT.md),
   [Web package](WEB_BUILD_FORMAT.md), [editor distribution](EDITOR_DISTRIBUTION_FORMAT.md).
 
-Current formats are Scene 52, ordinary prefab 46, prefab variant 1 and Lua API 26. Other format
+Current formats are Scene 53, ordinary prefab 47, prefab variant 1 and Lua API 26. Other format
 versions are identified in their own references. Older-version migration descriptions remain
 historical compatibility information, not the current format default.
 

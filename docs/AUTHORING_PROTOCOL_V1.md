@@ -1,8 +1,8 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.17.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.18.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.17 final report (see installed documentation/source reference) owns current
+records introduction; the v1.18 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
 
@@ -21,13 +21,19 @@ The released v1.16 plan (see installed documentation/source reference) implement
 records completed acceptance. These counts supersede the historical v1.15 counts above.
 The v1.17 release (see installed documentation/source reference) implements revision5
 with46 complete descriptors/53 commands, typed input and copied rig/pose/vehicle inspection.
-Those accepted exports are extended by the v1.18 candidate below.
+Those accepted exports are extended by the v1.18 release below.
 
-The approved v1.18 plan (see installed documentation/source reference) specifies
+The released v1.18 plan (see installed documentation/source reference) specifies
 revision6 with49 complete descriptors/54 commands: Route/VehicleRouteDriver/VehicleBoost and copied
-play.progress.inspect, plus additive motion status. Candidate implementation is in progress; its
-report distinguishes compiled/validated work from outstanding E01/publication and independent gates.
+`play.progress.inspect`, plus additive motion status.
 Protocol/schema1 and launch/security bounds remain unchanged; generated exports come from the registry.
+
+**Released in v1.19.0:** capability revision 7 exports 50 complete descriptors and
+64 commands. Discover the deployed revision before using `TerrainComponent` or the ten
+`terrain.*` commands. The terrain recipe (see installed documentation/source reference)
+shows the typed operation, revision, expected digest and short-lived preview token. No row arrays,
+filesystem helper, Lua API, preview body or new transport are exposed. Publication of a terrain
+file, the Scene reference and the navigation bake are separate operations with separate receipts.
 
 ### v1.18 copied progress and rival authoring
 

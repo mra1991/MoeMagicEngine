@@ -4,6 +4,11 @@
 snapshot introduced in v0.11.8. It is an observational, process-memory service. It does not own
 runtime resources, authored documents, package truth, or persistent asset metadata.
 
+The v1.19.0 release indexes saved `assets/terrain/*.terrain.json` resources and the Terrain
+and optional opaque Material references of Scene/prefab owners. A sculpting preview or
+unpublished draft is not an asset. The saved-file digest detects competing writers; changing
+only serialization whitespace does not change the geometry used for navigation freshness.
+
 ## Prefab-source edges and operations (introduced in v1.2.0)
 
 v1.15 adds the typed `SkyImage` edge/resource operation and inspection/reload consumers. Every

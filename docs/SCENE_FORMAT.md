@@ -1,9 +1,15 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is candidate version 52 with marker `MoeMagicScene`; the current loader accepts versions 1 through 52 and rejects
+is candidate version 53 with marker `MoeMagicScene`; the current loader accepts versions 1 through 53 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 53 — referenced walkable terrain
+
+In the v1.19.0 release, a Scene may contain one `TerrainComponent`, including disabled drafts. The fixed record order is `type`, `enabled`, `terrain`, `material`, `layer`, `mask`. Both resource slots use a canonical project identity or JSON null; an enabled terrain requires a terrain resource. A new disabled draft has null slots, layer 0 and mask 65535. The layer range is 0–15, the mask range 0–65535. The owner is a translation-only root; do not add competing geometry, a body, a controller or a motion writer. A null Material uses the standard opaque surface. Scene 52 and older reject this record; existing Scenes do not acquire it on load.
+
+The Scene stores neither height samples nor an editor cache. See the [terrain resource format](TERRAIN_FORMAT.md) for the resource identity, dimensions and surface convention.
 
 ## Version 52 — captured driving Routes and bounded Boost
 
@@ -923,7 +929,7 @@ authored Particle Burst data; version 34 appends the field-free Graphics Prefere
 version 35 appends the optional path-only Script Behaviour; version 36 appends its required ordered
 typed property list; version 37 adds the optional Scene-local GameObject property value;
 version 38 adds Prefab Spawner; version 39 adds the three interaction Components; version 40 adds
-Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current candidate saves emit version50; later additions are detailed above.
+Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current saves emit version 53; later additions are detailed above.
 All accepted versions retain the same file-local
 ID remapping, hierarchy restoration, Camera, Transform, MeshRenderer, and LightComponent contracts.
 

@@ -7,6 +7,13 @@ off-mesh jumping, dynamic carving or runtime actor spawning is included.
 
 ## Authoring contract
 
+**Released in v1.19.0:** an active, enabled [Terrain](TERRAIN_FORMAT.md) intersecting
+the surface bounds and source mask contributes one source and its full grid of triangles. It
+needs no Collider or Rigid Body. The combined fingerprint includes geometry, translation,
+layer and mask, but not file name, object ID or surface Material. A Material-only change does
+not require a rebake; changing the grade does. With no participating terrain, the released
+primitive-only fingerprint and navigation asset format are unchanged.
+
 Create one enabled Navigation Surface on a root, unrotated, unit-scale object. Its local bounds
 default to center `(0,0,0)`, size `(20,10,20)`, source mask `65535`. The bake includes enabled active
 solid Static Rigid Body Box/Sphere/Capsule geometry intersecting these bounds and mask, with actual
@@ -29,7 +36,9 @@ speed 2 (0–10), turnSpeedDegrees 180 (0–720), arrivalTolerance 0.2 (0.05–1
 state controller is disabled. Physical sweeps, support, slope/step and rotation clearance precede
 one Jolt Kinematic target; a failed proof is Blocked, not teleportation. Zero-radius Boxes keep a
 2 mm separation above their verified support to avoid degenerate coplanar sweep contacts; this
-does not relax wall, overlap or rotation-envelope rejection. Capsule behavior is unchanged.
+does not relax wall, overlap or rotation-envelope rejection. The v1.19 heightfield also uses this
+skin for capsules, because a tangential sweep exactly on a triangle edge can report its back face
+at zero depth. Capsule motion on ordinary primitive supports is unchanged.
 Box yaw clearance uses a cylindrical envelope with radius equal to the physical half-diagonal,
 containing every intermediate yaw without the artificial corners of a square envelope. Leave
 adequate baked-radius margin for voxel/contour approximation near obstacles; matching the physical
