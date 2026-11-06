@@ -6,11 +6,38 @@ uses a fixed one-member Script counter. Finish intent waits for committed award 
 to projected lethal Health/recovery. Only the project's save schema advances1→2; no new Lua API,
 module loader, durable checkpoint snapshot or engine-owned Orchard policy is introduced.
 
-The current v1.16.0 candidate supports exact **APIs 1–25**. API25 inherits APIs1–24 and adds the copied
+The current v1.18.0 candidate supports exact **APIs 1–26**. API26 inherits APIs1–25. API25 inherits APIs1–24 and adds the copied
 route queries below. API24 inherits APIs1–23 and adds the bounded
 box/presentation operations below. v1.12.0 added API23 interaction,
 projectiles and framing status. Earlier API examples remain valid. The final test report records
 independent acceptance and separately attributed owner validation.
+
+## API 26 — driving Route and Boost
+
+Only five methods are added; previous APIs retain their contracts. All accept same-session opaque
+GameObject handles with exact argument/component/phase validation and return copied values.
+
+- `get_route_sample(route,distance)` / `project_onto_route(route,{x,y,z})`: RouteComponent geometry
+  captured before Start, not PathFollower. Finite sample distance clamps to endpoints; projection
+  uses nearest captured3D segment with lowest-arc ties. Returns `available/reason`, three-number
+  arrays `position/tangent/right`, `distance/length` and signed horizontal `lateral_offset`.
+  Missing, inactive, disabled or retired Routes are unavailable; queries do not advance time.
+- `get_vehicle_route_status(vehicle)`: `available/reason`, `state` (disabled/driving/braking/stuck/
+  recovering/arrived), `route`, `distance/length/lateral_offset`, `desired_speed`, committed
+  `throttle/steering/brake`, `obstacle_available/obstacle_distance`, `stuck_duration/reset_revision`.
+  Distance is current achieved projection, not highest progress. Arrived is physical braking at the
+  endpoint, not a race win. Project Lua may request bounded ordinary recovery on a new Stuck episode.
+- `activate_vehicle_boost(vehicle)`: returns queued/no_effect/unavailable/capacity plus reason.
+  Only Update, LateUpdate, FixedUpdate and trigger callbacks while simulation runs; not Start, UI,
+  collision or suspended callbacks. One pending/active intent per vehicle, at most eight vehicles.
+  Repeated activation does not refresh/stack. Accepted intent survives pickup destruction, but not
+  target destruction/replacement, Boost disable/removal, recovery, depletion, control shutdown or Stop.
+- `get_vehicle_boost_status(vehicle)`: `available/reason`, `state` (idle/pending/active), `remaining`,
+  `effective_acceleration/effective_forward_speed`, `revision`. Queued is not active. Fixed time owns
+  expiry; pause freezes it. Restoration does not clamp chassis velocity or change reverse/brake limits.
+
+Read methods are available in ordinary read-capable phases including Start. New services expose no
+mutable pose, global race state, arbitrary traffic planner or runtime vehicle-spawn capability.
 
 ## API 25 — captured route geometry
 

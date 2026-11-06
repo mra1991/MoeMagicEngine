@@ -1,6 +1,15 @@
 # Moe Magic Prefab Format
 
-Current candidate ordinary prefabs write **45** and read **1–45**. v1.17 adds the VehicleInput
+Current candidate ordinary prefabs write **46** and read **1–46**. v1.18 adds RouteComponent,
+VehicleRouteDriverBehaviour and VehicleBoostComponent with the complete
+[Scene52 records](SCENE_FORMAT.md#version-52--captured-driving-routes-and-bounded-boost).
+Internal Route references remap through normal independent-copy capture; external Route references
+reject. A reusable kart may retain a disabled Route Driver with None, then wire/enable it after
+instantiation. All three records are excluded from prepared runtime actors, including dormant ones.
+Variant wrapper1 stays unchanged; only each new record's enabled flag is a scalar override, not
+new Route point/reference or Boost configuration overrides. Old prefabs retain their prior semantics.
+
+v1.17 wrote45/read1–45 and added the VehicleInput
 mode/four action fields and LegacyMove default migration shared with
 [Scene51](SCENE_FORMAT.md#version-51--backward-compatible-vehicle-pedals). All supplied names remain
 validated even when inactive. Ordinary captures preserve the settings and normal internal wheel,

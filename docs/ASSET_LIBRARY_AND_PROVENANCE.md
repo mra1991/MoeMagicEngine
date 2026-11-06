@@ -1,5 +1,16 @@
 # Asset library and project provenance
 
+## v1.18 Rally pickups
+
+The source project contains only the Shared Library selections `Thunder.gltf` and `Star.gltf`
+from Quaternius' Ultimate Platformer Pack. Each is a one-mesh glTF with an embedded buffer.
+The separate `rally-thunder` and `rally-star` project bundles each contain the unmodified model,
+the CC0 notice (SHA-256 `de990ef6fc68cffd7fd1ae342c4d0c823b541b8848d8f76bca5d3339f4de6f6e`),
+and the public intake receipt with source identity, author, license and hashes. Model SHA-256:
+Thunder `132503375a337dc7d4e902247525a9cc2b527825059e1b4b963d528b0f4d0d5b`;
+Star `f67636d352ed594dba8c0bc8e6c31ef96b373d79b0bbc8b75c45e8e3c2535f05`.
+There is no additional pack, external texture, new rig, or runtime Shared Library dependency.
+
 ## v1.17 candidate Rally selection
 
 Only Shared `platformer:Level and Mechanics/glTF/Fence_Middle.gltf` was added through the public

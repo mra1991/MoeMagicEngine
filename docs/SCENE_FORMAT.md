@@ -1,9 +1,36 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is candidate version 51 with marker `MoeMagicScene`; the current loader accepts versions 1 through 51 and rejects
+is candidate version 52 with marker `MoeMagicScene`; the current loader accepts versions 1 through 52 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 52 — captured driving Routes and bounded Boost
+
+v1.18 adds three complete records; no runtime state is serialized. Earlier Scene versions reject
+these premature types and retain all existing behavior. Ordinary prefab46 shares the records.
+
+- `RouteComponent`: `enabled=true`, `points=[[0,0,0],[0,0,-10]]` (2–32 finite local points),
+  `corridorHalfWidth=4` [2,12] world metres. Full world transform is captured once before Start.
+  Captured segments >=0.01m, total <=4096m and nonzero XZ; nonadjacent XZ crossings/overlaps and
+  adjacent foldback overlap reject. At most16 records including dormant. Route is not a pose writer.
+- `VehicleRouteDriverBehaviour`: `enabled=true`, `route=null` (incomplete Edit draft), `cruiseSpeed=10`
+  [0.5,40], `cornerSpeed=4` [0.5,cruise], `lookAhead=6` [1,30], `laneOffset=0`,
+  `obstacleDistance=10` [1,30], `arrivalDistance=1.5` [0.25,5], `stuckTimeout=4` [1,15]. Distances
+  are world metres, speeds m/s, timeout seconds. Same-owner preceding Arcade Vehicle is required;
+  enabled VehicleInput and RouteDriver are mutually exclusive even neutral/control-gated. Active
+  admission requires an enabled Route, cruise <= base forward speed and abs(laneOffset)+chassis
+  half-width <= corridor. Three bounded physical rays inform normalized demand; Jolt owns pose.
+- `VehicleBoostComponent`: `enabled=true`, `duration=3` [0.1,10] seconds,
+  `accelerationMultiplier=1.5` [1,2], `forwardSpeedMultiplier=1.25` [1,2]. Same-owner preceding
+  Arcade Vehicle required; effective acceleration <=20m/s² and forward speed <=40m/s. Reverse,
+  braking, steering, grip, Health and shape remain unchanged. Pending/active state and expiry are
+  fixed-runtime facts, not authored properties.
+
+Route references participate in typed history, clone/prefab remapping and deletion repair. These
+records are excluded from prepared runtime actors including disabled records. Project race rules,
+countdown, ordered gates, placing and pickup claims remain Lua; no engine race format is introduced.
+Unrelated source Scenes need not be resaved.
 
 ## Version 51 — backward-compatible vehicle pedals
 

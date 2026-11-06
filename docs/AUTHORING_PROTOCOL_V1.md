@@ -1,8 +1,8 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.16.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.17.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.16 final report (see installed documentation/source reference) owns current
+records introduction; the v1.17 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
 
@@ -19,9 +19,36 @@ exports are authoritative for exact fields/defaults; the following additions sup
 The released v1.16 plan (see installed documentation/source reference) implements revision4:
 43 complete descriptors,47 commands and copied bounds/motion inspection. The final report above
 records completed acceptance. These counts supersede the historical v1.15 counts above.
-The v1.17 candidate (see installed documentation/source reference) implements revision5
+The v1.17 release (see installed documentation/source reference) implements revision5
 with46 complete descriptors/53 commands, typed input and copied rig/pose/vehicle inspection.
-The generated exports reflect this candidate; this is not an independent acceptance claim.
+Those accepted exports are extended by the v1.18 candidate below.
+
+The approved v1.18 plan (see installed documentation/source reference) specifies
+revision6 with49 complete descriptors/54 commands: Route/VehicleRouteDriver/VehicleBoost and copied
+play.progress.inspect, plus additive motion status. Candidate implementation is in progress; its
+report distinguishes compiled/validated work from outstanding E01/publication and independent gates.
+Protocol/schema1 and launch/security bounds remain unchanged; generated exports come from the registry.
+
+### v1.18 copied progress and rival authoring
+
+RouteComponent, VehicleRouteDriverBehaviour and VehicleBoostComponent have complete typed fields,
+defaults, ranges, dependencies, history and reference metadata. See Scene52 for native composition
+constraints. No generic JSON writer or new pose authority is introduced.
+
+`play.motion.inspect` adds `vehicleRoute` and `vehicleBoost`. Both have explicit available/reason.
+Route driver copies state, mapped Route reference, distance/length/lateralOffset, desiredSpeed,
+committed throttle/steering/brake, obstacleAvailable/obstacleDistance, stuckDuration/resetRevision.
+Boost copies state, remaining, effectiveAcceleration/effectiveForwardSpeed and revision.
+
+`play.progress.inspect {targets:[EditReference,...]}` is read-only/null-guard, Playing/Paused only,
+1–8 distinct original Edit references. It returns decimal runtimeGeneration/committedFrames,
+runtimeScene, targets and currentLevel/lastLevel. Targets have sourceEditRef/resolved/reason and
+explicitly available/unavailable Health (`current/maximum/depleted/revision`) and Objective
+(`completed/total/complete/unresolved_missing/revision`) facts. Available level records contain
+`scene_path/score/awards`; unavailable records give a reason. No private Lua state, full run ledger,
+save storage or runtime mutation handle is returned. Stop or runtime Scene replacement invalidates
+the original mapping; repeated Paused queries do not advance simulation. Existing1MiB response cap
+and main-thread dispatch apply. The shipped client recognizes this read command without a state guard.
 
 ### v1.17 input and copied presentation contract
 
