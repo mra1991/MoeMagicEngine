@@ -1,13 +1,13 @@
 # Moe Magic Engine — Getting started
 
-This v1.19.0 Windows x64 release includes per-user setup, the complete portable payload and
+This v1.20.0 Windows x64 release includes per-user setup, the complete portable payload and
 independent sample sources. It needs a working OpenGL 3.3-capable Windows graphics driver.
 Read the included Licenses/MoeMagicEngine.txt for approved free proprietary use and game/runtime
 redistribution. This unsigned release is not clean-machine certification.
 
 ## Install and launch
 
-Obtain `MoeMagicEngine-1.19.0-Setup.exe` and its matching `.sha256` from the
+Obtain `MoeMagicEngine-1.20.0-Setup.exe` and its matching `.sha256` from the
 [official releases](https://github.com/mra1991/MoeMagicEngine/releases).
 Run the installer wizard. The default application location is
 your Local App Data Programs folder. Choose an optional Desktop shortcut, then launch **Moe Magic
@@ -18,7 +18,7 @@ For an upgrade, close running editor/Player windows and retain the existing inst
 Setup replaces application files in place and updates installed-app metadata/shortcuts; it does
 not upgrade independent game copies or erase external projects, preferences or saves. Do not
 choose a new version-numbered test directory for a normal upgrade. After installation, About and
-Windows Installed apps should both report 1.19.0. If a shortcut still opens an older copy, rerun
+Windows Installed apps should both report 1.20.0. If a shortcut still opens an older copy, rerun
 setup into the original installation folder and select the Desktop shortcut task if used.
 
 No-argument launch reopens the exact valid most-recent project, otherwise the Project Launcher.

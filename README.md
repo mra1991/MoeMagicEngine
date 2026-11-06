@@ -20,7 +20,7 @@
 
 ---
 
-**Current stable release: [v1.19.0 — Walkable Terrain and Structured Sculpting](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.19.0).**
+**Current stable release: [v1.20.0 — Terrain Surfaces and Deterministic Placement](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.20.0).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
 
 ## 🚀 Quick Start
@@ -49,7 +49,11 @@ You do **not** need the engine source code, Visual Studio, or C++ to make a game
 
 The engine itself is proprietary, but it is **free to use with no royalties or revenue threshold** for personal, educational, free, and commercial games.
 
-## New in v1.19.0: Walkable Terrain and Structured Sculpting
+## New in v1.20.0: Terrain Surfaces and Deterministic Placement
+
+Paint roads and banks without changing collision or navigation. Preview seeded scenery before applying it: the editor identifies hand-edited props it will keep and objects it will retire. Placements remain ordinary editable Scene objects, and a placement change can be undone as one step.
+
+### Walkable terrain
 
 Preview a brush stroke, sculpt a slope and undo it in the editor. Rendering, collision and navigation use the same saved [terrain surface](docs/TERRAIN_FORMAT.md) in Windows and Web games. The installed authoring client can sample, edit and save terrain through the same document. Cinder Relay is a repository-only survey project, not an installed template.
 
@@ -75,7 +79,7 @@ Orchard, Rally and earned progress are preserved. Selected CC0 Rock_2 and Rock03
 
 Sky Orchard now spans six acts with checkpoints, optional routes and three collectible Gem goals.
 A living animated menu, textured sky and quiet music give the sample a cohesive presentation.
-Structured authoring now covers 50 complete descriptors and 64 commands, including typed Material
+Structured authoring now covers 50 complete descriptors and 67 commands, including typed Material
 publication and navigation baking. Project-image provenance travels with Windows/Web builds.
 Existing earned progress and game identity are preserved through the known progress migration.
 Reusable bounce/TNT/reward boxes, world-to-HUD feedback and the other two courses remain available.
@@ -132,7 +136,7 @@ sentinel, and an optional lever/gate/cannon/Heart-cache detour with camera frami
 reusable engine Components; they are not hardcoded native game rules.
 
 The [hosted browser demo](https://mra1991.itch.io/ultimate-platformer-coin-run) remains available.
-Its uploaded content may lag the current installer; create a fresh sample for the v1.19.0 reference.
+Its uploaded content may lag the current installer; create a fresh sample for the v1.20.0 reference.
 
 ### Product focus and structured authoring
 
@@ -263,10 +267,10 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v1.19.0 — Current Stable Public Release**
+**v1.20.0 — Current Stable Public Release**
 
-Download the installer and matching SHA-256 from the [v1.19.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.19.0).
-The installer is **64,722,620 bytes (64.72 MB / 61.72 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
+Download the installer and matching SHA-256 from the [v1.20.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.20.0).
+The installer is **64,816,978 bytes (64.82 MB / 61.81 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
 The release includes the editor, Windows/Web runtimes, preview helper, current offline guides,
 two New Project choices and the selected licensed Shared Library.
 

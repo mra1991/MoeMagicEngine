@@ -1,10 +1,18 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.18.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.19.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.18 final report (see installed documentation/source reference) owns current
+records introduction; the v1.19 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
+
+Revision 8 retains protocol/schema 1 and 50 complete descriptors. The registry
+exports 67 commands. `terrain.preview` includes palette edits, weighted paint disks/corridor
+stamps, named corridor/exclusion upserts and removal. The new read-only `placement.inspect`
+and guarded `placement.preview` / `placement.commit` use the same typed operation as the Terrain
+panel. See the installed client recipe (see installed documentation/source reference)
+for saved-terrain requirements, operand units, preview limits and the repair sequence. The
+generated wire schema (see installed documentation/source reference) is the field authority.
 
 The released v1.14 plan (see installed documentation/source reference)
 adds `prefab.capture`, PrefabSource/FlightImage resource slots and24 complete records below.
@@ -34,6 +42,10 @@ Protocol/schema1 and launch/security bounds remain unchanged; generated exports 
 shows the typed operation, revision, expected digest and short-lived preview token. No row arrays,
 filesystem helper, Lua API, preview body or new transport are exposed. Publication of a terrain
 file, the Scene reference and the navigation bake are separate operations with separate receipts.
+
+**Planned, not available in the release:** the v1.20 execution plan, §5 (see installed documentation/source reference)
+defines revision8: additive palette/mask operations within the terrain family, plus
+`placement.inspect`, `placement.preview` and `placement.commit`. Released clients still discover revision7.
 
 ### v1.18 copied progress and rival authoring
 

@@ -1,9 +1,23 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is candidate version 53 with marker `MoeMagicScene`; the current loader accepts versions 1 through 53 and rejects
+is version 54 with marker `MoeMagicScene`; the current loader accepts versions 1 through 54 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 54 — editable placement groups
+
+`placementGroups` is optional Scene metadata, never a Component or prefab field. Each group
+has a unique key, generatorVersion 1, terrainOwner, a bounded integer recipe and up to 64
+members; there are at most 16 groups. Each member records its attempt slot, generated root
+(zero = explicitly deleted/suppressed), project source identity, authored-subtree fingerprint
+and generated local XZ footprint in centimetres. A root can have only one owner. Scene load
+and Play cloning remap references; duplicating a prop or capturing it to a prefab copies only
+ordinary object content. Scene 1–53 have no groups. Template format remains 47.
+
+Players load the saved object hierarchy. They do not resolve the placement recipe or generate
+scenery, so an editor-only prefab or a missing recipe-only source does not become a runtime
+dependency. A missing model actually assigned to a saved mesh is still a publication error.
 
 ## Version 53 — referenced walkable terrain
 
