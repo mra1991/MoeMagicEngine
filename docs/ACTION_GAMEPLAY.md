@@ -1,5 +1,28 @@
 # Composable action gameplay
 
+## Ranged enemies and accepted-hit feedback (v1.22 implementation)
+
+RangedCombat composes existing Perception/NavAgent and Scripted Firearm; it is not a second weapon
+or motion writer. Its enabled controller claims the weapon even against older Lua fire/reload
+callers. Native accepted rounds determine burst progress; cadence, reload, cover and pending-Health
+eligibility remain shared with player weapons. See [navigation](NAVIGATION.md) for observation,
+settled aim and bounded authored repositioning.
+
+HitReaction consumes effective accepted damage through the bounded256-command Health transaction.
+Pending Health queries remain pure. Each command's spatial receipt is latched once; Firearm and
+swept Projectile can supply actual point/normal/incoming direction, ordinary script/contact damage
+may omit them. Rejected/zero damage has no reaction. Cooldown coalesces presentation, not damage;
+lethal ownership wins over a not-yet-presented living hit. The configured native animation Trigger
+is reserved, while project locomotion parameters still compose through the existing state graph.
+
+Configured target cues take precedence per channel over weapon fallback cues for body hits:
+a particle-only reaction keeps fallback audio, and an audio-only reaction keeps fallback particles. Particle snapshots
+copy an optional normalized direction at the impact, using its valid normal or incoming fallback;
+nonspatial feedback uses captured target position and ordinary upward emission without inventing
+collision geometry. Emitter Transforms are untouched. Saturated cues are dropped, never retried as
+damage. Existing128 requests/frame,512 live particles and whole-burst reservation remain unchanged.
+The [terminal authority](PHYSICAL_MECHANISMS.md) consumes the lethal event for one bounded impulse.
+
 ## First-person hitscan (v1.21.0)
 
 A player firearm belongs to the Character's captured perspective view. Movement follows the

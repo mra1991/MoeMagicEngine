@@ -1,10 +1,32 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.20.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.21.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.20 final report (see installed documentation/source reference) owns current
+records introduction; the v1.21 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
-This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
+This document owns the current candidate wire/descriptor contract. The
+approved v1.22 plan, §6 (see installed documentation/source reference)
+implements revision10 (55 complete descriptors/73 commands), including five document
+operations and extended copied combat inspection. Registry-generated exports and the maintained
+client/skill match this candidate; independent installed acceptance remains pending.
+
+### v1.22 candidate additions
+
+Complete descriptors add RangedCombat, HitReaction and Ragdoll; Perception includes the optional
+same-sample navigation target offset. `play.combat.inspect` adds nullable ranged/hitReaction/terminal
+groups with mapped references, observed aim/ground positions, observation age, physical LOS/blocker,
+alignment, remaining timers and accepted-hit/terminal geometry. Queries copy committed state and
+never advance simulation. Retired terminal status remains available until expiry; unavailable
+groups are null. [API28](SCRIPTING_API.md) exposes the bounded Lua subset, not mutation ownership.
+
+`scene.new {}` uses the existing dirty-document decision and invalidates old Scene references.
+`build_settings.inspect {}` returns the fixed document, declaration, revision/digest and draft state.
+Guarded `build_settings.edit {expectedDocumentRevision,operation}` accepts AddScene, RemoveScene,
+MoveScene or SetStartup with typed identity/index operands. `build_settings.save` checks the
+revision and source conflict before atomic publication; `build_settings.reload` requires explicit
+`discardDirty` for a dirty draft. Scene Undo does not own this document. See the generated schema
+and [Build Settings contract](BUILD_SETTINGS_FORMAT.md) for exact fields and bounds. Publishers
+continue to consume saved declarations, not private drafts or arbitrary filesystem paths.
 
 Released revision 8 retains protocol/schema 1 and 50 complete descriptors. Its registry
 exports 67 commands. `terrain.preview` includes palette edits, weighted paint disks/corridor
@@ -45,8 +67,8 @@ file, the Scene reference and the navigation bake are separate operations with s
 
 **Released in v1.21.0:** the v1.21 execution plan, §6 (see installed documentation/source reference)
 adds two complete component descriptors and read-only `play.combat.inspect` at capability
-revision 9 (52 complete descriptors, 68 commands). Released clients still discover revision 8
-(50/67); no change to the wire protocol or editor-only authority.
+revision 9 (52 complete descriptors, 68 commands). Current released clients discover revision 9;
+older clients retain their deployed revision. No wire-protocol or editor-only authority change.
 
 The revision-9 implementation accepts `play.combat.inspect {targets:[EditReference,...]}`
 with a null guard in Playing/Paused, for 1–8 unique original Edit targets. It copies
@@ -56,7 +78,7 @@ Firearm data includes controller/mode, ammo/capacity, cooldown/reloadRemaining, 
 tick, reason and local setback/tilt. A lastShot distinguishes eyeHit from actualHit, target,
 incoming direction and acceptedDamage; absent hits/normals are null, not fabricated geometry.
 Its references map back to Edit identities. Stop/reopen invalidates the mapping; reading never
-advances simulation or grants capture. The installed release remains revision 8 until acceptance.
+advances simulation or grants capture. The normal installed v1.21 release exposes revision 9.
 
 ### v1.18 copied progress and rival authoring
 

@@ -1,9 +1,25 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is version 55 with marker `MoeMagicScene`; the current loader accepts versions 1 through 55 and rejects
+is version 56 with marker `MoeMagicScene`; the current loader accepts versions 1 through 56 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 56 — ranged combat and accepted-hit reaction
+
+The v1.22 implementation adds disabled-by-default `RangedCombatComponent` (weapon, ordered
+minimum/preferred/maximum ranges, aim interval, accepted-round burst count/pause and bounded
+authored reposition points) and `HitReactionComponent` (optional visual/Trigger pair, reaction/
+cooldown intervals, movement/fire interruption and optional particle/audio references).
+Perception adds nullable `navigationTargetOffset`; null retains targetOffset for both sampled
+aim and navigation. Ragdoll adds `terminalImpulse` and `impulsePartKey`; old records migrate
+to zero impulse/root selection. Ordinary prefab49 shares these records and reference visitors.
+
+Earlier formats reject premature records/fields, then migrate absent new components and old
+defaults without changing runtime behavior. No transient observation, ammo, reaction timer,
+accepted-impact sequence, corpse pose or impulse receipt is serialized. Enabled composition and
+rig/motion authority remain native preflight, not a JSON bypass. See [navigation](NAVIGATION.md),
+[action gameplay](ACTION_GAMEPLAY.md) and [terminal physics](PHYSICAL_MECHANISMS.md).
 
 ## Version 55 — first-person rig
 
@@ -962,7 +978,7 @@ authored Particle Burst data; version 34 appends the field-free Graphics Prefere
 version 35 appends the optional path-only Script Behaviour; version 36 appends its required ordered
 typed property list; version 37 adds the optional Scene-local GameObject property value;
 version 38 adds Prefab Spawner; version 39 adds the three interaction Components; version 40 adds
-Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current saves emit version 53; later additions are detailed above.
+Respawnable, Checkpoint, Objective Counter and Conditional Reward. Version 41 adds paths/follow Cameras and Motor basis fields. Version 42 adds vehicles, target orientation and the receiver-mask spelling. Current saves emit version 56; later additions are detailed above.
 All accepted versions retain the same file-local
 ID remapping, hierarchy restoration, Camera, Transform, MeshRenderer, and LightComponent contracts.
 

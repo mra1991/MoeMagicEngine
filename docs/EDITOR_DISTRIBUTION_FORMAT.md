@@ -1,9 +1,27 @@
 # Editor distribution format and layout
 
-Current v1.12.0 publishes **format 7**, including the navigation sample/notice closure introduced
-in v1.8, in addition to the native/Web, catalog, guide and sample roles below. Use the current
-manifest and maintained publication inventories for actual file counts/hashes. Older numbered
-sections describe historical increments, not the current product version.
+Released v1.21.0 publishes **format 8**: two current template choices, exact authoring support,
+native/Web templates, navigation/asset notices, catalog, guide and other roles. Use the current
+manifest and maintained inventories for actual file counts/hashes. Format8 retires Pot product
+inputs while preserving historical readers; see [Project format](PROJECT_FORMAT.md).
+Older numbered sections below describe historical increments, not the current product version.
+
+**v1.22 candidate:** the plan, §7 (see installed documentation/source reference)
+implements format9 and one explicit optional Cinder sample slot. `optionalSamples: []` retains
+exactly Basic 3D and Ultimate Platformer. The only nonempty form is the closed CinderRelay record
+with the fixed project root and tutorial identities specified by the plan. Its exact
+declared files, notices, terrain/navigation and saved dependency closure must verify before a
+third choice appears. Partial/tampered/unlisted/escaping content rejects rather than becoming
+an unavailable but trusted sample. Historical formats1–8 keep their original contracts.
+Format9's exact ordered root is `format`, `engineVersion`, `platform`, `optionalSamples`, `files`;
+the native serializer, parser and package publisher use the same order.
+
+`package-editor.ps1 -IncludeCinderRelay` creates only the explicit portable fixture using
+`installer/cinder-relay-files.txt` and generated `Documentation/cinder-relay.html`. Reuse the
+canonical matching Release receipt; never install this fixture under the normal AppId. The
+public installer omits the switch, Cinder files and tutorial. Copying an admitted optional sample
+uses the ordinary confined New Project transaction and a fresh save identity; installation
+sources stay immutable. No directory discovery, runtime Shared fallback or public game admission.
 
 ## v1.1.0 introduction — format 6
 

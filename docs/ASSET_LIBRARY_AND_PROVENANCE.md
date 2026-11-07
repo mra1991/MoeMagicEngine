@@ -1,5 +1,27 @@
 # Asset library and project provenance
 
+## v1.22 owner-correction FPS selection
+
+The owner-authorized presentation correction adds only Kenney Blaster Kit2.1 `blaster-f`
+(OBJ, matching MTL and colormap), Sci-fi Sounds `laserSmall_000`, Impact Sounds
+`impactSoft_medium_000` / `impactSoft_heavy_000`, and BMacZero `clipload2.wav`. Each source is
+CC0; original notices and creator URLs accompany the exact selection. Project/Shared discovery
+found no suitable standalone gun/shot/reload closure. Existing Kenney UI `click1.wav` supplies
+the dry click. No unrelated pack or unknown-license local model is admitted.
+
+`scripts/prepare-fps-feedback-assets.py` pins the downloaded archive/file hashes, extracts only
+the selected files and converts the three OGG sources to mono PCM16 at their original rate and
+duration (arithmetic channel mean, no normalization or trimming). Per-bundle `DERIVATIVES.md`,
+`SELECTION.md` and notices record the tool versions, sources and hashes. Original OGGs are
+source-only; runtime AudioClips use WAV. Shared metadata identifies weapon, fire, reload and
+damage art/sounds, not native behavior; the existing curated count and catalog schema are unchanged.
+
+Public plan/commit intake created Cinder's `relay-blaster`, `relay-shot`, `relay-impact`,
+`relay-damage`, `relay-reload` and `relay-dry-click` bundles with asset-source receipts. Scene
+settings own gain/pitch/alignment; the cosmetic gun does not own the logical muzzle or damage.
+The old prototype assets remain local/project history but are no longer the encounter's selected
+presentation. Asset provenance is established; owner audible/visual acceptance is a separate gate.
+
 ## v1.18 Rally pickups
 
 The source project contains only the Shared Library selections `Thunder.gltf` and `Star.gltf`

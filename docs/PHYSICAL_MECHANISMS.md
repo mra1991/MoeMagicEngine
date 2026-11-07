@@ -1,10 +1,28 @@
 # Physical mechanisms and terminal ragdolls
 
 v1.9.0 adds Physics Constraint and Ragdoll as ordinary authored Components on Windows and Web.
-These mechanics were introduced with Scene45/prefab39/API20; v1.12.0 writes Scene47/prefab41
-and supports APIs 1–23 without changing the mechanism contracts below. Navigation
-asset 1 and distribution 7 are unchanged. Independent release acceptance is separate from this
-contract; exact implementation evidence is in the v1.9.0 implementation report.
+These mechanics were introduced with Scene45/prefab39/API20. The v1.22 implementation writes
+Scene56/prefab49 and supports APIs1–28; navigation asset1 remains unchanged, distribution is9.
+Independent release acceptance is separate from this
+contract; the v1.9.0 report records introduction and the v1.22.0 implementation report records
+the current combat/impulse evidence and pending independent acceptance.
+
+### v1.22 terminal impulse and structured mapping
+
+Ragdoll's complete public descriptor exposes enabled/visual/rigSignature, lifetime/environment mask,
+typed bounded parts and `terminalImpulse` (0–100N s, default0) / `impulsePartKey` (empty=root).
+Use the actual imported rig's qualified paths/signature. A nonempty part key must resolve exactly;
+invalid maps fail preflight. Old records retain zero impulse. The native lethal accepted-impact
+sequence supplies the incoming unit direction once at the selected part centre, clamped by that
+part's mass times5m/s. No valid spatial evidence means zero kick; no torque or public force API.
+
+Lethal ownership supersedes living reaction/animation, captures the last committed constrained
+pose and retires standing collider/navigation/fire before the next fixed handoff. Private bodies
+collide only with eligible Static environment under masks, including real saved terrain; they
+never become public hit/Character targets. Four mappings including disabled drafts,2–12 parts,
+48 bodies/44 joints,200kg total per actor and0.1–30s lifetime remain unchanged. Separate non-skinned
+cosmetics are not bone attachments; project presentation may remove those once after retirement
+without removing the terminal visual. Expiry/restart remain the existing runtime authority.
 
 ## Ownership and authoring
 

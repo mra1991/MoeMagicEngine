@@ -1,4 +1,4 @@
-# Current user references — v1.21.0
+# Current user references — v1.22.0
 
 These references describe the released engine. The installer includes the illustrated User Manual,
 Ultimate Platformer guide under **Help → User Manual**. Start with
@@ -14,7 +14,7 @@ Ultimate Platformer guide under **Help → User Manual**. Start with
 - **Publishing:** [Build Settings](BUILD_SETTINGS_FORMAT.md), [Windows Player package](PLAYER_BUILD_FORMAT.md),
   [Web package](WEB_BUILD_FORMAT.md), [editor distribution](EDITOR_DISTRIBUTION_FORMAT.md).
 
-Current formats are Scene 55, ordinary prefab 48, prefab variant 1 and Lua API 27. Other format
+Current formats are Scene 56, ordinary prefab 49, prefab variant 1 and Lua API 28. Other format
 versions are identified in their own references. Older-version migration descriptions remain
 historical compatibility information, not the current format default.
 

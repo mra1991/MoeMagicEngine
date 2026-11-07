@@ -1,5 +1,23 @@
 # Scripting API — runtime control
 
+## API28 — copied combat status (v1.22 implementation)
+
+Exact APIs1–27 remain supported. `get_ranged_combat_status(actor)` and
+`get_hit_reaction_status(actor)` accept same-session opaque handles and return nil for a missing,
+inactive or gameplay-retired actor. They are read-only and do not advance simulation. Ranged status
+copies state/reason, weapon/target/blocker, `observed_aim`, `observed_navigation_point`,
+`observation_age`, `physical_line_of_sight`, `aligned`, `aim_remaining`, `burst_pause_remaining`,
+`reload_remaining`, `burst_shots`, fixed `revision` and `accepted_shot_revision`. Vectors are
+three-number arrays; absent observations/LOS are nil. Reaction copies `reacting`, `terminal`,
+reason, `reaction_remaining`, `cooldown_remaining`, `revision`, `tick` and optional `accepted_damage`.
+
+These copies do not authorize native fire, damage, pose, impulse or target-search writes. Existing
+fire/reload APIs reject a natively claimed weapon, including calls from older API versions.
+Project presentation may map movement/shot revisions to ordinary animation parameters, but the
+HitReaction Trigger stays reserved for native accepted hits. Check cached actor handles with
+`is_valid()` before older ordinary queries after terminal retirement; corpse lifetime is not
+continuing gameplay eligibility. See the maintained recipe (see installed documentation/source reference).
+
 API27 adds `request_fire(weapon, {x,y,z})`, `request_reload(weapon)` and
 `get_firearm_status(weapon)`; API1–26 keep their contracts. The mutating methods accept
 only a live Scripted firearm in an eligible simulation callback and return a boolean plus
@@ -12,7 +30,7 @@ uses a fixed one-member Script counter. Finish intent waits for committed award 
 to projected lethal Health/recovery. Only the project's save schema advances1→2; no new Lua API,
 module loader, durable checkpoint snapshot or engine-owned Orchard policy is introduced.
 
-The current v1.18.0 candidate supports exact **APIs 1–26**. API26 inherits APIs1–25. API25 inherits APIs1–24 and adds the copied
+Released v1.21.0 supports exact **APIs 1–27**. API27 adds the firearm operations above; API26 inherits APIs1–25. API25 inherits APIs1–24 and adds the copied
 route queries below. API24 inherits APIs1–23 and adds the bounded
 box/presentation operations below. v1.12.0 added API23 interaction,
 projectiles and framing status. Earlier API examples remain valid. The final test report records

@@ -1,6 +1,13 @@
 # Moe Magic Prefab Format
 
-Current ordinary prefabs write **48** and read **1–48**. Version 48 shares the
+Current ordinary prefabs write **49** and read **1–49**. Version49 shares the
+[Scene56 combat/reaction records](SCENE_FORMAT.md#version-56--ranged-combat-and-accepted-hit-reaction),
+nullable Perception navigation offset and zero-default Ragdoll impulse settings. Internal weapon,
+visual, cue and part references remap through capture/instantiation/history. Clear external player/
+surface references in a disabled sentry draft, then explicitly bind/enable the instance. The
+variant wrapper remains1; these additions do not permit runtime enemy spawning.
+
+Version 48 shares the
 [Scene 55 first-person rig](SCENE_FORMAT.md#version-55--first-person-rig) record and motor basis.
 It also stores the authored FirearmComponent configuration and internal reference slots.
 Leave external Camera/instigator bindings empty in a disabled weapon draft and explicitly

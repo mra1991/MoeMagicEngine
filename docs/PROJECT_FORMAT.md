@@ -1,8 +1,18 @@
 # Moe Magic Project Descriptor
 
-## v1.13 candidate — explicit authoring launch and distribution8
+## v1.22 candidate project tooling
 
-Project1, Scene47/prefab41/variant1/API23/Player4 remain unchanged. Explicit
+Project descriptor1 and Build Settings1 remain unchanged. The
+approved plan, §§6–7 (see installed documentation/source reference)
+exposes existing Scene/Build Settings document operations and a named optional distribution9
+sample slot. It does not add project creation/switching to stdio, a runtime Shared mount or a
+third template to normal v1.22 publication. The current protocol/generated schema owns the
+implemented fields and guards. A verified optional portable sample uses the existing writable
+copy/fresh-identity transaction; incomplete optional content is not offered by New Project.
+
+## v1.13 release — explicit authoring launch and distribution8
+
+At that release Project1, Scene47/prefab41/variant1/API23/Player4 stayed unchanged. Explicit
 `MoeMagicEngine.exe --project <absolute-project> --authoring-stdio --authoring-output-root <existing-output>`
 opts into editor-only Protocol1. No automatic listener or Player transport exists. The output grant
 must be outside project/installation/user-state roots. Ordinary launch/MRU behavior is unchanged.

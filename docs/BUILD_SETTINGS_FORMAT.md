@@ -1,5 +1,20 @@
 # Build Settings Format
 
+## Structured authoring in v1.22
+
+Protocol1 revision10 exposes `build_settings.inspect/edit/save/reload` through this same fixed
+document authority. Inspect returns startup/included Scenes, availability/dirty/conflict/diagnostic,
+source digest and opaque document revision. Every mutation uses the latest session guard and
+`expectedDocumentRevision`. Edit accepts one AddScene(identity), RemoveScene(zero-based index),
+MoveScene(index,direction -1/+1) or SetStartup(identity) operation. Save has no path or raw payload.
+Reload defaults `discardDirty=false`; only explicit true at the current revision permits discard.
+
+These edits do not enter Scene Undo (`historyChanged=false`). Save reports actual publication or
+no change; conflicts preserve the useful draft. Publishing always consumes the saved declaration,
+not an unsaved draft. The format1,64-Scene/256KiB and confined existing-Scene rules below are unchanged.
+`scene.new` separately uses the existing New/Save/Discard/Cancel authority; Save As supplies its
+confined identity. The protocol adds neither a raw JSON writer nor a project-switch operation.
+
 v0.8.7 owns one project document at `ProjectSettings/build_settings.json`. It declares the exact
 ordered set of Scenes included by Build Game and exactly one startup Scene. It is authoring data,
 not Scene data, runtime state, a build profile, or a request to load multiple Scenes at runtime.

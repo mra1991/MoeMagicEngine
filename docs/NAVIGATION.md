@@ -1,5 +1,26 @@
 # Navigation, perception and agent states
 
+## Ranged policy in v1.22
+
+The existing Agent State Controller optionally consumes RangedCombat on the same root; NavAgent
+remains the sole physical move/yaw writer. Its Scripted Firearm is exclusively claimed by that
+controller. Missing/disabled combat preserves the original Patrol/Pursue/Return behavior below.
+Combat adds Aim/Attack/Reload/Reposition/Stagger status, not a second AI or Transform system.
+
+Perception's optional target-local `navigationTargetOffset` separates a grounded path point from
+the observed chest/eye `targetOffset`. A completed sample captures both from the same target frame;
+loss of sight retains those samples/age, never reads a hidden live target. Null preserves the old
+single-point behavior. Stopped aligned aim must settle with fresh observation, then pass a current
+physical LOS check; the actual muzzle ray still decides cover. Burst counts advance only on accepted
+rounds from the shared firearm. Up to eight authored reposition points use the existing path-query
+budget and deterministic preference/index order; Pending/Blocked are not arrival or teleportation.
+
+Reaction, pending lethal Health, recovery, Pause/Stop/Scene replacement and control transfer suppress
+stale move/fire intents. Caps remain32 agents/sensors/firearms, four path searches/frame and32 sensor
+rays/frame, with at most32 discharge-eligibility queries/fixed tick. LuaAPI28 and revision10 combat
+inspection expose copied sample/aim/blocker/timing facts; neither query advances the simulation.
+See [action gameplay](ACTION_GAMEPLAY.md) and the sentry recipe (see installed documentation/source reference).
+
 v1.8.0 uses editor-only Recast and shared runtime Detour 1.6.0, pinned to
 `6dc1667f580357e8a2154c28b7867bea7e8ad3a7`. Scene 44/prefab 38 store authored Components; API 19
 exposes copied runtime status and deferred controls. No Crowd, tile cache, runtime rebaking,
@@ -50,7 +71,8 @@ sampleInterval 0.2 (0.05–5 seconds). Offsets are object-local. The world-forwa
 committed physics LOS ignore self, triggers, query-only, inactive and pending-destroy objects.
 Symmetric masks apply. Depleted Health/recovering targets are ineligible. Nearest visible wins;
 authored order breaks ties. A target need not have a Collider. The sampled targetOffset point is
-the pursued destination; choose a point near the walking surface, not an elevated mesh center.
+the pursued destination when navigationTargetOffset is null; otherwise use the separately sampled
+ground offset for pursuit and retain targetOffset for observed aim.
 
 Agent State Controller needs enabled NavAgent and Perception. It has 1–16 world-space patrol points,
 patrolPauseSeconds 1 (0–30), leashDistance 10 ((0,100]), lostSightSeconds 1.5 (0–10). Patrol pauses
