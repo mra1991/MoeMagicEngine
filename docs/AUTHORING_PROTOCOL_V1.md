@@ -1,12 +1,12 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.19.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.20.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.19 final report (see installed documentation/source reference) owns current
+records introduction; the v1.20 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
 This document owns the wire/descriptor contract; the plan must not maintain a competing copy.
 
-Revision 8 retains protocol/schema 1 and 50 complete descriptors. The registry
+Released revision 8 retains protocol/schema 1 and 50 complete descriptors. Its registry
 exports 67 commands. `terrain.preview` includes palette edits, weighted paint disks/corridor
 stamps, named corridor/exclusion upserts and removal. The new read-only `placement.inspect`
 and guarded `placement.preview` / `placement.commit` use the same typed operation as the Terrain
@@ -43,9 +43,20 @@ shows the typed operation, revision, expected digest and short-lived preview tok
 filesystem helper, Lua API, preview body or new transport are exposed. Publication of a terrain
 file, the Scene reference and the navigation bake are separate operations with separate receipts.
 
-**Planned, not available in the release:** the v1.20 execution plan, §5 (see installed documentation/source reference)
-defines revision8: additive palette/mask operations within the terrain family, plus
-`placement.inspect`, `placement.preview` and `placement.commit`. Released clients still discover revision7.
+**Released in v1.21.0:** the v1.21 execution plan, §6 (see installed documentation/source reference)
+adds two complete component descriptors and read-only `play.combat.inspect` at capability
+revision 9 (52 complete descriptors, 68 commands). Released clients still discover revision 8
+(50/67); no change to the wire protocol or editor-only authority.
+
+The revision-9 implementation accepts `play.combat.inspect {targets:[EditReference,...]}`
+with a null guard in Playing/Paused, for 1–8 unique original Edit targets. It copies
+runtimeGeneration, committedFrames, Scene identity and per-target resolved/view/firearm groups.
+View data separates basePitch/baseYaw from kickPitch/kickYaw and names ownership/reason.
+Firearm data includes controller/mode, ammo/capacity, cooldown/reloadRemaining, accepted revision,
+tick, reason and local setback/tilt. A lastShot distinguishes eyeHit from actualHit, target,
+incoming direction and acceptedDamage; absent hits/normals are null, not fabricated geometry.
+Its references map back to Edit identities. Stop/reopen invalidates the mapping; reading never
+advances simulation or grants capture. The installed release remains revision 8 until acceptance.
 
 ### v1.18 copied progress and rival authoring
 

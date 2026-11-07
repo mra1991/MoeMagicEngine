@@ -1,5 +1,11 @@
 # Scripting API — runtime control
 
+API27 adds `request_fire(weapon, {x,y,z})`, `request_reload(weapon)` and
+`get_firearm_status(weapon)`; API1–26 keep their contracts. The mutating methods accept
+only a live Scripted firearm in an eligible simulation callback and return a boolean plus
+reason. A queued request does not imply a shot or damage. Status returns a copied table
+or nil; see the authoring recipe (see installed documentation/source reference).
+
 v1.15 reuses API24 unchanged. Platformer Lua composes optional Kinematic route gates from committed
 ObjectiveCounter state; Green/Pink still require accepted ConditionalReward claims. Hidden Blue
 uses a fixed one-member Script counter. Finish intent waits for committed award work and loses

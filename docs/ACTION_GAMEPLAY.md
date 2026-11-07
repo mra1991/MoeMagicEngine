@@ -1,5 +1,25 @@
 # Composable action gameplay
 
+## First-person hitscan (v1.21.0)
+
+A player firearm belongs to the Character's captured perspective view. Movement follows the
+un-kicked yaw. Aim uses the committed eye and the kick left by earlier shots. Keep its neutral
+muzzle on a separate mount from the visible model. The short eye-to-muzzle check prevents a
+barrel through thin cover from shooting past it. A scripted firearm instead accepts a normalized
+world direction at its physical muzzle. Both use the same fixed cadence, spread, magazine,
+reload and damage rules. Cover and misses spend a round; rejected demand does not.
+
+Projectile damage is staged first. Firearms resolve in stable owner order against committed
+physical geometry and pending Health. Feedback is optional and cannot replay damage.
+Use the copied shot record to distinguish the centre aim hit, actual obstruction and effective
+damage. A missing hit or overlap normal is absent, not a fabricated point or direction.
+The viewmodel and neutral mount chain participate in managed pose validation. The visual has
+one kick writer; its muzzle and intermediate mounts stay at their authored local poses. A
+competing Transform writer fails through the normal authority check instead of feeding cosmetic
+motion into aim. Optional one-shot audio copies the clip/settings and shot position; particles
+copy authored burst settings at the muzzle or actual impact. Saturated optional presentation is
+dropped without retrying damage. Ordinary scripted audio retains its strict command semantics.
+
 v1.12 adds four authored Components and Lua API23. These are reusable mechanics, not native
 lever, door, cannon, quest or inventory policy. Scene47 / ordinary prefab41 store authored values;
 variant1, Input Actions3 and the other v1.11 format authorities are unchanged.

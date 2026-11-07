@@ -1,6 +1,13 @@
 # Moe Magic Prefab Format
 
-Current ordinary prefabs write **47** and read **1–47**. Version 47 adds the [Scene 53 Terrain record](SCENE_FORMAT.md#version-53--referenced-walkable-terrain) to ordinary prefabs. A captured terrain retains its project resource identity rather than embedding rows. A disabled terrain is still excluded from prepared runtime actors. Earlier prefab versions reject this record; the variant wrapper remains version 1.
+Current ordinary prefabs write **48** and read **1–48**. Version 48 shares the
+[Scene 55 first-person rig](SCENE_FORMAT.md#version-55--first-person-rig) record and motor basis.
+It also stores the authored FirearmComponent configuration and internal reference slots.
+Leave external Camera/instigator bindings empty in a disabled weapon draft and explicitly
+bind after instantiation. Earlier ordinary prefabs cannot contain the new records or basis;
+older assets are not rewritten on load. These additions do not enable runtime prefab spawning.
+
+Version 47 adds the [Scene 53 Terrain record](SCENE_FORMAT.md#version-53--referenced-walkable-terrain) to ordinary prefabs. A captured terrain retains its project resource identity rather than embedding rows. A disabled terrain is still excluded from prepared runtime actors. Earlier prefab versions reject this record; the variant wrapper remains version 1.
 
 Version 46 (v1.18) adds RouteComponent,
 VehicleRouteDriverBehaviour and VehicleBoostComponent with the complete

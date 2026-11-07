@@ -5,6 +5,18 @@ Moe Magic Engine uses one strict project input asset at
 may select another contained asset with `--input-actions`. The editor panel changes only the fixed
 project-default document through complete validated value requests.
 
+The v1.21 first-person rig uses format 3 unchanged. Bind its named **Look** action as Axis2D
+with a RightStick binding and dead zone. Stick input is a turn rate in degrees/second.
+Mouse look is displacement from a host-owned relative cursor, not another Axis2D binding:
+it is accumulated until a fixed tick consumes it, without multiplying by frame time.
+Move/Jump retain their existing bindings. A FirstPerson motor strafes and backpedals
+relative to the camera's base yaw; it does not turn to face the movement direction.
+The camera, sensitivity and pitch limits are Scene settings, not input-map fields.
+Fire and Reload are named Button actions: the drill uses Left mouse/RightBumper and R/FaceWest.
+The capture activation edge and held Fire are suppressed until release. Mouse firing requires
+actual mouse ownership; pad-only resume does not unlock mouse firing. Escape releases this
+gameplay lease before legacy Player Quit. Non-FPS actions retain their existing routing.
+
 v1.17 adds typed protocol editing over this same document, not a second format or writer. Commands
 `input.inspect/edit/save/reload` use opaque document revisions and the ordinary state guard;
 the [protocol](AUTHORING_PROTOCOL_V1.md) owns wire records. GUI/recovery edits invalidate stale

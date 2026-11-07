@@ -1,5 +1,11 @@
 # Web Player and export
 
+For a first-person game, click the game canvas after Start. Escape releases the cursor; a
+fresh click resumes look. Embedded hosts must permit pointer lock for mouse gameplay. A
+focused canvas or working menu alone is not evidence of a lock grant. If the resume prompt
+persists, open the published URL in a standalone browser. The v1.21 proof supported movement
+in standalone Chrome; the owner did not get gameplay input in the Codex companion tab.
+
 Web is an additional target, not a replacement for Windows. v1.1.0 removes the visible Experimental
 label without changing the browser limits below. The early Ultimate
 Platformer feasibility checkpoint passed with separately recorded owner interaction/audio evidence.

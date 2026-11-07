@@ -1,9 +1,28 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is version 54 with marker `MoeMagicScene`; the current loader accepts versions 1 through 54 and rejects
+is version 55 with marker `MoeMagicScene`; the current loader accepts versions 1 through 55 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
+
+## Version 55 — first-person rig
+
+`FirearmComponent` is also a version-55 record (ordinary prefab 48). It stores enabled,
+controller (Player/Scripted), mode (Semi/Auto), instigator, neutral muzzle, optional view,
+cosmetic viewmodel and audio/particle references, named Fire/Reload actions, cadence, damage,
+magazine capacity, reload duration, range, spread/seed, physical and damage masks and bounded
+kick/return settings. Reference slots use ordinary object identities and remap on clone and
+prefab instantiation. A missing optional effect is null. Ammo, cooldown, held input, shot
+sequence, hit receipts and current recoil are never written. See [action gameplay](ACTION_GAMEPLAY.md).
+
+`FirstPersonViewComponent` stores `enabled`, `character`, `eyeOffset` (local metres),
+`initialYaw`, `initialPitch`, `sensitivity` (degrees per mouse unit), `stickRate` (degrees per
+second), `invertY`, `minPitch`, `maxPitch` (degrees) and `lookAction`. A new view is disabled.
+An enabled view owns the pose of one primary perspective Camera on a unit-scale root. Its
+Character's motor uses the new `FirstPerson` movement basis and points back to that Camera;
+base yaw, not travel direction, controls body facing. Capture, accumulated input and current
+look angles are Play state and are not saved. Scene 54 and earlier reject the new record and
+basis; loading an older Scene does not add a first-person rig.
 
 ## Version 54 — editable placement groups
 
@@ -13,7 +32,7 @@ members; there are at most 16 groups. Each member records its attempt slot, gene
 (zero = explicitly deleted/suppressed), project source identity, authored-subtree fingerprint
 and generated local XZ footprint in centimetres. A root can have only one owner. Scene load
 and Play cloning remap references; duplicating a prop or capturing it to a prefab copies only
-ordinary object content. Scene 1–53 have no groups. Template format remains 47.
+ordinary object content. Scene 1–53 have no groups. Scene 54 did not change prefab format 47.
 
 Players load the saved object hierarchy. They do not resolve the placement recipe or generate
 scenery, so an editor-only prefab or a missing recipe-only source does not become a runtime
