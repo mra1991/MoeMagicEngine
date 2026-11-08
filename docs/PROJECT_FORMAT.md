@@ -1,12 +1,23 @@
 # Moe Magic Project Descriptor
 
-## v1.23 candidate sample admission — acceptance pending
+## Current project ownership and v1.24 planning
+
+Released v1.23 provides three templates. The approved
+v1.24 plan (see installed documentation/source reference) keeps Project1,
+Build Settings1, fresh-copy identity and all source samples unchanged. Its two-genre exercises use
+disposable writable copies, not a new template or stdio project-creation/switch operation.
+The bounded test-session amendment (see installed documentation/source reference) is ephemeral launch/session authority,
+not an authored project flag or new persistence format. It uses disposable identities and isolated
+in-memory test progress/preferences; normal projects, owner saves and editor layout stay untouched.
+
+## v1.23 released sample admission
 
 The approved plan (see installed documentation/source reference)
 keeps Project1/Build Settings1 and the existing immutable-root/copy transaction. It fills the
 released distribution9 Cinder slot for a complete third template, preserving source identity and
 creating a fresh writable destination identity. It adds no stdio project creation/switching or
-runtime shared lookup. Current public v1.22 still offers two choices.
+runtime shared lookup. The final report (see installed documentation/source reference) closes installed
+third-template admission and owner/public acceptance, including required empty category roots.
 
 ## v1.22 released project tooling
 

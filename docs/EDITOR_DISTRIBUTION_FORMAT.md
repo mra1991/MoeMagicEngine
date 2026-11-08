@@ -1,9 +1,19 @@
 # Editor distribution format and layout
 
-Released v1.22.0 publishes **format 9**, with an explicit optional Cinder slot. Its accepted public
-payload leaves the slot empty and has two template choices. Use the current manifest and exact
+Released v1.23.0 publishes **format 9**, with the explicit Cinder slot populated and three template
+choices. v1.22 introduced the slot but left it empty in its public installer. Use the current manifest and exact
 maintained inventories for file counts/hashes. Earlier numbered sections describe historical
 increments, not the current product version.
+
+The approved v1.24 plan (see installed documentation/source reference)
+preserves format9, all three source templates and the EmptyRootsFix directory recipe. Only matching
+engine/authoring-support/documentation inputs change during implementation; disposable qualification
+projects and outputs never enter the payload. Approval does not describe a built v1.24 distribution.
+Its input/step/capture amendment (see installed documentation/source reference) also updates installed client/skill/schema
+support, matching native/Web adapters and explicitly granted local Preview bootstrap. Add any new
+focused reference to the exact existing support inventory; no new manifest version. Test grants,
+transcripts and screenshots are never package content. Ordinary user/itch games cannot enable the
+test route without an explicit test-host grant. Publication remains held pending amended gates.
 
 **Released v1.22:** the plan, §7 (see installed documentation/source reference)
 implements format9 and one explicit optional Cinder sample slot. `optionalSamples: []` retains
@@ -22,12 +32,13 @@ v1.22 public installer omitted the switch, Cinder files and tutorial. Copying an
 uses the ordinary confined New Project transaction and a fresh save identity; installation
 sources stay immutable. No directory discovery or runtime Shared fallback.
 
-**v1.23 candidate recipe, acceptance pending:** the plan, §6 (see installed documentation/source reference)
+**v1.23 released recipe:** the plan, §6 (see installed documentation/source reference)
 populates this same format9 slot for the accepted public mission. The existing installer wrapper's
 `-IncludeCinderRelay` selection carries the exact reviewed project/tutorial inventory and yields
 three choices after validation. This approval supersedes the former fixture-only product boundary,
 not its historical evidence or confinement rules. No format10, new launcher discovery or changed
-New Project transaction. Do not install an old optional fixture as the new public candidate.
+New Project transaction. The final report (see installed documentation/source reference) records completed
+installed/owner/public acceptance; old optional fixtures are not this public release.
 V1230-T1 preserves the slot's intentionally empty image/texture category roots through explicit,
 selection-guarded Inno `[Dirs]` records. The manifest remains an exact file inventory; installed
 admission is not weakened and no placeholder file or format change is introduced.

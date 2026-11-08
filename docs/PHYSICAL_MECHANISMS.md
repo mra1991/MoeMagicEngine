@@ -1,11 +1,15 @@
 # Physical mechanisms and terminal ragdolls
 
 v1.9.0 adds Physics Constraint and Ragdoll as ordinary authored Components on Windows and Web.
-These mechanics were introduced with Scene45/prefab39/API20. The v1.22 implementation writes
+These mechanics were introduced with Scene45/prefab39/API20. The released v1.23 baseline writes
 Scene56/prefab49 and supports APIs1–28; navigation asset1 remains unchanged, distribution is9.
-Independent release acceptance is separate from this
-contract; the v1.9.0 report records introduction and the v1.22.0 implementation report records
-the current combat/impulse evidence and pending independent acceptance.
+The v1.9 report records introduction; the v1.22/v1.23 final reports record accepted combat/impulse
+and mission evidence. Their historical pending implementation notes do not reopen those gates.
+
+The approved v1.24 plan, §§3–4 (see installed documentation/source reference)
+adds structured Physics Constraint authoring and copied committed observations, not a new mechanism
+or solver. Those adapters have an implemented, unreleased foundation checkpoint; the native fields/ownership below remain the
+contract. Ragdoll mapping is already released and is not part of this new descriptor scope.
 
 ### v1.22 terminal impulse and structured mapping
 

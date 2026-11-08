@@ -1,15 +1,31 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.22.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.23.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.22 final report (see installed documentation/source reference) owns current
+records introduction; the v1.23 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
-This document owns the released wire/descriptor contract: revision10,55 complete descriptors/
-73 commands, including five document operations and extended copied combat inspection.
-The released installation describes that surface; source exports/skill now include the unreleased
-revision11 descriptor increment below.
+This document owns the released wire/descriptor contract: revision11,59 complete descriptors/
+73 commands, including menu descriptors, typed document operations and copied combat inspection.
+Live descriptors and generated exports describe the running binary, not future approved coverage.
 
-**Implemented foundation, not released:** the v1.23 plan, §3 (see installed documentation/source reference)
+**Approved v1.24 extension, in progress:** the
+execution plan, §§3–4 (see installed documentation/source reference)
+specifies complete PhysicsConstraintComponent and CameraFramingZoneComponent descriptors, plus
+nullable committed `constraint`/`framing` groups in existing `play.motion.inspect`. Implemented
+revision12 has61 complete descriptors/73 commands, retaining protocol/schema1, native history,
+eight-target/original-Edit/lifetime bounds and existing physics/camera ownership. The plan defines
+closed nested fields, references, native defaults/ranges and unavailable observations. No new Lua
+family or persistence format. This checkpoint is not an accepted release.
+
+**Implemented candidate amendment, not released:** AGENT_TEST_SESSION (see installed documentation/source reference) owns
+the seven new `test.*` commands, closed operands/limits, opt-in grants, scheduling/cleanup and
+actual rendered artifact semantics. Candidate capabilityRevision13 has61 descriptors/80 Editor
+commands. Native/Web test hosts expose only session.open/inspect/close plus those seven commands.
+Protocol/schema1 and persistence versions are unchanged; current generated exports come from the
+production revision13 definitions. Earlier revision12 receipts retain their original attribution.
+The contract distinguishes virtual input from OS/browser permissions, physical pads and audio.
+
+**Released revision11:** the v1.23 plan, §3 (see installed documentation/source reference)
 defines revision11 with59 complete descriptors/73 commands. Only existing UI Panel, Controls
 launcher, Graphics launcher and Quit Game become writable through existing typed operations.
 Protocol/schema1 stays unchanged; generated exports and the maintained menu recipe are refreshed.
@@ -20,7 +36,7 @@ stages the name and commits it only with successful atomic Scene publication. Re
 publication preserves live name and saved state; existing post-publication warnings remain.
 This is Save As, not a separate rename Undo command or new persistence field. The focused A03
 follow-up passes; command count stays73.
-Do not advertise these prospective descriptors as present in a revision10 installation.
+Do not advertise these revision11 descriptors as present in a revision10 installation.
 
 ### v1.22 released additions
 
@@ -211,8 +227,11 @@ Reuse EditorObjectOperations, EditorAssetIntakeOperations, EditorSceneDocumentOp
 GameBuildOperation. Extract a narrow shared host coordinator where a UI handler currently owns
 preflight; do not duplicate it or bypass dirty Material/Input/Build/Save Settings documents.
 
-The adapter and its dependencies compile only into Editor, not MoeMagicRuntime/Windows Player/
-Web Player. Runtime data produced through it uses the same published formats and shared runtime.
+The full authoring adapter and Editor dependencies compile only into Editor, not Windows/Web
+Player. The approved revision13 amendment factors only bounded transport/envelope utilities and
+the shared test driver into host-safe code, with its explicit ten-command runtime subset; Editor
+mutation/history/dialog dependencies never enter Player. Runtime data produced through authoring
+uses the same published formats and shared runtime.
 No provider, prompt execution, arbitrary C++/host eval, shell, network or unrestricted file API.
 
 ## 2. Framing, limits and lifetime
@@ -238,7 +257,8 @@ No provider, prompt execution, arbitrary C++/host eval, shell, network or unrest
   after an unknown outcome, inspect content/receipts; do not blindly replay mutations.
 - Retain only eight completed build receipts and a 256-entry diagnostics ring (each entry at
   most 1024 bytes, with a truncation flag). Runtime diagnostics use a monotonic cursor and
-  report dropped entries. No unbounded trace, screenshot capture or source-content log.
+  report dropped entries. No unbounded trace/capture or source-content log. The approved revision13
+  test subset alone adds explicitly bounded Game PNG artifacts under its separate contract.
 - EOF/disconnect disables dispatch and discards undispatched requests. Finish an already
   committed/synchronous operation; do not kill publication mid-transaction. Stop session-owned
   Play and leave unsaved Edit content available for normal recovery/UI; never auto-save,
@@ -300,7 +320,8 @@ field, enum or component/property writes reject before mutation; no best-effort 
 ## 4. Initial commands
 
 `?` marks optional arguments below; no hidden target from selection. Result values include normal
-envelope state/effects plus the listed contract. All mutations are Edit-only except Play stop.
+envelope state/effects plus the listed contract. These authoring mutations are Edit-only except
+Play stop. The separate approved test subset operates only under its explicit runtime grant.
 The machine-readable command schemas generated during implementation must match these shapes.
 
 | Command | Args | Result/authority |
@@ -350,8 +371,10 @@ The machine-readable command schemas generated during implementation must match 
 | `navigation.bake.cancel` | `job` | Session job cancellation; terminal no-change does not delete/undo published bytes |
 
 Version 1 deliberately omits project switching, generic Scene JSON/Material/prefab/Build Settings
-file writes, runtime property mutation, input injection, arbitrary scripts on
+file writes, runtime property mutation, OS-wide input injection, arbitrary scripts on
 the host, full schema reflection, compound batch transactions and external website uploads.
+Released revision11 has no runtime input simulation. The approved revision13 opt-in test subset
+is the sole bounded exception for virtual input/clock/capture; it does not grant runtime setters.
 Existing projects/prefabs may contain uncovered components; inspect/copy/instantiate them through
 normal operations without silently dropping fields. Direct writes/add/remove to uncovered types
 return `UnsupportedCapability`. UI-specific operations remain available through the normal editor;

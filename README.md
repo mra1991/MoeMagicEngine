@@ -20,7 +20,7 @@
 
 ---
 
-**Current stable release: [v1.23.0 — Cinder Relay: Outpost Mission and Complete Menu Authoring](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.23.0).**
+**Current stable release: [v1.24.0 — Structured Mechanisms and Two-Genre Authorability](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.24.0).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
 
 ## 🚀 Quick Start
@@ -49,9 +49,11 @@ You do **not** need the engine source code, Visual Studio, or C++ to make a game
 
 The engine itself is proprietary, but it is **free to use with no royalties or revenue threshold** for personal, educational, free, and commercial games.
 
-## New in v1.23.0: Cinder Relay: Outpost Mission and Complete Menu Authoring
+## New in v1.24.0: Structured Mechanisms and Two-Genre Authorability
 
-Compose ranged enemies from perception, navigation, firearms and Health; add living-hit reactions and bounded terrain-supported terminal physics. Structured authoring includes rig mappings, copied combat status and two-Scene mission publishing. FPS recovery preserves capture, with independent hit-audio/particle routing and selected licensed weapon/audio resources in the Shared Library. Cinder Relay now ships as the third New Project template: three sentries, ordered pump/transmitter objectives, cover and recovery, extraction and Results/Replay. Native menu components and validated Scene names are writable through structured authoring (protocol1 revision11,59 descriptors/73 commands). See the [Cinder guide](docs/CINDER_RELAY.md).
+Author existing physical constraints and camera framing through typed operations and copied runtime observations. Protocol1 revision13 supplies61 complete descriptors and80 Editor commands. Explicit disposable test sessions add bounded simulated input, stepping and actual Game PNG capture across Editor, Windows Player and local Web Preview; Players expose only ten commands. These sessions do not prove physical controllers, audible output or browser permissions. See the [test-session contract](docs/AGENT_TEST_SESSION.md).
+
+The three existing New Project choices remain Basic 3D, Ultimate Platformer and Cinder Relay. Independent installed Cinder editing/publication and corrected disposable Platformer workshop traversal passed; no new shipped level or asset intake is included. This is not an AI Designer or authorization to implement one. See the [Cinder guide](docs/CINDER_RELAY.md).
 
 ### First-Person Control, Rifle and Recoil
 
@@ -87,7 +89,7 @@ Orchard, Rally and earned progress are preserved. Selected CC0 Rock_2 and Rock03
 
 Sky Orchard now spans six acts with checkpoints, optional routes and three collectible Gem goals.
 A living animated menu, textured sky and quiet music give the sample a cohesive presentation.
-Structured authoring now covers 59 complete descriptors and 73 commands, including typed Material
+Structured authoring now covers 61 complete descriptors and 80 Editor commands, including typed Material
 publication and navigation baking. Project-image provenance travels with Windows/Web builds.
 Existing earned progress and game identity are preserved through the known progress migration.
 Reusable bounce/TNT/reward boxes, world-to-HUD feedback and the other two courses remain available.
@@ -144,14 +146,14 @@ sentinel, and an optional lever/gate/cannon/Heart-cache detour with camera frami
 reusable engine Components; they are not hardcoded native game rules.
 
 The [hosted browser demo](https://mra1991.itch.io/ultimate-platformer-coin-run) remains available.
-Its uploaded content may lag the current installer; create a fresh sample for the v1.23.0 reference.
+Its uploaded content may lag the current installer; create a fresh sample for the v1.24.0 reference.
 
 ### Product focus and structured authoring
 
 Pot Pursuit is retired from shipped templates/tutorials; existing user copies remain compatible.
 Ultimate Platformer now uses compact Home, Level Select, Settings, Guide and Credits views.
 
-Optional project-bound editor-only stdio authoring ships with a maintained skill, 59 complete typed
+Optional project-bound editor-only stdio authoring ships with a maintained skill, 61 complete typed
 descriptors and copied schemas. It supports discovery, typed edits, Lua, history, save/reopen, Play
 and Windows/Web publication through existing editor authorities. It is not an autonomous AI Designer
 or a runtime networking API. Start with [Protocol1](docs/AUTHORING_PROTOCOL_V1.md) and the installed
@@ -275,10 +277,10 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v1.23.0 — Current Stable Public Release**
+**v1.24.0 — Current Stable Public Release**
 
-Download the installer and matching SHA-256 from the [v1.23.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.23.0).
-The installer is **65,625,259 bytes (65.63 MB / 62.59 MiB)**. Its adjacent SHA-256 identifies the accepted EmptyRootsFix payload.
+Download the installer and matching SHA-256 from the [v1.24.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.24.0).
+The installer is **65,889,275 bytes (65.89 MB / 62.84 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
 The release includes the editor, Windows/Web runtimes, preview helper, current offline guides,
 two New Project choices and the selected licensed Shared Library.
 

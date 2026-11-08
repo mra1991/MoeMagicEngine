@@ -1,6 +1,11 @@
 # Composable action gameplay
 
-## Ranged enemies and accepted-hit feedback (v1.22 implementation)
+The approved v1.24 plan, §§3–4 (see installed documentation/source reference)
+exposes existing Camera Framing Zone authoring and copied framing observations through the public
+adapter. It has an implemented, unreleased foundation checkpoint and changes neither the runtime framing contract below nor
+Lua API28/Scene56/prefab49. The paired physical-constraint descriptor reuses the existing solver.
+
+## Ranged enemies and accepted-hit feedback (released in v1.22)
 
 RangedCombat composes existing Perception/NavAgent and Scripted Firearm; it is not a second weapon
 or motion writer. Its enabled controller claims the weapon even against older Lua fire/reload
