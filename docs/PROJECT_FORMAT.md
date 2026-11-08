@@ -1,9 +1,17 @@
 # Moe Magic Project Descriptor
 
-## v1.22 candidate project tooling
+## v1.23 candidate sample admission — acceptance pending
+
+The approved plan (see installed documentation/source reference)
+keeps Project1/Build Settings1 and the existing immutable-root/copy transaction. It fills the
+released distribution9 Cinder slot for a complete third template, preserving source identity and
+creating a fresh writable destination identity. It adds no stdio project creation/switching or
+runtime shared lookup. Current public v1.22 still offers two choices.
+
+## v1.22 released project tooling
 
 Project descriptor1 and Build Settings1 remain unchanged. The
-approved plan, §§6–7 (see installed documentation/source reference)
+released plan, §§6–7 (see installed documentation/source reference)
 exposes existing Scene/Build Settings document operations and a named optional distribution9
 sample slot. It does not add project creation/switching to stdio, a runtime Shared mount or a
 third template to normal v1.22 publication. The current protocol/generated schema owns the

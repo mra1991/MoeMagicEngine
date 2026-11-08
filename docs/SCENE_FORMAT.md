@@ -5,6 +5,10 @@ is version 56 with marker `MoeMagicScene`; the current loader accepts versions 1
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
 
+v1.23 retains Scene56. Optional validated Save As `displayName` publishes the existing
+`sceneName` header atomically with content; it adds no field or migration. The Outpost mission
+and native menu descriptors compose these existing records.
+
 ## Version 56 — ranged combat and accepted-hit reaction
 
 The v1.22 implementation adds disabled-by-default `RangedCombatComponent` (weapon, ordered

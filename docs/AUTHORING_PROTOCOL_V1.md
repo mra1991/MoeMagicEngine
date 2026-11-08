@@ -1,16 +1,28 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.21.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.22.0**, with independent/owner/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.21 final report (see installed documentation/source reference) owns current
+records introduction; the v1.22 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
-This document owns the current candidate wire/descriptor contract. The
-approved v1.22 plan, §6 (see installed documentation/source reference)
-implements revision10 (55 complete descriptors/73 commands), including five document
-operations and extended copied combat inspection. Registry-generated exports and the maintained
-client/skill match this candidate; independent installed acceptance remains pending.
+This document owns the released wire/descriptor contract: revision10,55 complete descriptors/
+73 commands, including five document operations and extended copied combat inspection.
+The released installation describes that surface; source exports/skill now include the unreleased
+revision11 descriptor increment below.
 
-### v1.22 candidate additions
+**Implemented foundation, not released:** the v1.23 plan, §3 (see installed documentation/source reference)
+defines revision11 with59 complete descriptors/73 commands. Only existing UI Panel, Controls
+launcher, Graphics launcher and Quit Game become writable through existing typed operations.
+Protocol/schema1 stays unchanged; generated exports and the maintained menu recipe are refreshed.
+The four components pass the public A01-A04 checkpoint. The owner-approved revision11 amendment
+adds optional `displayName` to `scene.save_as`: nonblank UTF-8,1–128 bytes, no ASCII controls/DEL.
+Omission preserves the name; same-identity saves are supported. The native document transaction
+stages the name and commits it only with successful atomic Scene publication. Rejected/failed
+publication preserves live name and saved state; existing post-publication warnings remain.
+This is Save As, not a separate rename Undo command or new persistence field. The focused A03
+follow-up passes; command count stays73.
+Do not advertise these prospective descriptors as present in a revision10 installation.
+
+### v1.22 released additions
 
 Complete descriptors add RangedCombat, HitReaction and Ragdoll; Perception includes the optional
 same-sample navigation target offset. `play.combat.inspect` adds nullable ranged/hitReaction/terminal
@@ -67,7 +79,7 @@ file, the Scene reference and the navigation bake are separate operations with s
 
 **Released in v1.21.0:** the v1.21 execution plan, §6 (see installed documentation/source reference)
 adds two complete component descriptors and read-only `play.combat.inspect` at capability
-revision 9 (52 complete descriptors, 68 commands). Current released clients discover revision 9;
+revision 9 (52 complete descriptors, 68 commands). v1.21 clients discover revision 9;
 older clients retain their deployed revision. No wire-protocol or editor-only authority change.
 
 The revision-9 implementation accepts `play.combat.inspect {targets:[EditReference,...]}`

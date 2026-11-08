@@ -20,16 +20,16 @@
 
 ---
 
-**Current stable release: [v1.22.0 — Ranged Enemies, Hit Reactions and Mission Authoring](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.22.0).**
+**Current stable release: [v1.23.0 — Cinder Relay: Outpost Mission and Complete Menu Authoring](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.23.0).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
 
 ## 🚀 Quick Start
 
-**Install Moe Magic → Launch → New Project → choose Basic 3D / Ultimate Platformer → Create → Play**
+**Install Moe Magic → Launch → New Project → choose Basic 3D / Ultimate Platformer / Cinder Relay → Create → Play**
 
 1. [Download the latest installer](https://github.com/mra1991/MoeMagicEngine/releases/latest), install it, and launch **Moe Magic Engine**.
 2. Choose **New Project...** in the launcher, or **File → New Project...** in the editor.
-3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** is the complete playable project template.
+3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** is the complete platformer project; **Cinder Relay** is the playable FPS Outpost mission.
 4. Enter a project name, choose a writable location outside the installation, and click **Create**. Moe Magic creates your own writable project copy—there are no demo folders to locate manually.
 5. For an instant playable example, choose **Ultimate Platformer**, then press **Play** in the editor.
 
@@ -49,13 +49,13 @@ You do **not** need the engine source code, Visual Studio, or C++ to make a game
 
 The engine itself is proprietary, but it is **free to use with no royalties or revenue threshold** for personal, educational, free, and commercial games.
 
-## New in v1.22.0: Ranged Enemies, Hit Reactions and Mission Authoring
+## New in v1.23.0: Cinder Relay: Outpost Mission and Complete Menu Authoring
 
-Compose ranged enemies from perception, navigation, firearms and Health; add living-hit reactions and bounded terrain-supported terminal physics. Structured authoring includes rig mappings, copied combat status and two-Scene mission publishing. FPS recovery preserves capture, with independent hit-audio/particle routing and selected licensed weapon/audio resources in the Shared Library. Cinder Relay remains a source-only encounter prototype; the normal installer still offers Basic 3D and Ultimate Platformer, not a third FPS template or complete mission.
+Compose ranged enemies from perception, navigation, firearms and Health; add living-hit reactions and bounded terrain-supported terminal physics. Structured authoring includes rig mappings, copied combat status and two-Scene mission publishing. FPS recovery preserves capture, with independent hit-audio/particle routing and selected licensed weapon/audio resources in the Shared Library. Cinder Relay now ships as the third New Project template: three sentries, ordered pump/transmitter objectives, cover and recovery, extraction and Results/Replay. Native menu components and validated Scene names are writable through structured authoring (protocol1 revision11,59 descriptors/73 commands). See the [Cinder guide](docs/CINDER_RELAY.md).
 
 ### First-Person Control, Rifle and Recoil
 
-Reusable first-person views and hitscan rifles support explicit mouse capture on Windows and Web, physical muzzle obstruction, six-round drill reloads and independent camera/weapon recoil recovery. The repository-only Cinder Relay drill demonstrates these components; no installed FPS template or complete mission is added. Use standalone Chrome or a Web frame permitting pointer lock; the Codex embedded browser was not a validated FPS host. See [action gameplay](docs/ACTION_GAMEPLAY.md).
+Reusable first-person views and hitscan rifles support explicit mouse capture on Windows and Web, physical muzzle obstruction, six-round drill reloads and independent camera/weapon recoil recovery. The installed Cinder Relay mission demonstrates these components. Use standalone Chrome or a Web frame permitting pointer lock; the Codex embedded browser was not a validated FPS host. See [action gameplay](docs/ACTION_GAMEPLAY.md).
 
 ### Terrain Surfaces and Deterministic Placement
 
@@ -63,7 +63,7 @@ Paint roads and banks without changing collision or navigation. Preview seeded s
 
 ### Walkable terrain
 
-Preview a brush stroke, sculpt a slope and undo it in the editor. Rendering, collision and navigation use the same saved [terrain surface](docs/TERRAIN_FORMAT.md) in Windows and Web games. The installed authoring client can sample, edit and save terrain through the same document. Cinder Relay is a repository-only survey project, not an installed template.
+Preview a brush stroke, sculpt a slope and undo it in the editor. Rendering, collision and navigation use the same saved [terrain surface](docs/TERRAIN_FORMAT.md) in Windows and Web games. The installed authoring client can sample, edit and save terrain through the same document. Cinder Relay uses these systems in its installed Outpost mission.
 
 ### Retained Rally Rivals
 
@@ -87,7 +87,7 @@ Orchard, Rally and earned progress are preserved. Selected CC0 Rock_2 and Rock03
 
 Sky Orchard now spans six acts with checkpoints, optional routes and three collectible Gem goals.
 A living animated menu, textured sky and quiet music give the sample a cohesive presentation.
-Structured authoring now covers 55 complete descriptors and 73 commands, including typed Material
+Structured authoring now covers 59 complete descriptors and 73 commands, including typed Material
 publication and navigation baking. Project-image provenance travels with Windows/Web builds.
 Existing earned progress and game identity are preserved through the known progress migration.
 Reusable bounce/TNT/reward boxes, world-to-HUD feedback and the other two courses remain available.
@@ -116,7 +116,7 @@ Reusable bounce/TNT/reward boxes, world-to-HUD feedback and the other two course
 - Multi-scene projects and scene transitions
 - Build Game for standalone Windows players and WebGL2/WASM browser games (**Web**)
 - itch.io-ready Web ZIP packaging and built-in local browser preview
-- Basic 3D and Ultimate Platformer templates in New Project
+- Basic 3D, Ultimate Platformer and Cinder Relay templates in New Project
 - Configurable editor text size: Compact, Comfortable, or Large
 - Built-in offline User Manual and the Ultimate Platformer tutorial
 - Searchable Shared Library with dependency-aware Add to Project and provenance/license records
@@ -144,14 +144,14 @@ sentinel, and an optional lever/gate/cannon/Heart-cache detour with camera frami
 reusable engine Components; they are not hardcoded native game rules.
 
 The [hosted browser demo](https://mra1991.itch.io/ultimate-platformer-coin-run) remains available.
-Its uploaded content may lag the current installer; create a fresh sample for the v1.22.0 reference.
+Its uploaded content may lag the current installer; create a fresh sample for the v1.23.0 reference.
 
 ### Product focus and structured authoring
 
 Pot Pursuit is retired from shipped templates/tutorials; existing user copies remain compatible.
 Ultimate Platformer now uses compact Home, Level Select, Settings, Guide and Credits views.
 
-Optional project-bound editor-only stdio authoring ships with a maintained skill, 55 complete typed
+Optional project-bound editor-only stdio authoring ships with a maintained skill, 59 complete typed
 descriptors and copied schemas. It supports discovery, typed edits, Lua, history, save/reopen, Play
 and Windows/Web publication through existing editor authorities. It is not an autonomous AI Designer
 or a runtime networking API. Start with [Protocol1](docs/AUTHORING_PROTOCOL_V1.md) and the installed
@@ -197,7 +197,7 @@ Moe Magic currently targets **64-bit Windows 10/11**.
 3. Close the editor/Players and run setup. **For upgrades, keep the existing installation folder**;
    setup replaces application files and updates installed-app registration and shortcuts.
 4. Launch **Moe Magic Engine** from the Start Menu or optional Desktop shortcut.
-5. Choose **New Project**, select **Basic 3D** or **Ultimate Platformer**, and click **Create**. Press **Play** to try the sample immediately.
+5. Choose **New Project**, select **Basic 3D**, **Ultimate Platformer** or **Cinder Relay**, and click **Create**. Press **Play** to try the sample immediately.
 
 The installer includes the Editor, compatible Windows Player and Web runtime, local Web preview helper, documentation, project templates, and the selected CC0 starter library.
 
@@ -275,10 +275,10 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v1.22.0 — Current Stable Public Release**
+**v1.23.0 — Current Stable Public Release**
 
-Download the installer and matching SHA-256 from the [v1.22.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.22.0).
-The installer is **65,055,732 bytes (65.06 MB / 62.04 MiB)**. Its adjacent SHA-256 identifies the accepted OwnerFix payload.
+Download the installer and matching SHA-256 from the [v1.23.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.23.0).
+The installer is **65,625,259 bytes (65.63 MB / 62.59 MiB)**. Its adjacent SHA-256 identifies the accepted EmptyRootsFix payload.
 The release includes the editor, Windows/Web runtimes, preview helper, current offline guides,
 two New Project choices and the selected licensed Shared Library.
 

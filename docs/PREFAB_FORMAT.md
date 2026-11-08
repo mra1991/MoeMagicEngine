@@ -7,6 +7,9 @@ visual, cue and part references remap through capture/instantiation/history. Cle
 surface references in a disabled sentry draft, then explicitly bind/enable the instance. The
 variant wrapper remains1; these additions do not permit runtime enemy spawning.
 
+v1.23 retains prefab49/variant1. Its refreshed sentry/rifle/menu prefabs use existing records
+and normal internal-reference remapping; independent sentry presentation uses explicit properties.
+
 Version 48 shares the
 [Scene 55 first-person rig](SCENE_FORMAT.md#version-55--first-person-rig) record and motor basis.
 It also stores the authored FirearmComponent configuration and internal reference slots.

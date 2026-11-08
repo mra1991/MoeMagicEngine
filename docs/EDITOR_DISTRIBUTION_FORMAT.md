@@ -1,12 +1,11 @@
 # Editor distribution format and layout
 
-Released v1.21.0 publishes **format 8**: two current template choices, exact authoring support,
-native/Web templates, navigation/asset notices, catalog, guide and other roles. Use the current
-manifest and maintained inventories for actual file counts/hashes. Format8 retires Pot product
-inputs while preserving historical readers; see [Project format](PROJECT_FORMAT.md).
-Older numbered sections below describe historical increments, not the current product version.
+Released v1.22.0 publishes **format 9**, with an explicit optional Cinder slot. Its accepted public
+payload leaves the slot empty and has two template choices. Use the current manifest and exact
+maintained inventories for file counts/hashes. Earlier numbered sections describe historical
+increments, not the current product version.
 
-**v1.22 candidate:** the plan, §7 (see installed documentation/source reference)
+**Released v1.22:** the plan, §7 (see installed documentation/source reference)
 implements format9 and one explicit optional Cinder sample slot. `optionalSamples: []` retains
 exactly Basic 3D and Ultimate Platformer. The only nonempty form is the closed CinderRelay record
 with the fixed project root and tutorial identities specified by the plan. Its exact
@@ -16,12 +15,22 @@ an unavailable but trusted sample. Historical formats1–8 keep their original c
 Format9's exact ordered root is `format`, `engineVersion`, `platform`, `optionalSamples`, `files`;
 the native serializer, parser and package publisher use the same order.
 
-`package-editor.ps1 -IncludeCinderRelay` creates only the explicit portable fixture using
+In v1.22, `package-editor.ps1 -IncludeCinderRelay` created the explicit portable fixture using
 `installer/cinder-relay-files.txt` and generated `Documentation/cinder-relay.html`. Reuse the
 canonical matching Release receipt; never install this fixture under the normal AppId. The
-public installer omits the switch, Cinder files and tutorial. Copying an admitted optional sample
+v1.22 public installer omitted the switch, Cinder files and tutorial. Copying an admitted optional sample
 uses the ordinary confined New Project transaction and a fresh save identity; installation
-sources stay immutable. No directory discovery, runtime Shared fallback or public game admission.
+sources stay immutable. No directory discovery or runtime Shared fallback.
+
+**v1.23 candidate recipe, acceptance pending:** the plan, §6 (see installed documentation/source reference)
+populates this same format9 slot for the accepted public mission. The existing installer wrapper's
+`-IncludeCinderRelay` selection carries the exact reviewed project/tutorial inventory and yields
+three choices after validation. This approval supersedes the former fixture-only product boundary,
+not its historical evidence or confinement rules. No format10, new launcher discovery or changed
+New Project transaction. Do not install an old optional fixture as the new public candidate.
+V1230-T1 preserves the slot's intentionally empty image/texture category roots through explicit,
+selection-guarded Inno `[Dirs]` records. The manifest remains an exact file inventory; installed
+admission is not weakened and no placeholder file or format change is introduced.
 
 ## v1.1.0 introduction — format 6
 
