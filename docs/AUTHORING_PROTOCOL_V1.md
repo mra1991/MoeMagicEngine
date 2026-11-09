@@ -1,29 +1,40 @@
 # Bounded editor authoring protocol 1
 
-Status: **RELEASED through v1.23.0**, with independent/owner/installed/public acceptance complete.
+Status: **RELEASED through v1.24.0**, with independent/installed/public acceptance complete.
 The v1.13.0 plan (see installed documentation/source reference)
-records introduction; the v1.23 final report (see installed documentation/source reference) owns current
+records introduction; the v1.24 final report (see installed documentation/source reference) owns current
 release evidence. v1.12 did not expose it.
-This document owns the released wire/descriptor contract: revision11,59 complete descriptors/
-73 commands, including menu descriptors, typed document operations and copied combat inspection.
+This document owns the released wire/descriptor contract: revision13,61 complete descriptors/
+80 Editor commands, including mechanism/framing and bounded testing; Players expose only ten.
 Live descriptors and generated exports describe the running binary, not future approved coverage.
 
-**Approved v1.24 extension, in progress:** the
+**Released v1.24 extension:** the
 execution plan, §§3–4 (see installed documentation/source reference)
 specifies complete PhysicsConstraintComponent and CameraFramingZoneComponent descriptors, plus
 nullable committed `constraint`/`framing` groups in existing `play.motion.inspect`. Implemented
 revision12 has61 complete descriptors/73 commands, retaining protocol/schema1, native history,
 eight-target/original-Edit/lifetime bounds and existing physics/camera ownership. The plan defines
 closed nested fields, references, native defaults/ranges and unavailable observations. No new Lua
-family or persistence format. This checkpoint is not an accepted release.
+family or persistence format. Revision12 is the historical foundation checkpoint, not the final count.
 
-**Implemented candidate amendment, not released:** AGENT_TEST_SESSION (see installed documentation/source reference) owns
+**Released revision13 amendment:** [AGENT_TEST_SESSION](AGENT_TEST_SESSION.md) owns
 the seven new `test.*` commands, closed operands/limits, opt-in grants, scheduling/cleanup and
-actual rendered artifact semantics. Candidate capabilityRevision13 has61 descriptors/80 Editor
+actual rendered artifact semantics. Released capabilityRevision13 has61 descriptors/80 Editor
 commands. Native/Web test hosts expose only session.open/inspect/close plus those seven commands.
 Protocol/schema1 and persistence versions are unchanged; current generated exports come from the
 production revision13 definitions. Earlier revision12 receipts retain their original attribution.
 The contract distinguishes virtual input from OS/browser permissions, physical pads and audio.
+
+**v2.0 Designer Preview candidate:** the
+AI Designer plan (see installed documentation/source reference) reuses this native
+authority through a bounded local channel. Provider-neutral consent/review/budgets wrap existing
+commands, not a new wire protocol or permission bypass. Keep revision13/61/80 and stdio semantics;
+GUI detach must not inherit external session-close's Editor exit. Model/provider tools and their
+schema adaptations are frontend policy, not additional public engine commands.
+The live OpenAI frontend filters its exposure to qualified inspection/discovery/intake and Model
+assignment. The full native adapter retains all80 commands/61 descriptors. Preview catalogue labels
+provider qualification separately; Transform/component editing, script writes, Play/testing and
+publishing remain external/offline-only. See [Designer scope/privacy](AI_DESIGNER.md).
 
 **Released revision11:** the v1.23 plan, §3 (see installed documentation/source reference)
 defines revision11 with59 complete descriptors/73 commands. Only existing UI Panel, Controls

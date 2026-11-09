@@ -20,8 +20,30 @@
 
 ---
 
-**Current stable release: [v1.24.0 — Structured Mechanisms and Two-Genre Authorability](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.24.0).**
+**Current stable release: [v2.0.0 — AI Designer Preview](https://github.com/mra1991/MoeMagicEngine/releases/tag/v2.0.0).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
+
+## New in v2.0.0: AI Designer — Preview
+
+The accepted Final installer is66,029,913bytes (66.03MB /62.97MiB). Independent installed
+acceptance passed under the reduced Preview scope.
+
+The optional in-editor OpenAI Preview supports project/Scene/object inspection, planning,
+capability discovery, Project/Shared asset search and provenance, approved Add to Project,
+consented script reading and selected reviewed imported-Model assignment. Use your own API key,
+explicit context consent, finite allowances and native approval. API billing is separate from
+ChatGPT subscriptions; applicable API credits are managed on your API account.
+
+Full live project editing is **not** qualified: Transform/property and component patches, object
+creation/removal, script writes, other resource assignments/clears, automated Play/capture and
+publishing are unavailable through live OpenAI in v2.0.0. The broader typed structured-authoring
+adapter remains available to agents using the maintained skill, with native validation/history
+and Windows/Web publishing—not raw Scene JSON, shell or unrestricted filesystem editing.
+
+Ordinary editing, Play and Build Game remain offline. No key/chat state enters games. Full live
+multi-step authoring did not complete; the Preview deliberately exposes only proven operations.
+See [Designer scope, setup and privacy](docs/AI_DESIGNER.md) and the
+[current User Manual](docs/user-guide/USER_MANUAL.md).
 
 ## 🚀 Quick Start
 
@@ -53,7 +75,7 @@ The engine itself is proprietary, but it is **free to use with no royalties or r
 
 Author existing physical constraints and camera framing through typed operations and copied runtime observations. Protocol1 revision13 supplies61 complete descriptors and80 Editor commands. Explicit disposable test sessions add bounded simulated input, stepping and actual Game PNG capture across Editor, Windows Player and local Web Preview; Players expose only ten commands. These sessions do not prove physical controllers, audible output or browser permissions. See the [test-session contract](docs/AGENT_TEST_SESSION.md).
 
-The three existing New Project choices remain Basic 3D, Ultimate Platformer and Cinder Relay. Independent installed Cinder editing/publication and corrected disposable Platformer workshop traversal passed; no new shipped level or asset intake is included. This is not an AI Designer or authorization to implement one. See the [Cinder guide](docs/CINDER_RELAY.md).
+The three existing New Project choices remain Basic 3D, Ultimate Platformer and Cinder Relay. Independent installed Cinder editing/publication and corrected disposable Platformer workshop traversal passed; no new shipped level or asset intake is included. Those are v1.24 capabilities; the separate v2.0.0 Preview candidate is described above. See the [Cinder guide](docs/CINDER_RELAY.md).
 
 ### First-Person Control, Rifle and Recoil
 
@@ -155,8 +177,8 @@ Ultimate Platformer now uses compact Home, Level Select, Settings, Guide and Cre
 
 Optional project-bound editor-only stdio authoring ships with a maintained skill, 61 complete typed
 descriptors and copied schemas. It supports discovery, typed edits, Lua, history, save/reopen, Play
-and Windows/Web publication through existing editor authorities. It is not an autonomous AI Designer
-or a runtime networking API. Start with [Protocol1](docs/AUTHORING_PROTOCOL_V1.md) and the installed
+and Windows/Web publication through existing editor authorities. It is not an autonomous game factory
+or a runtime networking API; its full native scope is broader than the live Preview. Start with [Protocol1](docs/AUTHORING_PROTOCOL_V1.md) and the installed
 `Authoring/moe-magic-game-authoring/SKILL.md`; normal visual authoring is unchanged.
 
 ## 🌐 Web Builds and itch.io
@@ -195,7 +217,7 @@ Current browser limits:
 Moe Magic currently targets **64-bit Windows 10/11**.
 
 1. Open the [latest GitHub Release](https://github.com/mra1991/MoeMagicEngine/releases/latest).
-2. Download `MoeMagicEngine-1.12.0-Setup.exe` and its adjacent `.sha256` checksum.
+2. Download `MoeMagicEngine-1.24.0-Setup.exe` and its adjacent `.sha256` checksum.
 3. Close the editor/Players and run setup. **For upgrades, keep the existing installation folder**;
    setup replaces application files and updates installed-app registration and shortcuts.
 4. Launch **Moe Magic Engine** from the Start Menu or optional Desktop shortcut.
@@ -205,7 +227,7 @@ The installer includes the Editor, compatible Windows Player and Web runtime, lo
 
 External projects, preferences and saves are preserved. Existing game copies are not overwritten
 with newer samples: create a fresh sample through New Project to explore current content.
-Check Help → About and Windows Installed apps show **1.12.0**. See [Getting Started](GETTING_STARTED.md)
+Check Help → About and Windows Installed apps show **1.24.0**. See [Getting Started](GETTING_STARTED.md)
 for upgrade and project guidance. No background auto-updater is included; running the newer setup
 is the upgrade operation, not an intentional side-by-side installation.
 
@@ -247,7 +269,7 @@ Third-party assets retain their original licenses and provenance notices.
 Import is deliberately bounded: not every glTF/FBX export is supported. GLB, morph animation,
 arbitrary FBX constraints and over-four-influence skins are not silently converted. The supplied
 Worker_Male_Moe4 sample is an explicitly documented derivative. AudioClips use supported WAV;
-source OGGs need external conversion. There is no public AI Designer, general animation graph,
+source OGGs need external conversion. The v2.0.0 candidate has only the limited live Designer Preview scope above. There is no general animation graph,
 full-body IK, arbitrary runtime Component creation or cloud-save service.
 
 ## 💜 Support Moe Magic
@@ -277,12 +299,12 @@ See [`LICENSE.txt`](LICENSE.txt) for the full terms.
 
 ## 💻 Current release
 
-**v1.24.0 — Current Stable Public Release**
+**v2.0.0 — Current Stable Public Release (AI Designer Preview)**
 
-Download the installer and matching SHA-256 from the [v1.24.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v1.24.0).
-The installer is **65,889,275 bytes (65.89 MB / 62.84 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
+Download the installer and matching SHA-256 from the [v2.0.0 release](https://github.com/mra1991/MoeMagicEngine/releases/tag/v2.0.0).
+The installer is **66,029,913 bytes (66.03 MB / 62.97 MiB)**. Its adjacent SHA-256 identifies the accepted Final payload.
 The release includes the editor, Windows/Web runtimes, preview helper, current offline guides,
-two New Project choices and the selected licensed Shared Library.
+three New Project choices and the selected licensed Shared Library.
 
 ## 🪄 Development history
 

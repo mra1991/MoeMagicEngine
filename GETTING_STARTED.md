@@ -1,6 +1,6 @@
 # Moe Magic Engine — Getting started
 
-This v1.24.0 Windows x64 release includes per-user setup, the complete portable payload and
+This v2.0.0 Windows x64 release includes per-user setup, the complete portable payload and
 independent sample sources. It needs a working OpenGL 3.3-capable Windows graphics driver.
 Read the included Licenses/MoeMagicEngine.txt for approved free proprietary use and game/runtime
 redistribution. This unsigned release is not clean-machine certification.

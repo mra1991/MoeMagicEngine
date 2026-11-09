@@ -1,14 +1,18 @@
 # Moe Magic Project Descriptor
 
-## Current project ownership and v1.24 planning
+## Current project ownership and approved v2.0 boundary
 
-Released v1.23 provides three templates. The approved
-v1.24 plan (see installed documentation/source reference) keeps Project1,
-Build Settings1, fresh-copy identity and all source samples unchanged. Its two-genre exercises use
-disposable writable copies, not a new template or stdio project-creation/switch operation.
-The bounded test-session amendment (see installed documentation/source reference) is ephemeral launch/session authority,
+Released v1.24 retains Project1/Build Settings1, three templates, fresh-copy identity and all source
+samples. Its accepted two-genre exercises used disposable copies, not a new template or stdio
+project-creation/switch operation. The [bounded test-session contract](AGENT_TEST_SESSION.md) is ephemeral launch/session authority,
 not an authored project flag or new persistence format. It uses disposable identities and isolated
 in-memory test progress/preferences; normal projects, owner saves and editor layout stay untouched.
+
+The v2.0 Designer Preview candidate (see installed documentation/source reference)
+inherits the same explicit current-project root and native file
+authorities. Context consent, credentials, conversation state and the disposable GUI test lease
+are not project fields. Preserve current formats/UUIDs and source content; the Designer cannot
+create/switch projects or choose another root by model instruction. New Project remains user bootstrap.
 
 ## v1.23 released sample admission
 

@@ -1,14 +1,23 @@
 # Bounded agent gameplay test sessions
 
-**Implemented v1.24.0 candidate contract, 2026-11-08; not an accepted release.**
+**Released v1.24.0 contract, 2026-11-08.** The
+final report (see installed documentation/source reference) records independent acceptance and publication.
 This document specifies the input/step/capture addition to the existing
-[v1.24 plan](exec-plans/v1.24.0-structured-mechanisms-and-two-genre-authorability.md).
-It does not replace completed descriptor work or authorize v2. Protocol1 capability revision13
+v1.24 plan (see installed documentation/source reference).
+It does not replace descriptor work or itself grant AI authority. Protocol1 capability revision13
 exposes61 complete descriptors and80 commands in the Editor: the existing73 plus the seven
 `test.*` commands below. Scene56/prefab49/API28/distribution9 and saved project formats stay unchanged.
 The implemented revision12/61/73 checkpoint remains valid historical evidence, not the new target.
 Focused native/browser evidence and its simulation/host limitations are recorded in the
-[implementation report](implementation-reports/v1.24.0-implementation.md). Tester owns acceptance.
+implementation report (see installed documentation/source reference) and final test report.
+
+**v2.0 candidate addition:** the
+Designer plan, §6 (see installed documentation/source reference)
+adds explicit in-editor disposable GUI admission to the same driver. It must establish ephemeral
+storage before owned Play and preserve ordinary profile/layout/input behavior. It is not a new
+wire command, automatic grant or change to Player/Web admission. The full local deterministic
+workflow and external adapter retain this path; live OpenAI Preview does not expose test commands.
+The released launch admission remains supported. Simulation/host evidence distinctions remain.
 
 ## Purpose and authority
 

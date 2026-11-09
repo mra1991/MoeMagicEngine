@@ -463,7 +463,7 @@ requests while simulation runs. It exposes no input or delta time and rejects He
 Transform writes, destruction, Kinematic targets, simulation/Scene-transition requests and recursive
 event dispatch. Keep policy reactions here, and do not duplicate native damage/break mechanics.
 Store a reward ticket only when needed, then use ordinary result reads in a later gameplay phase.
-See [Scene component configuration](SCENE_FORMAT.md) and the manual (see installed documentation/source reference).
+See [Scene component configuration](SCENE_FORMAT.md) and the [manual](user-guide/USER_MANUAL.md#reusable-platformer-interactions).
 
 ## API 13 — bounded runtime prefabs
 

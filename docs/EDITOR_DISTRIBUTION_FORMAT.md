@@ -1,19 +1,22 @@
 # Editor distribution format and layout
 
-Released v1.23.0 publishes **format 9**, with the explicit Cinder slot populated and three template
+Released v1.24.0 retains **format 9**, with the explicit Cinder slot populated and three template
 choices. v1.22 introduced the slot but left it empty in its public installer. Use the current manifest and exact
 maintained inventories for file counts/hashes. Earlier numbered sections describe historical
 increments, not the current product version.
 
-The approved v1.24 plan (see installed documentation/source reference)
-preserves format9, all three source templates and the EmptyRootsFix directory recipe. Only matching
-engine/authoring-support/documentation inputs change during implementation; disposable qualification
-projects and outputs never enter the payload. Approval does not describe a built v1.24 distribution.
-Its input/step/capture amendment (see installed documentation/source reference) also updates installed client/skill/schema
-support, matching native/Web adapters and explicitly granted local Preview bootstrap. Add any new
-focused reference to the exact existing support inventory; no new manifest version. Test grants,
+The released v1.24 contract (see installed documentation/source reference)
+preserves all three source templates and the EmptyRootsFix directory recipe. Its
+[input/step/capture contract](AGENT_TEST_SESSION.md) supplies installed client/skill/schema support,
+matching native/Web adapters and explicitly granted local Preview bootstrap. Test grants,
 transcripts and screenshots are never package content. Ordinary user/itch games cannot enable the
-test route without an explicit test-host grant. Publication remains held pending amended gates.
+test route without an explicit test-host grant. Its final report records completed publication.
+
+The v2.0 Designer Preview candidate (see installed documentation/source reference)
+does not bump distribution9. Only Editor provider/panel inputs and relevant installed
+skill/manual guidance change. Any new required support reference joins the exact existing inventory.
+No credential, conversation, disposable project or provider-only dependency is a game-content input.
+Keep three templates/default layout/empty roots, compatible Windows/Web templates and offline use.
 
 **Released v1.22:** the plan, §7 (see installed documentation/source reference)
 implements format9 and one explicit optional Cinder sample slot. `optionalSamples: []` retains
