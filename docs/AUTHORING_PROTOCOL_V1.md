@@ -25,7 +25,18 @@ Protocol/schema1 and persistence versions are unchanged; current generated expor
 production revision13 definitions. Earlier revision12 receipts retain their original attribution.
 The contract distinguishes virtual input from OS/browser permissions, physical pads and audio.
 
-**v2.0 Designer Preview candidate:** the
+**v2.0.1 revision 14, in development:** the
+Local Designer plan (see installed documentation/source reference) targets
+capability revision14 with initially61 descriptors/80 commands, extending Canvas Back/Perception
+fields and copied observations. The Canvas extension adds `backGamepadButton` to the existing
+descriptor and `component.patch`/inspection; its closed values are `FaceEast` (legacy default) and
+`FaceWest`. The existing Perception descriptor and typed patch expose `additionalTargetOffsets`
+as an ordered list of zero through two finite target-local offsets in metres. Runtime
+sampling and copied samples are separate from this storage contract. Protocol1/native authorities remain.
+Provider schema/guidance adaptations are frontend projections, not extra public commands.
+Use the running binary's revision; earlier receipts retain their attribution.
+
+**Released v2.0 Designer Preview:** the
 AI Designer plan (see installed documentation/source reference) reuses this native
 authority through a bounded local channel. Provider-neutral consent/review/budgets wrap existing
 commands, not a new wire protocol or permission bypass. Keep revision13/61/80 and stdio semantics;

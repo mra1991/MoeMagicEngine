@@ -11,7 +11,15 @@ The implemented revision12/61/73 checkpoint remains valid historical evidence, n
 Focused native/browser evidence and its simulation/host limitations are recorded in the
 implementation report (see installed documentation/source reference) and final test report.
 
-**v2.0 candidate addition:** the
+**Approved v2.0.1 use, not implemented:** the
+Local Designer plan (see installed documentation/source reference) reuses this
+unchanged bounded testing authority for real-model E01, game tasks and independent installed E02.
+Local inference is not a deterministic fixture and grants no extra runtime setter or source-root
+admission. Disposable identity/storage, actual captures, release cleanup and host/physical evidence
+distinctions stay authoritative. Planned Scene/prefab/descriptor extensions are separate from these
+unchanged seven test commands. No paid request or owner key-holding is required.
+
+**Released v2.0 addition:** the
 Designer plan, §6 (see installed documentation/source reference)
 adds explicit in-editor disposable GUI admission to the same driver. It must establish ephemeral
 storage before owned Play and preserve ordinary profile/layout/input behavior. It is not a new
@@ -158,6 +166,13 @@ The production schema defines these records once and exports them for both trans
   and strictly ordered; their frame offsets are after-update positions, like the event offsets.
   `frames` jobs reject offsets outside[0,N-1]; tick jobs use attempted-frame offsets[0,1199] and
   report unreached requests if the tick target completes sooner. No implicit extension to reach them.
+- Revision 14's copied `combat` family can include a `perception` record for a live sensor.
+  `selectedSampleIndex` is zero-based (primary, then additional offsets); it and
+  `selectedSamplePoint` are null without a visible point. `outcome` distinguishes unsampled,
+  ineligible, occluded, visible and retired-target observations, with a blocker when known.
+  `revision` and `observationAge` describe the committed sight sample. `ranged.blocker` and
+  `ranged.physicalLineOfSight` describe the firing eligibility query; `firearm.lastShot.actualHit`
+  and accepted damage describe the authoritative muzzle result.
 - `objects` uses `after`/`limit`; `observations` uses `targets` and `groups`; `diagnostics` uses
   `cursor`/`limit`; `status` optionally uses `ticket`. Other collection fields reject. Each response
   states its actual boundary and collection availability; no unbounded accumulated transcript.

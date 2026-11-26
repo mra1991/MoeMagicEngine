@@ -1,10 +1,29 @@
 # Moe Magic Engine — Complete User Manual
 
-**v2.0.0 edition; original tutorial reference content: v0.12.3.** For Windows game developers using Moe Magic for the first time. Historical screenshot/reference attributions remain explicit; installed acceptance is recorded separately.
+**v2.0.1 edition; original tutorial reference content: v0.12.3.** For Windows game developers using Moe Magic for the first time. Historical screenshot/reference attributions remain explicit; the release report records installed acceptance. Local Designer and both refreshed sample games are included; no additional live OpenAI qualification is claimed.
+
+## Local Designer (Ollama)
+
+Open **Window → AI Designer** and select **Local — Ollama**. Run Ollama separately with
+cloud features disabled (`OLLAMA_NO_CLOUD=1`) and a local model already installed. Use a numeric
+IPv4 loopback endpoint, normally `http://127.0.0.1:11434`. The demonstrated combination is
+Ollama 0.40.18 and Qwen3.5 4B Q4_K_M. The engine does not include the service or model weights,
+install them for you, or fall back to OpenAI. This mode needs no key or paid allowance.
+
+1. Click **Connect / Refresh** to check the installed model without inference.
+2. Review the exact project, grants, and any build-output parent. **Grant and attach** does not
+   start model work. The default is to ask each session. An explicit remembered Local grant can
+   restore the same project/model scope, but never automatically starts inference; revoke it to
+   change the scope.
+3. Give the model a small task. Start one scoped proposal and review the exact native operands,
+   or explicitly start a bounded Local task with only the required tool keys. Check native
+   receipts before relying on an edit. Use a disposable copy for bounded Play tests.
+4. Use **Stop** to cancel pending work and release owned test input. Already committed edits are
+   still in native history. The Editor, offline Play, and Windows/Web publishing do not require AI.
 
 ## AI Designer Preview
 
-Open **Window → AI Designer**. The optional OpenAI integration supports project/Scene/object
+For **OpenAI Preview**, the optional paid integration supports project/Scene/object
 inspection, capability discovery, Project and Shared asset search/provenance, reviewed Add to
 Project, consented script reading, planning and reviewed imported-Model assignment. Further editing
 operations will be expanded in later updates. Full live multi-step authoring is not qualified.

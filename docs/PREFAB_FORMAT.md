@@ -1,6 +1,10 @@
 # Moe Magic Prefab Format
 
-Current ordinary prefabs write **49** and read **1–49**. Version49 shares the
+Current ordinary prefabs write **50** and read **1–50**. Version 50 shares the
+[Scene 57 Canvas Back policy](SCENE_FORMAT.md#version-57--canvas-back-policy); legacy Canvases
+migrate to `FaceEast`. It also requires the ordered Perception `additionalTargetOffsets` list
+(zero through two finite target-local offsets in metres); legacy prefabs migrate to
+an empty list. Version49 shares the
 [Scene56 combat/reaction records](SCENE_FORMAT.md#version-56--ranged-combat-and-accepted-hit-reaction),
 nullable Perception navigation offset and zero-default Ragdoll impulse settings. Internal weapon,
 visual, cue and part references remap through capture/instantiation/history. Clear external player/

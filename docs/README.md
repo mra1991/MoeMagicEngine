@@ -1,4 +1,4 @@
-# Current user references — v2.0.0
+# Current user references — v2.0.1
 
 These references describe the released engine. The installer includes the illustrated User Manual,
 Ultimate Platformer guide under **Help → User Manual**. Start with

@@ -1,5 +1,13 @@
 # Ultimate Platformer — Complete Game Tutorial
 
+## v2.0.1 changes
+
+The living menu has compact, consistent buttons and an in-game Guide. Level Select still opens
+all three courses. The changes focus on one section per course: the Ruined Ridge approach and
+optional raised cache in Sky Orchard, the staggered crate route and refuge in Curved Ravine, and
+the ramp, Boost and Breaker shortcut at Workshop Rally's Service Yard. Existing progression and
+save identities are unchanged. These are bounded section improvements, not redesigned courses.
+
 ## Curved Boulder Run (v1.16 candidate)
 
 Select Boulder Run for Opening Quarry, Curved Ravine and Covered Canyon. Two green-flag refuges

@@ -1,13 +1,29 @@
 # Moe Magic Engine — Getting started
 
-This v2.0.0 Windows x64 release includes per-user setup, the complete portable payload and
+This Windows x64 distribution includes per-user setup, the complete portable payload and
 independent sample sources. It needs a working OpenGL 3.3-capable Windows graphics driver.
 Read the included Licenses/MoeMagicEngine.txt for approved free proprietary use and game/runtime
 redistribution. This unsigned release is not clean-machine certification.
 
+## Sculpt a walkable grade (v1.19)
+
+In a writable project, open **Assets → Terrain: create / open / sculpt**. Create a 65-sample
+draft, choose a project identity such as `assets/terrain/basin.terrain.json`, and **Save terrain**.
+On an unparented object with identity rotation and unit scale, add **Terrain**, assign that file,
+and enable it. The owner's translation positions the first corner, not the center. Do not add a
+ground Collider: the Terrain supplies its own static surface.
+
+In Scene view, choose Raise / Lower and enable **Scene brush**. Drag on the terrain and release
+to commit one stroke, or use numerical XZ and **Preview edit → Apply preview**. Escape cancels
+an active drag. **Undo terrain** changes only this resource; ordinary Scene Undo edits objects.
+Save the terrain, save its Scene assignment, bake the Navigation Surface, and save its changed
+reference. A stale bake or unsaved terrain is not ready for Play or Build Game. The project
+uses the same saved ground in Windows and experimental Web builds. The v2.0.1 release
+adds Ridge Assault alongside Outpost in the optional Cinder Relay sample.
+
 ## Install and launch
 
-Obtain `MoeMagicEngine-1.24.0-Setup.exe` and its matching `.sha256` from the
+Obtain the versioned installer and its matching `.sha256` from the
 [official releases](https://github.com/mra1991/MoeMagicEngine/releases).
 Run the installer wizard. The default application location is
 your Local App Data Programs folder. Choose an optional Desktop shortcut, then launch **Moe Magic
@@ -18,7 +34,7 @@ For an upgrade, close running editor/Player windows and retain the existing inst
 Setup replaces application files in place and updates installed-app metadata/shortcuts; it does
 not upgrade independent game copies or erase external projects, preferences or saves. Do not
 choose a new version-numbered test directory for a normal upgrade. After installation, About and
-Windows Installed apps should both report 1.24.0. If a shortcut still opens an older copy, rerun
+Windows Installed apps should both report the installer's version. If a shortcut still opens an older copy, rerun
 setup into the original installation folder and select the Desktop shortcut task if used.
 
 No-argument launch reopens the exact valid most-recent project, otherwise the Project Launcher.
@@ -28,7 +44,7 @@ separate BUILDING reference and explicit `--project` / `--project-launcher` comm
 ## Create a writable project
 
 1. Choose **New Project...** in the launcher or **File > New Project...**.
-2. Choose **Basic 3D**, **Ultimate Platformer** or **Cinder Relay**, then enter a project/folder name.
+2. Choose **Basic 3D**, **Ultimate Platformer**, or **Cinder Relay**, then enter a project/folder name.
 3. Accept the suggested Documents parent or Browse to another existing writable folder.
 4. Check the displayed path, then **Create**. It must be a new folder outside the installation.
 
@@ -57,7 +73,7 @@ step is needed. If archive creation fails, the folder remains usable; resolve th
 Keep all Licenses and assets;
 see the offline manual for browser limits. Do not launch through `file://`.
 
-**Help > User Manual** opens the offline manual and Platformer tutorial; `Documentation/index.html`
+**Help > User Manual** opens the offline manual and Platformer/Cinder tutorials; `Documentation/index.html`
 also opens directly. **Help > About Moe Magic Engine** shows version/developer/ownership and GitHub.
 **Support Moe Magic on Patreon** opens the owner-confirmed
 https://patreon.com/MoeMagicEngine. External links open only on explicit action.

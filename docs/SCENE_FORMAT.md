@@ -1,13 +1,30 @@
 # Moe Magic Scene Format
 
 Moe Magic Engine scene files are UTF-8 JSON stored beneath `assets/scenes/`. The current save format
-is version 56 with marker `MoeMagicScene`; the current loader accepts versions 1 through 56 and rejects
+is version 57 with marker `MoeMagicScene`; the current loader accepts versions 1 through 57 and rejects
 malformed or future versions rather than guessing. The engine uses the official modular
 nlohmann/json 3.12.0 distribution.
 
 v1.23 retains Scene56. Optional validated Save As `displayName` publishes the existing
 `sceneName` header atomically with content; it adds no field or migration. The Outpost mission
 and native menu descriptors compose these existing records.
+
+## Version 57 — Canvas Back policy
+
+`CanvasComponent.backGamepadButton` is `FaceEast` or `FaceWest`. Versions 1–56 reject a premature
+field and migrate a missing field to `FaceEast`. The focused or captured Canvas owns gamepad Back;
+FaceWest Canvases retain it across authored page changes that replace the focused Button.
+Generated Controls and Graphics overlays keep the initiating Canvas policy until closed. A Back
+press cancels control capture before it can close Controls. Escape and mouse Back actions retain
+their existing meaning. Ordinary prefab 50 uses the same field and default.
+
+Perception records also store `additionalTargetOffsets`, an ordered list of zero through two
+finite target-local offsets in metres, after `navigationTargetOffset`. Versions
+1–56 reject the premature field and migrate to an empty list; Scene 57 requires the field even
+when empty. Runtime transforms the points by the full target world transform. It tests the
+primary point first, then additions in order; the first visible eligible point per target enters
+the existing nearest-target comparison. Navigation still uses `navigationTargetOffset` (or the
+primary offset when null). None of these points replaces the physical muzzle query.
 
 ## Version 56 — ranged combat and accepted-hit reaction
 
@@ -491,7 +508,7 @@ These are current-main source capabilities, not a claim of forward compatibility
 v0.12.1 tagged binary. Older builds may reject newly emitted fields despite the unchanged format
 number. Use a binary matching the authored content's source revision. Historical schema examples
 below describe their introduction-time records; this paragraph supplies the later optional fields.
-See game-development direction (see installed documentation/source reference).
+See [game-development direction](GAME_DEVELOPMENT.md).
 
 ## Released format history and ownership
 

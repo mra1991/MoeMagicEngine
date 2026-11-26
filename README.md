@@ -20,13 +20,31 @@
 
 ---
 
-**Current stable release: [v2.0.0 — AI Designer Preview](https://github.com/mra1991/MoeMagicEngine/releases/tag/v2.0.0).**
+**Current stable release: [v2.0.1 — Zero-Cost AI Authoring and Demo Improvements](https://github.com/mra1991/MoeMagicEngine/releases/tag/v2.0.1).**
 Windows x64 editor, standalone Windows games and WebGL2/WebAssembly browser exports.
 
-## New in v2.0.0: AI Designer — Preview
+## New in v2.0.1: Local Designer and better shipped games
 
-The accepted Final installer is66,029,913bytes (66.03MB /62.97MiB). Independent installed
-acceptance passed under the reduced Preview scope.
+The accepted installer is **90,052,191 bytes (90.05 MB /85.88 MiB)**. Normal installed upgrade,
+version and both sample-game starts passed independent minimal acceptance.
+
+**Local Designer** connects to your separately installed, cloud-disabled Ollama runtime and
+local model, without an API key or paid allowance. Qwen3.5 4B was used to author real improvements
+through native review, history and scoped tools. Remember authorization for an exact trusted
+project/model, and explicitly start finite autonomous tasks with a selected tool allowlist.
+Neither Ollama nor model weights are bundled; ordinary editing and games need no AI service.
+
+**Ultimate Platformer** gains a richer living menu, compact buttons, an in-game Guide and
+focused improvements to Ruined Ridge, Curved Ravine and Service Yard. **Cinder Relay** now has
+Mission Select, an improved Outpost and the distinct Ridge Assault mission, with ordered
+objectives, checkpoint recovery, extraction and mission-specific Results/Replay. Both games
+publish to Windows and experimental Web. Existing project/save identities are preserved.
+
+Native authoring uses protocol1 revision14 (61 descriptors/80 Editor commands), Scene57/prefab50.
+Configurable Canvas Back and ordered Perception samples reuse the existing UI/combat authorities.
+Local host-egress isolation remains unverified; this is not universal model qualification.
+
+### Retained OpenAI Designer — Preview
 
 The optional in-editor OpenAI Preview supports project/Scene/object inspection, planning,
 capability discovery, Project/Shared asset search and provenance, approved Add to Project,
@@ -51,7 +69,7 @@ See [Designer scope, setup and privacy](docs/AI_DESIGNER.md) and the
 
 1. [Download the latest installer](https://github.com/mra1991/MoeMagicEngine/releases/latest), install it, and launch **Moe Magic Engine**.
 2. Choose **New Project...** in the launcher, or **File → New Project...** in the editor.
-3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** is the complete platformer project; **Cinder Relay** is the playable FPS Outpost mission.
+3. Pick a template: **Basic 3D** is the small starter; **Ultimate Platformer** includes three platforming/driving courses; **Cinder Relay** includes the Outpost and Ridge Assault FPS missions.
 4. Enter a project name, choose a writable location outside the installation, and click **Create**. Moe Magic creates your own writable project copy—there are no demo folders to locate manually.
 5. For an instant playable example, choose **Ultimate Platformer**, then press **Play** in the editor.
 
@@ -75,7 +93,7 @@ The engine itself is proprietary, but it is **free to use with no royalties or r
 
 Author existing physical constraints and camera framing through typed operations and copied runtime observations. Protocol1 revision13 supplies61 complete descriptors and80 Editor commands. Explicit disposable test sessions add bounded simulated input, stepping and actual Game PNG capture across Editor, Windows Player and local Web Preview; Players expose only ten commands. These sessions do not prove physical controllers, audible output or browser permissions. See the [test-session contract](docs/AGENT_TEST_SESSION.md).
 
-The three existing New Project choices remain Basic 3D, Ultimate Platformer and Cinder Relay. Independent installed Cinder editing/publication and corrected disposable Platformer workshop traversal passed; no new shipped level or asset intake is included. Those are v1.24 capabilities; the separate v2.0.0 Preview candidate is described above. See the [Cinder guide](docs/CINDER_RELAY.md).
+The three existing New Project choices remain Basic 3D, Ultimate Platformer and Cinder Relay. Independent installed Cinder editing/publication and corrected disposable Platformer workshop traversal passed; no new shipped level or asset intake was included in v1.24. Those are historical v1.24 capabilities; current v2.0.1 changes are described above. See the [Cinder guide](docs/CINDER_RELAY.md).
 
 ### First-Person Control, Rifle and Recoil
 

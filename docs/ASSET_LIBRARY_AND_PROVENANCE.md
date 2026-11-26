@@ -1,5 +1,15 @@
 # Asset library and project provenance
 
+## v2.0.1 Cinder menu music intake
+
+The Shared catalog carries [SpacyLoop by ElectronicFreaker](https://opengameart.org/content/spacyloop)
+under CC0-1.0. The creator's exact OGG remains SourceOnly. The supported AudioClip is the stereo
+22,050 Hz PCM16 WAV, prepared with a fixed periodic low-pass and two-to-one downsample by
+`scripts/prepare-cinder-music.py`. `SOURCE.txt` records the original and converted fingerprints
+and accompanies the official CC0 text. Native intake copies only the selected WAV, two notices
+and project provenance; the source OGG does not enter game closure. File validation and prepared
+volume do not establish audible mix or listening acceptance.
+
 ## v1.22 owner-correction FPS selection
 
 The owner-authorized presentation correction adds only Kenney Blaster Kit2.1 `blaster-f`

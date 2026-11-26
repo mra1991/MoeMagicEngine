@@ -1,10 +1,10 @@
-# Cinder Relay — Outpost mission
+# Cinder Relay — Outpost and Ridge Assault
 
-Choose **New Project → Cinder Relay** to create an independent writable sample. Its three Scenes
-form Main Menu → Outpost → Results. Start Mission begins a fresh attempt; there is no disk
-Continue. Your copy receives its own save identity, with durable saving disabled by default.
+Choose **New Project → Cinder Relay** to create an independent writable sample. **Start Mission**
+opens Outpost; **Mission Select** offers Outpost and Ridge Assault. There is no disk Continue.
+Your copy receives its own save identity, with durable saving disabled by default.
 
-## Route and recovery
+## Outpost
 
 Follow the amber road through **Switchback**, using real crate cover against the first Soldier.
 Beyond the original pass, the exposed road and longer shallow ditch lead to **Pump Cut**.
@@ -15,10 +15,17 @@ The cyan flag behind the shelter secures the next checkpoint. In **Mast Yard**, 
 crates and tower to separate encounters. Activate the transmitter beside the tower, then reach
 the cyan extraction pad. Both relays are required, not every enemy defeated.
 
+## Ridge Assault
+
+Restore relay power on the lower approach, cross the switchback checkpoint, and climb to the
+ridge relay. Once both objectives are done, descend to the cyan extraction beacon. Use the
+graded terrain and placed cover to break sightlines. Outpost and Ridge have distinct music;
+licenses and provenance accompany the tracks.
+
 Player Health is six. Recovery restores six at the latest safe checkpoint, retaining restored
 relays and defeated Soldiers. A Soldier takes three accepted rifle hits; living hits interrupt
-its action, and defeat creates a short-lived physical body. Replay resets the attempt. Results
-shows only an accepted current mission result; direct entry does not manufacture a victory.
+its action, and defeat creates a short-lived physical body. Replay resets the current mission.
+Results shows only an accepted current mission result; direct entry does not manufacture a victory.
 
 ## Controls, menus and browser use
 
@@ -28,8 +35,9 @@ and right sticks, FaceSouth jump, RightBumper fire, FaceWest reload, FaceNorth i
 to resume. The six-round magazine, Health, objective and interaction prompt are on the HUD.
 Interaction selects the nearest eligible terminal by distance/line of sight, not reticle facing.
 
-Main Menu includes Guide, native Controls/Graphics overlays and Quit. Results offers Replay and
-Main Menu. Native Player Quit closes its window. Web Quit stops and asks you to reload; it cannot
+Main Menu includes Mission Select, Guide, Controls/Graphics, Credits and Quit. FaceWest goes Back
+in the menu and reloads in gameplay. Results offers Replay and Main Menu. Native Player Quit
+closes its window. Web Quit stops and asks you to reload; it cannot
 close the tab. Start Game is the browser audio gesture. Use standalone Chrome or a frame allowing
 pointer lock; the embedded Codex tab is not a validated FPS input host.
 
@@ -50,7 +58,7 @@ moving solid cover, save terrain, rebake Basin navigation, save the Scene, then 
 is a preflight error, not a reason to disable collision. The original pass and hand-edited scenery
 remain; the mission adds a shallow ditch and deliberately authored static cover.
 
-Save the entry/mission/results Build Settings declaration before Windows/Web publication.
+Save the entry, both missions and Results in Build Settings before Windows/Web publication.
 Keep selected asset bundles and notices. Web includes the root-index itch ZIP and local Preview.
 Relocate the whole Windows output folder, not just its executable.
-See the [User Manual](../GETTING_STARTED.md) for project ownership, input and publication details.
+See the User Manual (see installed documentation/source reference) for project ownership, input and publication details.

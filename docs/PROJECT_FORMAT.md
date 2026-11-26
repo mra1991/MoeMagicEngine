@@ -1,6 +1,15 @@
 # Moe Magic Project Descriptor
 
-## Current project ownership and approved v2.0 boundary
+## Current project ownership and v2.0.1 boundary
+
+Released v2.0.1 retains Project1/Build Settings1. The completed
+v2.0.1 plan (see installed documentation/source reference) preserves these
+wrappers/UUIDs/saves and the three template slots. Local provider configuration is per-user Editor
+state, not project content. Disposable model-authored content may be promoted only through the
+plan's byte-traceable closure, excluding test identities/profiles/saves. New Cinder mission selection
+does not invent disk Continue. Scene57/prefab50 changes are separate from project format1.
+
+### Released project/frontend contract
 
 Released v1.24 retains Project1/Build Settings1, three templates, fresh-copy identity and all source
 samples. Its accepted two-genre exercises used disposable copies, not a new template or stdio
@@ -8,7 +17,7 @@ project-creation/switch operation. The [bounded test-session contract](AGENT_TES
 not an authored project flag or new persistence format. It uses disposable identities and isolated
 in-memory test progress/preferences; normal projects, owner saves and editor layout stay untouched.
 
-The v2.0 Designer Preview candidate (see installed documentation/source reference)
+The released v2.0 Designer Preview (see installed documentation/source reference)
 inherits the same explicit current-project root and native file
 authorities. Context consent, credentials, conversation state and the disposable GUI test lease
 are not project fields. Preserve current formats/UUIDs and source content; the Designer cannot
